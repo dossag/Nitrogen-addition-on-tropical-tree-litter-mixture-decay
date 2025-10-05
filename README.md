@@ -1,1 +1,1 @@
-# Nitrogen-addition-on-tropical-tree-litter-mixture
+This repository records the data files and r markdown file of the analysis of the effects nitrogen (N) addition on six tropical forest trees. These trees litter were claissfiied as high medium and low quality litter based on their litter N content. The manuscript is entitled: "Interactions between nitrogen addition and litter quality modulate litter mixture effects on decomposition in tropical forest". 
