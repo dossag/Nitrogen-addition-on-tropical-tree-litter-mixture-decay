@@ -1,0 +1,2662 @@
+---
+title: "Interactions between nitrogen addition and litter quality modulate litter mixture effects on decomposition in tropical forest"
+author: "Yanlin Zhu, Denis Mburu Njoroge, Gbadamassi G.O. Dossa, Juan Zuo, Mareike Roeder, Douglas Schaefer, Yali Song"
+date: (Created on 2025 September 23 and last updated on `r format(Sys.time(), "%a %b %d %Y %H:%M:%S")`)
+output: 
+#rmdformats::material
+  html_document:
+    fig_caption: yes #Enabling figure caption
+    theme: spacelab #readable #sandstone #spacelab #flatly
+    highlight: pygments #tango #kate
+    toc: TRUE # Enabling table of content (toc) on the left side of output
+    toc_depth: 3 # Showing toc up to 3 headings below (i.e.,1, 1.1, 1.1.1)
+    number_sections: TRUE # Number sections
+    toc_float:
+      collapsed: TRUE # Allows the toc to collapse if the reading section is not concerned
+      smooth_scroll: TRUE # Allows smoth scrolling of toc
+      toc: true
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE, results="hide")
+#Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```
+
+
+
+# Introduction 
+
+Nitrogen (N) deposition continues to impact terrestrial ecosystems and therein ecological functions. But how does N deposition interactively modify the effects of primary drivers of litter decomposition which are climate, litter quality, and soil fauna and microorganisms as well as their interactive effects on mixed litter decomposition remains unknown. We carried out a field decomposition experiment over a year in a tropical forest, SW China, mimicking N deposition by adding adhesive liquid N at three levels (0, 5, 20 g per litterbag) to mixed tree litters (each litterbag containing each two species) varying in quality (high, medium, low). Three mesh size (0.07, 2, 5 mm) were used for the litterbags aiming to control access by different groups of soil fauna to the litter.
+
+
+# Draw PCA plot figure S1
+The file A2chemic.csv represents the file containing the initial chemical content analysis of litter used in our experiment. We did make a classification of litter into different qualities based on previous study of Roeder et al 2022 but mainly based on N content. This chemical profile of each species litter was obtained after setting up the experiment. 
+
+Roeder, M., Dossa, G. G. O., Cornelissen, J. H. C., Yang, X., Nakamura, A., & Tomlinson, K. W. (2022). Liana litter decomposes faster than tree litter in a multispecies and multisite experiment. Journal of Ecology, 110, 2433–2447. [https://doi.org/10.1111/1365-2745.13960]
+
+```{r}
+d1<- read.csv("A2chemic.csv", header = TRUE, sep = ",", quote = "\"",
+              dec = ".", fill = TRUE, comment.char = "",fileEncoding = 'latin1')
+summary(d1)
+d1$species=as.factor(d1$species)
+d1$Quality=as.factor(d1$Quality)
+d1$Quality=ordered(d1$Quality,levels=c("High","Medium","Low"))
+d1$Cellulose=d1$ADF-d1$Lignin
+d1$Hemicellulose=d1$NDF-d1$ADF
+#Tannins has some negative values which actually mean that the concentration was either very low or close to zero or non detectable
+#Therefore, we need to use ifelse function to make sure subsequent analyses consider those negative value to be zero
+d1$Tannins=ifelse(d1$Tannins>0,d1$Tannins, 0) 
+#View(d1)
+summary(d1)
+library(dplyr)
+d1m<- d1%>% group_by(species,Quality)%>%
+  summarise(C=mean(T.C),N=mean(T.N),Ca=mean(T.Ca),
+            K=mean(T.K),Mg=mean(T.Mg),Mn=mean(T.Mn),P=mean(T.P),
+            Lignin=mean(Lignin),CF=mean(CF),Tannin=mean(Tannins),
+            Cellulose=mean(Cellulose),Hemicellulose=mean(Hemicellulose))
+#View(d1m)
+dim(d1m)
+
+
+```
+
+## Only use numerical variables PCA
+
+```{r, results='hold'}
+library(ggplot2)
+library(FactoMineR)  
+library(factoextra)  
+d=data.frame(LDMC=c(525,430,665,376,525,495))
+d1m=cbind(d1m,d)
+df <- d1m[, 3:15]
+df=scale(df)
+pca_result <- prcomp(df)
+summary(pca_result)
+```
+
+## Visualization of PCA results
+
+```{r, results='hide'}
+fviz_pca_ind(pca_result,
+             geom = "point",  
+             col.ind = d1m$species, 
+             palette = "jco",  
+             addEllipses = TRUE, 
+             legend.title = "Species"
+)
+
+fviz_pca_var(pca_result,
+             col.var = "contrib",  
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE  
+)
+```
+
+## Draw a Biplot
+
+```{r}
+library(factoextra)
+library(ggplot2)
+pca_plot=fviz_pca_biplot(pca_result,
+                  col.ind = d1m$Quality, 
+                  palette = "jco",      
+                  geom.ind = "point",    
+                  geom.var = c("arrow", "text"),  
+                  col.var = "black",      
+                  label = "var",          
+                  repel = TRUE,           
+                  legend.title = "Quality",  
+                  xlim = c(-4, 4),
+                  ylim = c(-4, 4),       
+                  ggtheme = theme_bw(),   
+                  pointsize = 3,          
+                  labelsize = 3,
+                  arrowsize = 0.7,
+                  arrowcolor = "#A8A8A8",
+                  mean.point = FALSE) +
+  geom_text(aes(label = d1m$species), 
+            color = "black",            
+            size = 3,                   
+            vjust = -1,                 
+            hjust = 0.5)+ 
+  labs(x = "PCA1 40.9%", y = "PCA2 26.2%")+ 
+  theme(plot.title = element_blank())+
+  theme(
+    axis.title = element_text(family = "palatino", size = 11, colour = "black"),  # setting the axis label breaks text
+    axis.text = element_text(family = "palatino", colour = "black", size = 12)  # setting the axis label text
+  ) +
+  theme(
+    axis.line = element_line(colour = "black", size = 1),  # setting axis line
+    axis.ticks.x = element_line(colour = "black"),  # setting x axis curve
+    axis.ticks.y = element_line(colour = "black"),  # setting x axis curve
+    panel.grid.major = element_blank(),  # Removing major grid lines
+    panel.grid.minor = element_blank(),  # Removing minor grid lines
+    panel.border = element_rect(fill = NA, color = "black", size = 1, linetype = "solid"),  # setting box borders
+    panel.background = element_blank()  # Setting background to white
+  ) 
+pca_plot
+
+ggsave(
+  filename = paste0("Figure S1.png"),
+  plot =pca_plot,
+  width = 6,
+  height =4,
+  dpi = 300,
+  bg = "white"
+)
+
+
+```
+
+
+# Data input and cleaning
+
+## First import the experiment data file
+The file A2 represents the main experimental file for this project. Below we describe each column content: 
+
+1. Experiment_type: A1：single species samples and mixture sample(Nitrogen (N) addition=0); A2:mixture sample(N addition>0. Two N addition levels, 5 g and 20 g per each litterbag ); 
+
+2. code: A1FTH1/2:A1 experiment_type;FTH1/2 high quality single tree species1/2; A1FT(H)/(M)/(L):A1 experiment_type;FT(H)/(M)/(L) two high(medium/low) quality tree species mixture; A2HH/A2HL: A2 experiment_type;HH/HL two high quality tree species mixture + high(low) N addition;
+
+3. tree_quality: tree litter quality ();
+
+4. species: tree species;
+
+5. quality: tree quality + N addition quality;
+
+6. Nitrogen_added: Nitrogen addition (N 20 for 20 gram of N addition on the litter in each litterbag or N 5 for 5 gram of N addition on the litter in each litterbag);
+
+7. mix_type: mixture type (tree mixture);
+
+8. species_richness: species richness;
+
+9. number: Prior to placement in the sample plots, each treatment consisted of 15 samples (12 for field decomposition across four decomposition periods with three replicates each, and 3 for determining transportation loss);
+
+10. litter_type_quality_tree_1: tree species 1 (mass);
+
+11. litter_type_quality_tree_2: tree species 2 (mass);
+
+12. quality_N: N (mass);
+
+13. mesh_size: litter bag mesh size (To control the entry litter bags of soil fauna of different sizes);
+
+14. total_mass_g: total mass inside the litter bag (litter + N);
+
+15. sample_plot: 12 subplots;
+
+16. plot: 3 plots;
+
+17. harvest: harvest sequence;
+
+18. handling_loss_bags: change of litter mass during transport of litterbags from lab to incubation field (detect the loss on the way);
+
+19. handling_loss: change in litter mass during transportation;
+
+20. initial_mass_g: The initial mass in the litter bag after removing the losses during transportation;
+
+21. Time_at_harvest: harvesting time (number of days);
+
+22. final_mass_g: The mass of litter obtained at different harvest times.
+
+```{r}
+A2<- read.csv("A2.csv", header = TRUE, sep = ",", quote = "\"",
+              dec = ".", fill = TRUE, comment.char = "",fileEncoding = 'latin1')
+A2<-subset(A2, !is.na(final_mass_g))
+head(A2)
+```
+
+## Convert to factor before ordering from high to low
+
+Tree quality is an ordered factor, so we need to tell R to read it as that.
+
+```{r}
+str(A2$tree_quality)
+A2$tree_quality
+levels(A2$tree_quality)
+A2$tree_quality <- as.factor(A2$tree_quality)
+levels(A2$tree_quality)
+
+A2$tree_quality <- ordered(A2$tree_quality, levels = c("High","Medium","Low"  ))
+levels(A2$tree_quality)
+
+```
+
+## Convert N addition to factor
+
+We need to convert N addition variable to factor before ordering from high N addition to low concentration (0 gram), please note that "zero" refers to 0 gram means no N addition for single species, while N_0 is 0 gram N addition for mixtures.
+
+```{r}
+A2$Nitrogen_added <- as.factor(A2$Nitrogen_added)
+levels(A2$Nitrogen_added)
+#View(A2)
+A2$Nitrogen_added <- ordered(A2$Nitrogen_added, levels = c("zero","N_0", "N_5", "N_20"))
+levels(A2$Nitrogen_added)
+
+#Convert Time_at_harvest to factor before ordering
+A2$Time_at_harvest
+levels(A2$Time_at_harvest)
+A2$Time_at_harvest<-as.factor(A2$Time_at_harvest)
+levels(A2$Time_at_harvest)
+
+A2$Time_at_harvest<-ordered(A2$Time_at_harvest, levels=c("30","60","220","365"))
+levels(A2$Time_at_harvest)
+
+str(A2)
+```
+
+## Convert mesh_size to factor
+
+Mesh size also is a factor we need to tell R to read as that.
+
+```{r}
+levels(A2$mesh_size)
+A2$mesh_size<-as.factor(A2$mesh_size)
+
+# Check our data frame quality
+str(A2)
+
+```
+
+## Calculation “loss_rate”
+
+Prior to any analysis, we need to calculate decomposition rate or mass loss. Here we call it loss_rate. For single species in litter, there is no N addition, the calculation is straight forward. When handling loss is negative, this means there is actual loss during handling from lab to field. Thus the initial mass is the measured mass in lab corrected from the handling loss. 
+
+For two species in mixture there is N addition at different levels, the handling loss consists of both loss of litter after the N was added, we need to be careful of how to compute this. We need some assumption, the handling loss consists of both added N and the litter. Therefore, handling_loss= measured handling_loss*(mass of litter before adding N/total_mass_g after adding N). Only after we measured this, we could then proceed to compute the mixture mass loss. 
+
+
+
+```{r}
+##single species loss rate
+A2_single=A2[A2$species_richness=="1",]
+A2_single$mass=A2_single$tree_quality
+A2_single$loss_rate=(A2_single$initial_mass_g-A2_single$final_mass_g)/A2_single$initial_mass_g
+A2_single1=A2_single
+
+## two species
+dat=A2[A2$species_richness=="2",]
+dat$mass=dat$litter_type_quality_tree_1+dat$litter_type_quality_tree_2
+dat_1=dat[dat$Nitrogen_added=="N_0",]
+dat_11=dat_1[dat_1$handling_loss<=0,]
+
+dat_11$loss_rate=(dat_11$mass-dat_11$final_mass_g+dat_11$handling_loss)/(dat_11$mass+dat_11$handling_loss)
+
+dat_21=dat_1[dat_1$handling_loss>0,]
+dat_21$loss_rate=(dat_21$mass-dat_21$final_mass_g)/(dat_21$mass)
+dat_1=rbind(dat_11,dat_21)
+
+dat_2=dat[dat$Nitrogen_added!="N_0",]
+dat_2$handling_loss=dat_2$handling_loss*(dat_2$mass/dat_2$total_mass_g)
+dat_2$loss_rate=(dat_2$mass-dat_2$final_mass_g+dat_2$handling_loss)/(dat_2$mass+dat_2$handling_loss)
+dat =rbind(dat_1,dat_2)
+dat_c=dat
+A2=rbind(dat,A2_single)
+```
+
+# Calculate loss rate the litter of different tree quality and  different times
+
+Below, we proceed in calculating the loss rate of different tree qualities across different times of harvest. 
+```{r}
+library(dplyr)
+dat_ml1<- dat%>% group_by(tree_quality,Time_at_harvest)%>%
+  dplyr::summarise(ml= mean(loss_rate),
+                   sd= sd(loss_rate),
+                   se=sd(loss_rate,na.rm = TRUE)/sqrt(n()))
+#View(dat_ml1)
+
+```
+
+## Draw plot figure S2
+
+### First harvest @ 30 days
+
+Mass loss across tree litter qualities in the presence of different decomposer groups after 30 days of field exposure of the litterbags.
+```{r, results="hide"}
+library(dplyr)
+library(ggplot2)
+dat$Nitrogen_added <- factor(dat$Nitrogen_added, levels = c("N_0", "N_5", "N_20"),
+                             labels = c(expression(N[0]), expression(N[5]), expression(N[20])))
+
+
+dat1 <- dat[dat$Time_at_harvest=="30",]
+dat_ml1<- dat1%>% group_by(tree_quality,Nitrogen_added, mesh_size)%>%
+  dplyr::summarise(ml= mean(loss_rate),
+                   sd= sd(loss_rate),
+                   se=sd(loss_rate,na.rm = TRUE)/sqrt(n()))
+
+
+
+pt1 <-ggplot(dat_ml1,aes(tree_quality,ml,shape=Nitrogen_added,color=mesh_size))+
+  geom_rect(data=NULL,aes(xmin=1.5,xmax=2.5,ymin=-Inf,ymax=Inf),
+            fill="#E8E8E8", colour = NA, alpha = 0.1)+
+  geom_point(position = position_dodge(0.9),stat="identity",size=3)+
+  geom_errorbar(ymax=dat_ml1$ml+dat_ml1$se,ymin=dat_ml1$ml-dat_ml1$se, width=0.3, position = position_dodge(0.9))+
+  scale_y_continuous(limits = c(0,1))+
+  scale_colour_manual(values=c("#5867AF","#4C9AC9","#E2745E"))+
+  scale_shape_discrete(
+    name = "N addition",
+    labels = function(x) parse(text = x))+
+  labs( colour="mesh_size",title="(A)30days")+
+  xlab("Litter quality")+
+  ylab("Mass loss proportion")+guides(color=guide_legend(order=2),shape=guide_legend(order=1))+
+  theme(plot.title =element_text(hjust = 0.5,size=(14)))+
+  theme(legend.position = "none", 
+        legend.direction = "vertical",
+        legend.text = element_text(size=14))+
+  theme(legend.title=element_text(size=(14)))+
+  theme(axis.title = element_text(family = "palatino", size = (14), colour = "black"))+
+  theme(axis.text = element_text(family = "palatino", colour = "black", size = (13)))+ 
+  theme(axis.line = element_line(colour = "black", size = 0.5),
+        axis.ticks.x=element_line(colour = "black"),
+        axis.ticks.y=element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill=NA,color="black", size=0.5, linetype="solid"),
+        panel.background = element_blank())
+
+#pt1
+```
+
+### Second harvest @ 60 days
+
+Mass loss across tree litter qualities in the presence of different decomposer groups after 60 days of field exposure of the litterbags.
+```{r, results='hide'}
+
+dat2 <-dat[dat$Time_at_harvest=="60",]
+dat_ml2<- dat2%>% group_by(tree_quality,Nitrogen_added, mesh_size)%>%
+  dplyr::summarise(ml= mean(loss_rate),
+                   sd= sd(loss_rate),
+                   se=sd(loss_rate,na.rm = TRUE)/sqrt(n()))
+
+pt2<-ggplot(dat_ml2,aes(tree_quality,ml,shape=Nitrogen_added,color=mesh_size))+
+  geom_rect(data=NULL,aes(xmin=1.5,xmax=2.5,ymin=-Inf,ymax=Inf),
+            fill="#E8E8E8", colour = NA, alpha = 0.1)+
+  geom_point(position = position_dodge(0.9),stat="identity",size=3)+
+  geom_errorbar(ymax=dat_ml2$ml+dat_ml2$se,ymin=dat_ml2$ml-dat_ml2$se, width=0.3, position = position_dodge(0.9))+
+  scale_y_continuous(limits = c(0,1))+
+  scale_colour_manual(values=c("#5867AF","#4C9AC9","#E2745E"))+
+  scale_shape_discrete(
+    name = "N addition",
+    labels = function(x) parse(text = x))+
+  labs(colour="mesh_size",title="(B)60days")+ xlab("Litter quality")+
+  ylab("Mass loss proportion")+guides(color=guide_legend(order=2),shape=guide_legend(order=1))+
+  theme(plot.title =element_text(hjust = 0.5,size=(14)))+
+  theme(legend.position = "none", 
+        legend.direction = "vertical",
+        legend.text = element_text(size=14))+
+  theme(legend.title=element_text(size=(14)))+
+  theme(axis.title = element_text(family = "palatino", size = (14), colour = "black"))+
+  theme(axis.text = element_text(family = "palatino", colour = "black", size = (13)))+ 
+  theme(axis.line = element_line(colour = "black", size = 0.5),
+        axis.ticks.x=element_line(colour = "black"),
+        axis.ticks.y=element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill=NA,color="black", size=0.5, linetype="solid"),
+        panel.background = element_blank())
+
+#pt2
+```
+
+### Third harvest @ 220 days
+
+Mass loss across tree litter qualities in the presence of different decomposer groups after 220 days of field exposure of the litterbags.
+```{r, results='hide'}
+
+dat3<-dat[dat$Time_at_harvest=="220",]
+dat_ml3<- dat3%>% group_by(tree_quality,Nitrogen_added, mesh_size)%>%
+  dplyr::summarise(ml= mean(loss_rate),
+                   sd= sd(loss_rate),
+                   se=sd(loss_rate,na.rm = TRUE)/sqrt(n()))
+
+
+pt3<-ggplot(dat_ml3,aes(tree_quality,ml,shape=Nitrogen_added,color=mesh_size))+
+  geom_rect(data=NULL,aes(xmin=1.5,xmax=2.5,ymin=-Inf,ymax=Inf),
+            fill="#E8E8E8", colour = NA, alpha = 0.1)+
+  geom_point(position = position_dodge(0.9),stat="identity",size=3)+
+  geom_errorbar(ymax=dat_ml3$ml+dat_ml3$se,ymin=dat_ml3$ml-dat_ml3$se, width=0.3, position = position_dodge(0.9))+
+  scale_y_continuous(limits = c(0,1))+
+  scale_colour_manual(values=c("#5867AF","#4C9AC9","#E2745E"))+ 
+  scale_shape_discrete(
+    name = "N addition",
+    labels = function(x) parse(text = x))+
+  labs(colour="mesh_size",title="(C)220days")+ xlab("Litter quality")+
+  ylab("Mass loss proportion")+guides(color=guide_legend(order=2),shape=guide_legend(order=1))+
+  theme(plot.title =element_text(hjust = 0.5,size=(14)))+
+  theme(legend.position = "none", 
+        legend.direction = "vertical",
+        legend.text = element_text(size=14))+
+  theme(legend.title=element_text(size=(14)))+
+  theme(axis.title = element_text(family = "palatino", size = (14), colour = "black"))+
+  theme(axis.text = element_text(family = "palatino", colour = "black", size = (13)))+ 
+  theme(axis.line = element_line(colour = "black", size = 0.5),
+        axis.ticks.x=element_line(colour = "black"),
+        axis.ticks.y=element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill=NA,color="black", size=0.5, linetype="solid"),
+        panel.background = element_blank())
+#pt3
+```
+
+### Fourth harvest @ 365 days
+
+Mass loss across tree litter qualities in the presence of different decomposer groups after 30 days of field exposure of the litterbags.
+
+```{r, results='hide'}
+
+
+
+dat4<-dat[dat$Time_at_harvest=="365",]
+dat_ml4<- dat4%>% group_by(tree_quality,Nitrogen_added, mesh_size)%>%
+  dplyr::summarise(ml= mean(loss_rate),
+                   sd= sd(loss_rate),
+                   se=sd(loss_rate,na.rm = TRUE)/sqrt(n()))
+
+pt4 <-ggplot(dat_ml4,aes(tree_quality,ml,shape=Nitrogen_added,color=mesh_size))+
+  geom_rect(data=NULL,aes(xmin=1.5,xmax=2.5,ymin=-Inf,ymax=Inf),
+            fill="#E8E8E8", colour = NA, alpha = 0.1)+
+  geom_point(position = position_dodge(0.9),stat="identity",width=0.3,size=3)+
+  geom_errorbar(ymax=dat_ml4$ml+dat_ml4$se,ymin=dat_ml4$ml-dat_ml4$se, width=0.3, position = position_dodge(0.9))+
+  scale_y_continuous(limits = c(0,1))+
+  scale_colour_manual(values=c("#5867AF","#4C9AC9","#E2745E"))+
+  scale_shape_discrete(
+    name = "N addition",
+    labels = function(x) parse(text = x))+
+  labs( shape="N addition",colour="mesh_size",title="(D)365days")+ xlab("Litter quality")+
+  ylab("Mass loss proportion")+guides(color=guide_legend(order=2),shape=guide_legend(order=1))+
+  theme(plot.title =element_text(hjust = 0.5,size=(14)))+
+  theme(
+    legend.direction = "vertical",
+    legend.text = element_text(size=14))+
+  theme(legend.title=element_text(size=(14)))+
+  theme(axis.title = element_text(family = "palatino", size = (14), colour = "black"))+
+  theme(axis.text = element_text(family = "palatino", colour = "black", size = (13)))+ 
+  theme(axis.line = element_line(colour = "black", size = 0.5),
+        axis.ticks.x=element_line(colour = "black"),
+        axis.ticks.y=element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill=NA,color="black", size=0.5, linetype="solid"),
+        panel.background = element_blank())
+
+#pt4
+```
+
+Now we combine all the four figures in panels together into one figure which is the Figure S2 in the manuscript.
+
+```{r}
+
+library(patchwork)
+
+#Put panels together
+Graphs_plot <-pt1+pt2+pt3+pt4
+Graphs_plot
+ggsave(
+  filename = paste0("Figure S2.png"),
+  plot =Graphs_plot,
+  width = 13,
+  height =9,
+  dpi = 300,
+  bg = "white"
+)
+
+```
+
+
+## Litter decay rate
+
+We have many variables that could potentially interact with time and may cause difficulty to understand the general trend, thus before modeling, we computed the decay rates using "neg.exp" regression within the litter fitter package, doing so could eliminate the many levels for the time variable.
+
+```{r}
+library(litterfitter)
+str(dat)
+dat=dat_c
+dat$Nitrogen_added <- factor(dat$Nitrogen_added, levels = c("N_0", "N_5", "N_20"),
+                             labels = c(expression(N[0]), expression(N[5]), expression(N[20])))
+dat$Time_at_harvest=as.numeric(as.character(dat$Time_at_harvest))
+dat$loss_rate_adj <- dat$loss_rate
+dat$loss_rate_adj[dat$loss_rate_adj == 1] <- 0.999
+dat$loss_rate_adj[dat$loss_rate_adj == 0] <- 0.001
+dat$mass.remaining=(1-dat$loss_rate_adj)
+dat$t=dat$Time_at_harvest/365
+
+dat <- subset(dat, mass.remaining != 0)
+#View(dat)
+
+##Separate data presentation :tree_quality="high"，"med"，"low"，Nitrogen_added ="N0g"，"N5g"，"N20g"，mesh_size="5mm"，"2mm"，"0.07mm",plot="plot1","plot2","plot3"
+###tree_quality="high"，"med"，"low"，Nitrogen_added ="N0g"
+thigh=dat[dat$tree_quality=="High",]
+tmed=dat[dat$tree_quality=="Medium",]
+tlow=dat[dat$tree_quality=="Low",]
+thigh_0=thigh[thigh$Nitrogen_added =="N[0]",]
+
+
+##tree_quality="high",Nitrogen_added ="N0g",mesh_size =="5mm",(plot="plot1","plot2","plot3")
+thigh_0_5=thigh_0[thigh_0$mesh_size =="5 mm",]
+#View(thigh_0_5)
+thigh_0_5_plot1=thigh_0_5[thigh_0_5$plot=="plot1",]
+result<- fit_litter(
+  thigh_0_5_plot1$t,
+  thigh_0_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+
+thigh_0_5_plot1$k=result$optimFit$par
+
+
+thigh_0_5_plot2=thigh_0_5[thigh_0_5$plot=="plot2",]
+result <- fit_litter(
+  thigh_0_5_plot2$t,
+  thigh_0_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_0_5_plot2$k=result$optimFit$par
+
+
+thigh_0_5_plot3=thigh_0_5[thigh_0_5$plot=="plot3",]
+result <- fit_litter(
+  thigh_0_5_plot3$t,
+  thigh_0_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_0_5_plot3$k=result$optimFit$par
+
+
+##tree_quality="high",Nitrogen_added ="N0g",mesh_size ="2mm",(plot="plot1","plot2","plot3")
+thigh_0_2=thigh_0[thigh_0$mesh_size =="2 mm",]
+thigh_0_2_plot1=thigh_0_2[thigh_0_2$plot=="plot1",]
+result <- fit_litter(
+  thigh_0_2_plot1$t,
+  thigh_0_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_0_2_plot1$k=result$optimFit$par
+
+
+thigh_0_2_plot2=thigh_0_2[thigh_0_2$plot=="plot2",]
+result <- fit_litter(
+  thigh_0_2_plot2$t,
+  thigh_0_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_0_2_plot2$k=result$optimFit$par
+
+
+thigh_0_2_plot3=thigh_0_2[thigh_0_2$plot=="plot3",]
+result <- fit_litter(
+  thigh_0_2_plot3$t,
+  thigh_0_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_0_2_plot3$k=result$optimFit$par
+
+##tree_quality="Thigh",Nitrogen_added ="N0g",mesh_size ="0.07mm",(plot="plot1","plot2","plot3")
+thigh_0_0.07=thigh_0[thigh_0$mesh_size =="0.07 mm",]
+thigh_0_0.07_plot1=thigh_0_0.07[thigh_0_0.07$plot=="plot1",]
+result <- fit_litter(
+  thigh_0_0.07_plot1$t,
+  thigh_0_0.07_plot1$mass.remaining,
+  model = "neg.exp",  
+  lower = 1e-6,
+  iters = 1000
+)
+
+print(result)
+thigh_0_0.07_plot1$k=result$optimFit$par
+
+
+thigh_0_0.07_plot2=thigh_0_0.07[thigh_0_0.07$plot=="plot2",]
+result <- fit_litter(
+  thigh_0_0.07_plot2$t,
+  thigh_0_0.07_plot2$mass.remaining,
+  model = "neg.exp",  
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_0_0.07_plot2$k=result$optimFit$par
+
+
+thigh_0_0.07_plot3=thigh_0_0.07[thigh_0_0.07$plot=="plot3",]
+result <- fit_litter(
+  thigh_0_0.07_plot3$t,
+  thigh_0_0.07_plot3$mass.remaining,
+  model = "neg.exp",  
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_0_0.07_plot3$k=result$optimFit$par
+
+
+
+##tree_quality="high",Nitrogen_added ="N5g",mesh_size ="5mm",(plot="plot1","plot2","plot3")
+thigh_5=thigh[thigh$Nitrogen_added =="N[5]",]
+thigh_5_5=thigh_5[thigh_5$mesh_size =="5 mm",]
+thigh_5_5_plot1=thigh_5_5[thigh_5_5$plot=="plot1",]
+result <- fit_litter(
+  thigh_5_5_plot1$t,
+  thigh_5_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_5_5_plot1$k=result$optimFit$par
+
+thigh_5_5_plot2=thigh_5_5[thigh_5_5$plot=="plot2",]
+result <- fit_litter(
+  thigh_5_5_plot2$t,
+  thigh_5_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_5_5_plot2$k=result$optimFit$par
+
+
+thigh_5_5_plot3=thigh_5_5[thigh_5_5$plot=="plot3",]
+result <- fit_litter(
+  thigh_5_5_plot3$t,
+  thigh_5_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_5_5_plot3$k=result$optimFit$par
+
+
+##tree_quality="high",Nitrogen_added ="N5g",mesh_size ="2mm",(plot="plot1","plot2","plot3")
+thigh_5_2=thigh_5[thigh_5$mesh_size =="2 mm",]
+thigh_5_2_plot1=thigh_5_2[thigh_5_2$plot=="plot1",]
+result <- fit_litter(
+  thigh_5_2_plot1$t,
+  thigh_5_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_5_2_plot1$k=result$optimFit$par
+
+thigh_5_2_plot2=thigh_5_2[thigh_5_2$plot=="plot2",]
+result <- fit_litter(
+  thigh_5_2_plot2$t,
+  thigh_5_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_5_2_plot2$k=result$optimFit$par
+
+
+thigh_5_2_plot3=thigh_5_2[thigh_5_2$plot=="plot3",]
+result <- fit_litter(
+  thigh_5_2_plot3$t,
+  thigh_5_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_5_2_plot3$k=result$optimFit$par
+
+
+##tree_quality="high",Nitrogen_added ="N5g",mesh_size ="0.07mm",(plot="plot1","plot2","plot3")
+thigh_5_0.07=thigh_5[thigh_5$mesh_size =="0.07 mm",]
+thigh_5_0.07_plot1=thigh_5_0.07[thigh_5_0.07$plot=="plot1",]
+result <- fit_litter(
+  thigh_5_0.07_plot1$t,
+  thigh_5_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_5_0.07_plot1$k=result$optimFit$par
+
+thigh_5_0.07_plot2=thigh_5_0.07[thigh_5_0.07$plot=="plot2",]
+result <- fit_litter(
+  thigh_5_0.07_plot2$t,
+  thigh_5_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_5_0.07_plot2$k=result$optimFit$par
+
+
+thigh_5_0.07_plot3=thigh_5_0.07[thigh_5_0.07$plot=="plot3",]
+result <- fit_litter(
+  thigh_5_0.07_plot3$t,
+  thigh_5_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_5_0.07_plot3$k=result$optimFit$par
+
+
+
+
+##tree_quality="high",Nitrogen_added ="N20g",mesh_size ="5mm",(plot="plot1","plot2","plot3")
+thigh_20=thigh[thigh$Nitrogen_added =="N[20]",]
+thigh_20_5=thigh_20[thigh_20$mesh_size =="5 mm",]
+thigh_20_5_plot1=thigh_20_5[thigh_20_5$plot=="plot1",]
+result <- fit_litter(
+  thigh_20_5_plot1$t,
+  thigh_20_5_plot1$mass.remaining,
+  model = "neg.exp",
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_20_5_plot1$k=result$optimFit$par
+
+
+thigh_20_5_plot2=thigh_20_5[thigh_20_5$plot=="plot2",]
+result <- fit_litter(
+  thigh_20_5_plot2$t,
+  thigh_20_5_plot2$mass.remaining,
+  model = "neg.exp",
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_20_5_plot2$k=result$optimFit$par
+
+
+
+thigh_20_5_plot3=thigh_20_5[thigh_20_5$plot=="plot3",]
+result <- fit_litter(
+  thigh_20_5_plot3$t,
+  thigh_20_5_plot3$mass.remaining,
+  model = "neg.exp",
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_20_5_plot3$k=result$optimFit$par
+
+
+
+
+
+##tree_quality="high",Nitrogen_added ="N20g",mesh_size ="2mm",(plot="plot1","plot2","plot3")
+thigh_20_2=thigh_20[thigh_20$mesh_size =="2 mm",]
+thigh_20_2_plot1=thigh_20_2[thigh_20_2$plot=="plot1",]
+result <- fit_litter(
+  thigh_20_2_plot1$t,
+  thigh_20_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_20_2_plot1$k=result$optimFit$par
+
+thigh_20_2_plot2=thigh_20_2[thigh_20_2$plot=="plot2",]
+result <- fit_litter(
+  thigh_20_2_plot2$t,
+  thigh_20_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_20_2_plot2$k=result$optimFit$par
+
+
+thigh_20_2_plot3=thigh_20_2[thigh_20_2$plot=="plot3",]
+result <- fit_litter(
+  thigh_20_2_plot3$t,
+  thigh_20_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_20_2_plot3$k=result$optimFit$par
+
+
+##tree_quality="high",Nitrogen_added ="N20g",mesh_size ="0.07mm",(plot="plot1","plot2","plot3")
+thigh_20_0.07=thigh_20[thigh_20$mesh_size =="0.07 mm",]
+thigh_20_0.07_plot1=thigh_20_0.07[thigh_20_0.07$plot=="plot3",]
+result <- fit_litter(
+  thigh_20_0.07_plot1$t,
+  thigh_20_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_20_0.07_plot1$k=result$optimFit$par
+
+thigh_20_0.07_plot2=thigh_20_0.07[thigh_20_0.07$plot=="plot2",]
+result <- fit_litter(
+  thigh_20_0.07_plot2$t,
+  thigh_20_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_20_0.07_plot2$k=result$optimFit$par
+
+thigh_20_0.07_plot3=thigh_20_0.07[thigh_20_0.07$plot=="plot3",]
+result <- fit_litter(
+  thigh_20_0.07_plot3$t,
+  thigh_20_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+thigh_20_0.07_plot3$k=result$optimFit$par
+
+##tree_quality="med",Nitrogen_added ="N0g",mesh_size ="5mm",(plot="plot1","plot2","plot3")
+tmed_0=tmed[tmed$Nitrogen_added =="N[0]",]
+tmed_0_5=tmed_0[tmed_0$mesh_size =="5 mm",]
+tmed_0_5_plot1=tmed_0_5[tmed_0_5$plot=="plot1",]
+result <- fit_litter(
+  tmed_0_5_plot1$t,
+  tmed_0_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_0_5_plot1$k=result$optimFit$par
+
+tmed_0_5_plot2=tmed_0_5[tmed_0_5$plot=="plot2",]
+result <- fit_litter(
+  tmed_0_5_plot2$t,
+  tmed_0_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_0_5_plot2$k=result$optimFit$par
+
+tmed_0_5_plot3=tmed_0_5[tmed_0_5$plot=="plot3",]
+result <- fit_litter(
+  tmed_0_5_plot3$t,
+  tmed_0_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_0_5_plot3$k=result$optimFit$par
+
+##tree_quality="med",Nitrogen_added ="N0g",mesh_size ="2 mm",(plot="plot1","plot2","plot3")
+tmed_0_2=tmed_0[tmed_0$mesh_size =="2 mm",]
+tmed_0_2_plot1=tmed_0_2[tmed_0_2$plot=="plot1",]
+result <- fit_litter(
+  tmed_0_2_plot1$t,
+  tmed_0_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_0_2_plot1$k=result$optimFit$par
+
+
+tmed_0_2_plot2=tmed_0_2[tmed_0_2$plot=="plot2",]
+result <- fit_litter(
+  tmed_0_2_plot2$t,
+  tmed_0_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_0_2_plot2$k=result$optimFit$par
+
+tmed_0_2_plot3=tmed_0_2[tmed_0_2$plot=="plot3",]
+result <- fit_litter(
+  tmed_0_2_plot3$t,
+  tmed_0_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_0_2_plot3$k=result$optimFit$par
+
+##tree_quality="med",Nitrogen_added ="N0g",mesh_size ="0.07mm",(plot="plot1","plot2","plot3")
+tmed_0_0.07=tmed_0[tmed_0$mesh_size =="0.07 mm",]
+tmed_0_0.07_plot1=tmed_0_0.07[tmed_0_0.07$plot=="plot1",]
+result <- fit_litter(
+  tmed_0_0.07_plot1$t,
+  tmed_0_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_0_0.07_plot1$k=result$optimFit$par
+
+tmed_0_0.07_plot2=tmed_0_0.07[tmed_0_0.07$plot=="plot2",]
+result <- fit_litter(
+  tmed_0_0.07_plot2$t,
+  tmed_0_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_0_0.07_plot2$k=result$optimFit$par
+
+tmed_0_0.07_plot3=tmed_0_0.07[tmed_0_0.07$plot=="plot3",]
+result <- fit_litter(
+  tmed_0_0.07_plot3$t,
+  tmed_0_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_0_0.07_plot3$k=result$optimFit$par
+
+
+##tree_quality="med",Nitrogen_added ="N5g",mesh_size ="5mm",(plot="plot1","plot2","plot3")
+tmed_5=tmed[tmed$Nitrogen_added =="N[5]",]
+tmed_5_5=tmed_5[tmed_5$mesh_size =="5 mm",]
+tmed_5_5_plot1=tmed_5_5[tmed_5_5$plot=="plot1",]
+result <- fit_litter(
+  tmed_5_5_plot1$t,
+  tmed_5_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_5_5_plot1$k=result$optimFit$par
+
+
+tmed_5_5_plot2=tmed_5_5[tmed_5_5$plot=="plot2",]
+result <- fit_litter(
+  tmed_5_5_plot2$t,
+  tmed_5_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_5_5_plot2$k=result$optimFit$par
+
+
+tmed_5_5_plot3=tmed_5_5[tmed_5_5$plot=="plot3",]
+result <- fit_litter(
+  tmed_5_5_plot3$t,
+  tmed_5_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_5_5_plot3$k=result$optimFit$par
+
+
+##tree_quality="med",Nitrogen_added ="N5g",mesh_size ="2mm",(plot="plot1","plot2","plot3")
+tmed_5_2=tmed_5[tmed_5$mesh_size =="2 mm",]
+tmed_5_2_plot1=tmed_5_2[tmed_5_2$plot=="plot1",]
+result <- fit_litter(
+  tmed_5_2_plot1$t,
+  tmed_5_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_5_2_plot1$k=result$optimFit$par
+
+
+tmed_5_2_plot2=tmed_5_2[tmed_5_2$plot=="plot2",]
+result <- fit_litter(
+  tmed_5_2_plot2$t,
+  tmed_5_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_5_2_plot2$k=result$optimFit$par
+
+
+tmed_5_2_plot3=tmed_5_2[tmed_5_2$plot=="plot3",]
+result <- fit_litter(
+  tmed_5_2_plot3$t,
+  tmed_5_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_5_2_plot3$k=result$optimFit$par
+
+
+##tree_quality="med",Nitrogen_added ="N5g",mesh_size ="0.07mm",(plot="plot1","plot2","plot3")
+tmed_5_0.07=tmed_5[tmed_5$mesh_size =="0.07 mm",]
+tmed_5_0.07_plot1=tmed_5_0.07[tmed_5_0.07$plot=="plot1",]
+result <- fit_litter(
+  tmed_5_0.07_plot1$t,
+  tmed_5_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_5_0.07_plot1$k=result$optimFit$par
+
+
+tmed_5_0.07_plot2=tmed_5_0.07[tmed_5_0.07$plot=="plot2",]
+result <- fit_litter(
+  tmed_5_0.07_plot2$t,
+  tmed_5_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_5_0.07_plot2$k=result$optimFit$par
+
+
+tmed_5_0.07_plot3=tmed_5_0.07[tmed_5_0.07$plot=="plot3",]
+result <- fit_litter(
+  tmed_5_0.07_plot3$t,
+  tmed_5_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_5_0.07_plot3$k=result$optimFit$par
+
+
+
+##tree_quality="med",Nitrogen_added ="N20g",mesh_size ="5mm",(plot="plot1","plot2","plot3")
+tmed_20=tmed[tmed$Nitrogen_added =="N[20]",]
+tmed_20_5=tmed_20[tmed_20$mesh_size =="5 mm",]
+tmed_20_5_plot1=tmed_20_5[tmed_20_5$plot=="plot1",]
+result <- fit_litter(
+  tmed_20_5_plot1$t,
+  tmed_20_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_20_5_plot1$k=result$optimFit$par
+
+
+tmed_20_5_plot2=tmed_20_5[tmed_20_5$plot=="plot2",]
+result <- fit_litter(
+  tmed_20_5_plot2$t,
+  tmed_20_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_20_5_plot2$k=result$optimFit$par
+
+tmed_20_5_plot3=tmed_20_5[tmed_20_5$plot=="plot3",]
+result <- fit_litter(
+  tmed_20_5_plot3$t,
+  tmed_20_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_20_5_plot3$k=result$optimFit$par
+
+##tree_quality="med",Nitrogen_added ="N20g",mesh_size ="2mm",(plot="plot1","plot2","plot3")
+tmed_20_2=tmed_20[tmed_20$mesh_size =="2 mm",]
+tmed_20_2_plot1=tmed_20_2[tmed_20_2$plot=="plot1",]
+result <- fit_litter(
+  tmed_20_2_plot1$t,
+  tmed_20_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_20_2_plot1$k=result$optimFit$par
+
+tmed_20_2_plot2=tmed_20_2[tmed_20_2$plot=="plot2",]
+result <- fit_litter(
+  tmed_20_2_plot2$t,
+  tmed_20_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_20_2_plot2$k=result$optimFit$par
+
+
+tmed_20_2_plot3=tmed_20_2[tmed_20_2$plot=="plot3",]
+result <- fit_litter(
+  tmed_20_2_plot3$t,
+  tmed_20_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_20_2_plot3$k=result$optimFit$par
+
+
+##tree_quality="med",Nitrogen_added ="N20g",mesh_size ="0.07mm",(plot="plot1","plot2","plot3")
+tmed_20_0.07=tmed_20[tmed_20$mesh_size =="0.07 mm",]
+tmed_20_0.07_plot1=tmed_20_0.07[tmed_20_0.07$plot=="plot1",]
+result <- fit_litter(
+  tmed_20_0.07_plot1$t,
+  tmed_20_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_20_0.07_plot1$k=result$optimFit$par
+
+tmed_20_0.07_plot2=tmed_20_0.07[tmed_20_0.07$plot=="plot2",]
+result <- fit_litter(
+  tmed_20_0.07_plot2$t,
+  tmed_20_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_20_0.07_plot2$k=result$optimFit$par
+
+
+tmed_20_0.07_plot3=tmed_20_0.07[tmed_20_0.07$plot=="plot3",]
+result <- fit_litter(
+  tmed_20_0.07_plot3$t,
+  tmed_20_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tmed_20_0.07_plot3$k=result$optimFit$par
+
+
+##tree_quality="low",Nitrogen_added ="N0g",mesh_size ="5mm",(plot="plot1","plot2","plot3")
+tlow_0=tlow[tlow$Nitrogen_added =="N[0]",]
+tlow_0_5=tlow_0[tlow_0$mesh_size =="5 mm",]
+tlow_0_5_plot1=tlow_0_5[tlow_0_5$plot=="plot1",]
+result <- fit_litter(
+  tlow_0_5_plot1$t,
+  tlow_0_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_0_5_plot1$k=result$optimFit$par
+
+
+tlow_0_5_plot2=tlow_0_5[tlow_0_5$plot=="plot2",]
+result <- fit_litter(
+  tlow_0_5_plot2$t,
+  tlow_0_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_0_5_plot2$k=result$optimFit$par
+
+tlow_0_5_plot3=tlow_0_5[tlow_0_5$plot=="plot3",]
+result <- fit_litter(
+  tlow_0_5_plot3$t,
+  tlow_0_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_0_5_plot3$k=result$optimFit$par
+
+##tree_quality="low",Nitrogen_added ="N0g",mesh_size ="2mm",(plot="plot1","plot2","plot3")
+tlow_0_2=tlow_0[tlow_0$mesh_size =="2 mm",]
+tlow_0_2_plot1=tlow_0_2[tlow_0_2$plot=="plot1",]
+result <- fit_litter(
+  tlow_0_2_plot1$t,
+  tlow_0_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_0_2_plot1$k=result$optimFit$par
+
+
+tlow_0_2_plot2=tlow_0_2[tlow_0_2$plot=="plot2",]
+result <- fit_litter(
+  tlow_0_2_plot2$t,
+  tlow_0_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_0_2_plot2$k=result$optimFit$par
+
+
+tlow_0_2_plot3=tlow_0_2[tlow_0_2$plot=="plot3",]
+result <- fit_litter(
+  tlow_0_2_plot3$t,
+  tlow_0_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_0_2_plot3$k=result$optimFit$par
+
+##tree_quality="low",Nitrogen_added ="N0g",mesh_size ="0.07mm",(plot="plot1","plot2","plot3")
+tlow_0_0.07=tlow_0[tlow_0$mesh_size =="0.07 mm",]
+tlow_0_0.07_plot1=tlow_0_0.07[tlow_0_0.07$plot=="plot1",]
+result <- fit_litter(
+  tlow_0_0.07_plot1$t,
+  tlow_0_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_0_0.07_plot1$k=result$optimFit$par
+
+tlow_0_0.07_plot2=tlow_0_0.07[tlow_0_0.07$plot=="plot2",]
+result <- fit_litter(
+  tlow_0_0.07_plot2$t,
+  tlow_0_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_0_0.07_plot2$k=result$optimFit$par
+
+
+tlow_0_0.07_plot3=tlow_0_0.07[tlow_0_0.07$plot=="plot3",]
+result <- fit_litter(
+  tlow_0_0.07_plot3$t,
+  tlow_0_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_0_0.07_plot3$k=result$optimFit$par
+
+##tree_quality="low",Nitrogen_added ="N5g",mesh_size ="5mm",(plot="plot1","plot2","plot3")
+tlow_5=tlow[tlow$Nitrogen_added =="N[5]",]
+tlow_5_5=tlow_5[tlow_5$mesh_size =="5 mm",]
+tlow_5_5_plot1=tlow_5_5[tlow_5_5$plot=="plot1",]
+result <- fit_litter(
+  tlow_5_5_plot1$t,
+  tlow_5_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_5_5_plot1$k=result$optimFit$par
+
+
+tlow_5_5_plot2=tlow_5_5[tlow_5_5$plot=="plot2",]
+result <- fit_litter(
+  tlow_5_5_plot2$t,
+  tlow_5_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_5_5_plot2$k=result$optimFit$par
+
+
+tlow_5_5_plot3=tlow_5_5[tlow_5_5$plot=="plot3",]
+result <- fit_litter(
+  tlow_5_5_plot3$t,
+  tlow_5_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_5_5_plot3$k=result$optimFit$par
+
+
+
+
+##tree_quality="low",Nitrogen_added ="N5g",mesh_size ="2mm",(plot="plot1","plot2","plot3")
+tlow_5_2=tlow_5[tlow_5$mesh_size =="2 mm",]
+tlow_5_2_plot1=tlow_5_2[tlow_5_2$plot=="plot1",]
+result <- fit_litter(
+  tlow_5_2_plot1$t,
+  tlow_5_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_5_2_plot1$k=result$optimFit$par
+
+
+tlow_5_2_plot2=tlow_5_2[tlow_5_2$plot=="plot2",]
+result <- fit_litter(
+  tlow_5_2_plot2$t,
+  tlow_5_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_5_2_plot2$k=result$optimFit$par
+
+
+tlow_5_2_plot3=tlow_5_2[tlow_5_2$plot=="plot3",]
+result <- fit_litter(
+  tlow_5_2_plot3$t,
+  tlow_5_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_5_2_plot3$k=result$optimFit$par
+
+
+
+##tree_quality="low",Nitrogen_added ="N5g",mesh_size ="0.07mm",(plot="plot1","plot2","plot3")
+tlow_5_0.07=tlow_5[tlow_5$mesh_size =="0.07 mm",]
+tlow_5_0.07_plot1=tlow_5_0.07[tlow_5_0.07$plot=="plot1",]
+result <- fit_litter(
+  tlow_5_0.07_plot1$t,
+  tlow_5_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_5_0.07_plot1$k=result$optimFit$par
+
+
+tlow_5_0.07_plot2=tlow_5_0.07[tlow_5_0.07$plot=="plot2",]
+result <- fit_litter(
+  tlow_5_0.07_plot2$t,
+  tlow_5_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_5_0.07_plot2$k=result$optimFit$par
+
+
+tlow_5_0.07_plot3=tlow_5_0.07[tlow_5_0.07$plot=="plot3",]
+result <- fit_litter(
+  tlow_5_0.07_plot3$t,
+  tlow_5_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_5_0.07_plot3$k=result$optimFit$par
+
+
+##tree_quality="low",Nitrogen_added ="N20g",mesh_size ="5mm",(plot="plot1","plot2","plot3")
+tlow_20=tlow[tlow$Nitrogen_added =="N[20]",]
+tlow_20_5=tlow_20[tlow_20$mesh_size =="5 mm",]
+tlow_20_5_plot1=tlow_20_5[tlow_20_5$plot=="plot1",]
+result <- fit_litter(
+  tlow_20_5_plot1$t,
+  tlow_20_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-10,
+  iters = 1000
+)
+print(result)
+tlow_20_5_plot1$k=result$optimFit$par
+
+
+tlow_20_5_plot2=tlow_20_5[tlow_20_5$plot=="plot2",]
+result <- fit_litter(
+  tlow_20_5_plot2$t,
+  tlow_20_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-10,
+  iters = 1000
+)
+print(result)
+tlow_20_5_plot2$k=result$optimFit$par
+
+tlow_20_5_plot3=tlow_20_5[tlow_20_5$plot=="plot3",]
+result <- fit_litter(
+  tlow_20_5_plot3$t,
+  tlow_20_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-10,
+  iters = 1000
+)
+print(result)
+tlow_20_5_plot3$k=result$optimFit$par
+
+##tree_quality="low",Nitrogen_added ="N20g",mesh_size ="2mm",(plot="plot1","plot2","plot3")
+tlow_20_2=tlow_20[tlow_20$mesh_size =="2 mm",]
+tlow_20_2_plot1=tlow_20_2[tlow_20_2$plot=="plot1",]
+result <- fit_litter(
+  tlow_20_2_plot1$t,
+  tlow_20_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_20_2_plot1$k=result$optimFit$par
+
+tlow_20_2_plot2=tlow_20_2[tlow_20_2$plot=="plot2",]
+result <- fit_litter(
+  tlow_20_2_plot2$t,
+  tlow_20_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_20_2_plot2$k=result$optimFit$par
+
+tlow_20_2_plot3=tlow_20_2[tlow_20_2$plot=="plot3",]
+result <- fit_litter(
+  tlow_20_2_plot3$t,
+  tlow_20_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_20_2_plot3$k=result$optimFit$par
+
+
+##tree_quality="low",Nitrogen_added ="N20g",mesh_size ="0.07mm",(plot="plot1","plot2","plot3")
+tlow_20_0.07=tlow_20[tlow_20$mesh_size =="0.07 mm",]
+tlow_20_0.07_plot1=tlow_20_0.07[tlow_20_0.07$plot=="plot1",]
+result <- fit_litter(
+  tlow_20_0.07_plot1$t,
+  tlow_20_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_20_0.07_plot1$k=result$optimFit$par
+
+tlow_20_0.07_plot2=tlow_20_0.07[tlow_20_0.07$plot=="plot2",]
+result <- fit_litter(
+  tlow_20_0.07_plot2$t,
+  tlow_20_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_20_0.07_plot2$k=result$optimFit$par
+
+tlow_20_0.07_plot3=tlow_20_0.07[tlow_20_0.07$plot=="plot3",]
+result <- fit_litter(
+  tlow_20_0.07_plot3$t,
+  tlow_20_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+tlow_20_0.07_plot3$k=result$optimFit$par
+
+
+##Combined result
+dat1=rbind(thigh_0_5_plot1,thigh_0_5_plot2,thigh_0_5_plot3,thigh_0_2_plot1,thigh_0_2_plot2,thigh_0_2_plot3,
+           thigh_0_0.07_plot1,thigh_0_0.07_plot2,thigh_0_0.07_plot3,thigh_5_5_plot1,thigh_5_5_plot2,thigh_5_5_plot3,
+           thigh_5_2_plot1,thigh_5_2_plot2,thigh_5_2_plot3,thigh_5_0.07_plot1,thigh_5_0.07_plot2,thigh_5_0.07_plot3,
+           thigh_20_5_plot1,thigh_20_5_plot2,thigh_20_5_plot3,thigh_20_2_plot1,thigh_20_2_plot2,thigh_20_2_plot3,
+           thigh_20_0.07_plot1,thigh_20_0.07_plot2,thigh_20_0.07_plot3)
+
+dat2=rbind(tmed_0_5_plot1,tmed_0_5_plot2,tmed_0_5_plot3,tmed_0_2_plot1,tmed_0_2_plot2,tmed_0_2_plot3,
+           tmed_0_0.07_plot1,tmed_0_0.07_plot2,tmed_0_0.07_plot3,tmed_5_5_plot1,tmed_5_5_plot2,tmed_5_5_plot3,
+           tmed_5_2_plot1,tmed_5_2_plot2,tmed_5_2_plot3,tmed_5_0.07_plot1,tmed_5_0.07_plot2,tmed_5_0.07_plot3,
+           tmed_20_5_plot1,tmed_20_5_plot2,tmed_20_5_plot3,tmed_20_2_plot1,tmed_20_2_plot2,tmed_20_2_plot3,
+           tmed_20_0.07_plot1,tmed_20_0.07_plot2,tmed_20_0.07_plot3)
+
+dat3=rbind(tlow_0_5_plot1,tlow_0_5_plot2,tlow_0_5_plot3,tlow_0_2_plot1,tlow_0_2_plot2,tlow_0_2_plot3,
+           tlow_0_0.07_plot1,tlow_0_0.07_plot2,tlow_0_0.07_plot3,tlow_5_5_plot1,tlow_5_5_plot2,tlow_5_5_plot3,
+           tlow_5_2_plot1,tlow_5_2_plot2,tlow_5_2_plot3,tlow_5_0.07_plot1,tlow_5_0.07_plot2,tlow_5_0.07_plot3,
+           tlow_20_5_plot1,tlow_20_5_plot2,tlow_20_5_plot3,tlow_20_2_plot1,tlow_20_2_plot2,tlow_20_2_plot3,
+           tlow_20_0.07_plot1,tlow_20_0.07_plot2,tlow_20_0.07_plot3)
+
+dat=rbind(dat1,dat2,dat3)
+#View(dat)
+
+dat_m<- dat%>% group_by(tree_quality,Nitrogen_added, mesh_size,plot,species)%>%
+  dplyr::summarise(K= mean(k))
+#View(dat_m)
+nrow(dat_m)
+
+```
+
+# Draw plot figure 1
+
+Next we need to draw the Figure 1 of the manuscript.
+
+```{r}
+#draw plot
+library(dplyr)
+library(ggplot2)
+dat_ml1<- dat_m%>% group_by(tree_quality,Nitrogen_added, mesh_size)%>%
+  dplyr::summarise(ml= mean(K),
+                   sd= sd(K),
+                   se=sd(K,na.rm = TRUE)/sqrt(n()))
+
+
+pt0 <-ggplot(dat_ml1,aes(tree_quality,ml,shape=Nitrogen_added,color=mesh_size))+
+  geom_rect(data=NULL,aes(xmin=1.5,xmax=2.5,ymin=-Inf,ymax=Inf),
+            fill="#E8E8E8", colour = NA, alpha = 0.1)+
+  geom_point(position = position_dodge(0.9),stat="identity",size=1.3)+
+  geom_errorbar(ymax=dat_ml1$ml+dat_ml1$se,ymin=dat_ml1$ml-dat_ml1$se, width=0.3, position = position_dodge(0.9))+
+  scale_y_continuous(limits = c(0,5.5))+
+  scale_colour_manual(values=c("#5867AF","#4C9AC9","#E2745E"))+
+  scale_shape_discrete(
+    name = "N addition",
+    labels = function(x) parse(text = x))+
+  labs( colour="mesh size")+
+  xlab("Litter quality")+
+  ylab(expression(paste( "Decomposition constant k " ( yrs^ -1 ))))+guides(color=guide_legend(order=2),shape=guide_legend(order=1))+
+  theme(plot.title =element_text(hjust = 0.5,size=(11)))+
+  theme(
+    legend.direction = "vertical",
+    legend.text = element_text(size=11))+
+  theme(legend.title=element_text(size=(11)))+
+  theme(axis.title = element_text(family = "palatino", size = (11), colour = "black"))+
+  theme(axis.text = element_text(family = "palatino", colour = "black", size = (11)))+ 
+  theme(axis.line = element_line(colour = "black", size = 0.5),
+        axis.ticks.x=element_line(colour = "black"),
+        axis.ticks.y=element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill=NA,color="black", size=0.5, linetype="solid"),
+        panel.background = element_blank())
+
+pt0
+
+
+ggsave(
+  filename = paste0("Figure 1.png"),
+  plot =pt0,
+  width = 6,
+  height =4,
+  dpi = 300,
+  bg = "white"
+)
+
+```
+
+# Model litter decay
+
+We need to establish the linear mixed effect model (Table 1).
+
+
+```{r}
+##Inverse normal transformation（Inverse Normal Transformation）
+hist(dat_m$K)
+dat_m$transrate <- log(dat_m$K)
+hist(dat_m$transrate)
+
+
+##Run package
+library(lme4)
+library(lmerTest)
+library(pbkrtest)
+##Build full model Consider interaction
+mod4=lmer(data=dat_m, transrate~Nitrogen_added*tree_quality*mesh_size+(1|plot))
+summary(mod4)
+anova(mod4)
+
+mod3=lm(data=dat_m, transrate~Nitrogen_added*tree_quality*mesh_size)
+summary(mod3)
+anova(mod4,mod3)
+
+##likelihood ratio test
+model_no_3way <- update(mod4, . ~ . - tree_quality:mesh_size:Nitrogen_added)
+
+anova(model_no_3way)
+anova(mod4,model_no_3way)
+
+##Compute r2
+library(MuMIn)
+r2 <- r.squaredGLMM(mod4)
+r2
+##Model diagnostics
+plot(mod4)
+qqnorm(resid(mod4), main = "Q-Q图（残差）")
+```
+
+## one-way analysis of variance'mesh_size'
+
+```{r, results='hold'}
+result <- aov(dat_m$transrate ~ dat_m$mesh_size, data = dat_m)
+summary(result)
+tukey_result <- TukeyHSD(result)
+print(tukey_result)
+
+```
+This shows no difference between 0.07 mm and 2 mm mesh sizes litterbag decay rates, while 5 mm differs from 0.07 mm and 5 mm differs from 2 mm. 
+
+# Calculate the relative mixture effect
+
+We need to calculate the expected decay rate and then divide the observed decay rate by expected decay rate.
+
+
+
+```{r, echo=FALSE, message=FALSE}
+
+library(litterfitter)
+A2_single$Time_at_harvest=as.numeric(as.character(A2_single$Time_at_harvest))
+A2_single$loss_rate_adj <- A2_single$loss_rate
+A2_single$loss_rate_adj[A2_single$loss_rate_adj == 1] <- 0.999
+A2_single$loss_rate_adj[A2_single$loss_rate_adj == 0] <- 0.001
+A2_single$mass.remaining=(1-A2_single$loss_rate)
+A2_single$t=A2_single$Time_at_harvest/365
+#View(A2_single)
+#Cb
+A2_single_Cb=A2_single[A2_single$species=="Cb",]
+A2_single_Cb_5=A2_single_Cb[A2_single_Cb$mesh_size =="5 mm",]
+#View(A2_single_Cb_5)
+A2_single_Cb_5_plot1=A2_single_Cb_5[A2_single_Cb_5$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Cb_5_plot1$t,
+  A2_single_Cb_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Cb_5_plot1$k=result$optimFit$par
+
+A2_single_Cb_5_plot2=A2_single_Cb_5[A2_single_Cb_5$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Cb_5_plot2$t,
+  A2_single_Cb_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Cb_5_plot2$k=result$optimFit$par
+
+A2_single_Cb_5_plot3=A2_single_Cb_5[A2_single_Cb_5$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Cb_5_plot3$t,
+  A2_single_Cb_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Cb_5_plot3$k=result$optimFit$par
+
+
+A2_single_Cb_2=A2_single_Cb[A2_single_Cb$mesh_size =="2 mm",]
+#View(A2_single_Cb_5)
+A2_single_Cb_2_plot1=A2_single_Cb_2[A2_single_Cb_2$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Cb_2_plot1$t,
+  A2_single_Cb_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Cb_2_plot1$k=result$optimFit$par
+
+A2_single_Cb_2_plot2=A2_single_Cb_2[A2_single_Cb_2$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Cb_2_plot2$t,
+  A2_single_Cb_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Cb_2_plot2$k=result$optimFit$par
+
+A2_single_Cb_2_plot3=A2_single_Cb_2[A2_single_Cb_2$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Cb_2_plot3$t,
+  A2_single_Cb_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Cb_2_plot3$k=result$optimFit$par
+
+A2_single_Cb_0.07=A2_single_Cb[A2_single_Cb$mesh_size =="0.07 mm",]
+A2_single_Cb_0.07_plot1=A2_single_Cb_0.07[A2_single_Cb_0.07$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Cb_0.07_plot1$t,
+  A2_single_Cb_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Cb_0.07_plot1$k=result$optimFit$par
+
+A2_single_Cb_0.07_plot2=A2_single_Cb_0.07[A2_single_Cb_0.07$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Cb_0.07_plot2$t,
+  A2_single_Cb_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Cb_0.07_plot2$k=result$optimFit$par
+
+A2_single_Cb_0.07_plot3=A2_single_Cb_0.07[A2_single_Cb_0.07$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Cb_0.07_plot3$t,
+  A2_single_Cb_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Cb_0.07_plot3$k=result$optimFit$par
+
+
+#At
+A2_single_At=A2_single[A2_single$species=="At",]
+A2_single_At_5=A2_single_At[A2_single_At$mesh_size =="5 mm",]
+#View(A2_single_At_5)
+A2_single_At_5_plot1=A2_single_At_5[A2_single_At_5$plot=="plot1",]
+result<- fit_litter(
+  A2_single_At_5_plot1$t,
+  A2_single_At_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_At_5_plot1$k=result$optimFit$par
+
+A2_single_At_5_plot2=A2_single_At_5[A2_single_At_5$plot=="plot2",]
+result<- fit_litter(
+  A2_single_At_5_plot2$t,
+  A2_single_At_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_At_5_plot2$k=result$optimFit$par
+
+A2_single_At_5_plot3=A2_single_At_5[A2_single_At_5$plot=="plot3",]
+result<- fit_litter(
+  A2_single_At_5_plot3$t,
+  A2_single_At_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_At_5_plot3$k=result$optimFit$par
+
+
+A2_single_At_2=A2_single_At[A2_single_At$mesh_size =="2 mm",]
+#View(A2_single_At_5)
+A2_single_At_2_plot1=A2_single_At_2[A2_single_At_2$plot=="plot1",]
+result<- fit_litter(
+  A2_single_At_2_plot1$t,
+  A2_single_At_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_At_2_plot1$k=result$optimFit$par
+
+A2_single_At_2_plot2=A2_single_At_2[A2_single_At_2$plot=="plot2",]
+result<- fit_litter(
+  A2_single_At_2_plot2$t,
+  A2_single_At_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_At_2_plot2$k=result$optimFit$par
+
+A2_single_At_2_plot3=A2_single_At_2[A2_single_At_2$plot=="plot3",]
+result<- fit_litter(
+  A2_single_At_2_plot3$t,
+  A2_single_At_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_At_2_plot3$k=result$optimFit$par
+
+A2_single_At_0.07=A2_single_At[A2_single_At$mesh_size =="0.07 mm",]
+A2_single_At_0.07_plot1=A2_single_At_0.07[A2_single_At_0.07$plot=="plot1",]
+result<- fit_litter(
+  A2_single_At_0.07_plot1$t,
+  A2_single_At_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_At_0.07_plot1$k=result$optimFit$par
+
+A2_single_At_0.07_plot2=A2_single_At_0.07[A2_single_At_0.07$plot=="plot2",]
+result<- fit_litter(
+  A2_single_At_0.07_plot2$t,
+  A2_single_At_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_At_0.07_plot2$k=result$optimFit$par
+
+A2_single_At_0.07_plot3=A2_single_At_0.07[A2_single_At_0.07$plot=="plot3",]
+result<- fit_litter(
+  A2_single_At_0.07_plot3$t,
+  A2_single_At_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_At_0.07_plot3$k=result$optimFit$par
+
+#Dt
+A2_single_Dt=A2_single[A2_single$species=="Dt",]
+A2_single_Dt_5=A2_single_Dt[A2_single_Dt$mesh_size =="5 mm",]
+#View(A2_single_Dt_5)
+A2_single_Dt_5_plot1=A2_single_Dt_5[A2_single_Dt_5$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Dt_5_plot1$t,
+  A2_single_Dt_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Dt_5_plot1$k=result$optimFit$par
+
+A2_single_Dt_5_plot2=A2_single_Dt_5[A2_single_Dt_5$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Dt_5_plot2$t,
+  A2_single_Dt_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Dt_5_plot2$k=result$optimFit$par
+
+A2_single_Dt_5_plot3=A2_single_Dt_5[A2_single_Dt_5$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Dt_5_plot3$t,
+  A2_single_Dt_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Dt_5_plot3$k=result$optimFit$par
+
+
+A2_single_Dt_2=A2_single_Dt[A2_single_Dt$mesh_size =="2 mm",]
+#View(A2_single_Dt_5)
+A2_single_Dt_2_plot1=A2_single_Dt_2[A2_single_Dt_2$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Dt_2_plot1$t,
+  A2_single_Dt_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Dt_2_plot1$k=result$optimFit$par
+
+A2_single_Dt_2_plot2=A2_single_Dt_2[A2_single_At_2$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Dt_2_plot2$t,
+  A2_single_Dt_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Dt_2_plot2$k=result$optimFit$par
+
+A2_single_Dt_2_plot3=A2_single_Dt_2[A2_single_Dt_2$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Dt_2_plot3$t,
+  A2_single_Dt_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Dt_2_plot3$k=result$optimFit$par
+
+A2_single_Dt_0.07=A2_single_Dt[A2_single_Dt$mesh_size =="0.07 mm",]
+A2_single_Dt_0.07_plot1=A2_single_Dt_0.07[A2_single_Dt_0.07$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Dt_0.07_plot1$t,
+  A2_single_Dt_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Dt_0.07_plot1$k=result$optimFit$par
+
+A2_single_Dt_0.07_plot2=A2_single_Dt_0.07[A2_single_Dt_0.07$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Dt_0.07_plot2$t,
+  A2_single_Dt_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Dt_0.07_plot2$k=result$optimFit$par
+
+A2_single_Dt_0.07_plot3=A2_single_Dt_0.07[A2_single_Dt_0.07$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Dt_0.07_plot3$t,
+  A2_single_Dt_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Dt_0.07_plot3$k=result$optimFit$par
+
+#Ga
+A2_single_Ga=A2_single[A2_single$species=="Ga",]
+A2_single_Ga_5=A2_single_Ga[A2_single_Ga$mesh_size =="5 mm",]
+#View(A2_single_Ga_5)
+A2_single_Ga_5_plot1=A2_single_Ga_5[A2_single_Ga_5$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Ga_5_plot1$t,
+  A2_single_Ga_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ga_5_plot1$k=result$optimFit$par
+
+A2_single_Ga_5_plot2=A2_single_Ga_5[A2_single_Ga_5$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Ga_5_plot2$t,
+  A2_single_Ga_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ga_5_plot2$k=result$optimFit$par
+
+A2_single_Ga_5_plot3=A2_single_Ga_5[A2_single_Ga_5$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Ga_5_plot3$t,
+  A2_single_Ga_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ga_5_plot3$k=result$optimFit$par
+
+
+A2_single_Ga_2=A2_single_Ga[A2_single_Ga$mesh_size =="2 mm",]
+#View(A2_single_Ga_5)
+A2_single_Ga_2_plot1=A2_single_Ga_2[A2_single_Ga_2$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Ga_2_plot1$t,
+  A2_single_Ga_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ga_2_plot1$k=result$optimFit$par
+
+A2_single_Ga_2_plot2=A2_single_Ga_2[A2_single_Ga_2$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Ga_2_plot2$t,
+  A2_single_Ga_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ga_2_plot2$k=result$optimFit$par
+
+A2_single_Ga_2_plot3=A2_single_Dt_2[A2_single_Dt_2$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Ga_2_plot3$t,
+  A2_single_Ga_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ga_2_plot3$k=result$optimFit$par
+
+A2_single_Ga_0.07=A2_single_Ga[A2_single_Ga$mesh_size =="0.07 mm",]
+A2_single_Ga_0.07_plot1=A2_single_Ga_0.07[A2_single_Ga_0.07$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Ga_0.07_plot1$t,
+  A2_single_Ga_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ga_0.07_plot1$k=result$optimFit$par
+
+A2_single_Ga_0.07_plot2=A2_single_Ga_0.07[A2_single_Ga_0.07$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Ga_0.07_plot2$t,
+  A2_single_Ga_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ga_0.07_plot2$k=result$optimFit$par
+
+A2_single_Ga_0.07_plot3=A2_single_Ga_0.07[A2_single_Ga_0.07$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Ga_0.07_plot3$t,
+  A2_single_Ga_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ga_0.07_plot3$k=result$optimFit$par
+
+#Ml
+A2_single_Ml=A2_single[A2_single$species=="Ml",]
+A2_single_Ml_5=A2_single_Ml[A2_single_Ml$mesh_size =="5 mm",]
+#View(A2_single_Ml_5)
+A2_single_Ml_5_plot1=A2_single_Ml_5[A2_single_Ml_5$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Ml_5_plot1$t,
+  A2_single_Ml_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ml_5_plot1$k=result$optimFit$par
+
+A2_single_Ml_5_plot2=A2_single_Ml_5[A2_single_Ml_5$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Ml_5_plot2$t,
+  A2_single_Ml_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ml_5_plot2$k=result$optimFit$par
+
+A2_single_Ml_5_plot3=A2_single_Ml_5[A2_single_Ml_5$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Ml_5_plot3$t,
+  A2_single_Ml_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ml_5_plot3$k=result$optimFit$par
+
+
+A2_single_Ml_2=A2_single_Ml[A2_single_Ml$mesh_size =="2 mm",]
+#View(A2_single_Ml_5)
+A2_single_Ml_2_plot1=A2_single_Ml_2[A2_single_Ml_2$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Ml_2_plot1$t,
+  A2_single_Ml_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ml_2_plot1$k=result$optimFit$par
+
+A2_single_Ml_2_plot2=A2_single_Ml_2[A2_single_Ml_2$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Ml_2_plot2$t,
+  A2_single_Ml_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ml_2_plot2$k=result$optimFit$par
+
+A2_single_Ml_2_plot3=A2_single_Ml_2[A2_single_Dt_2$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Ml_2_plot3$t,
+  A2_single_Ml_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ml_2_plot3$k=result$optimFit$par
+
+A2_single_Ml_0.07=A2_single_Ml[A2_single_Ga$mesh_size =="0.07 mm",]
+A2_single_Ml_0.07_plot1=A2_single_Ml_0.07[A2_single_Ml_0.07$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Ml_0.07_plot1$t,
+  A2_single_Ml_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ml_0.07_plot1$k=result$optimFit$par
+
+A2_single_Ml_0.07_plot2=A2_single_Ml_0.07[A2_single_Ml_0.07$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Ml_0.07_plot2$t,
+  A2_single_Ml_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ml_0.07_plot2$k=result$optimFit$par
+
+A2_single_Ml_0.07_plot3=A2_single_Ml_0.07[A2_single_Ml_0.07$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Ml_0.07_plot3$t,
+  A2_single_Ml_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Ml_0.07_plot3$k=result$optimFit$par
+
+#Pt
+A2_single_Pt=A2_single[A2_single$species=="Pt",]
+A2_single_Pt_5=A2_single_Pt[A2_single_Pt$mesh_size =="5 mm",]
+#View(A2_single_Pt_5)
+A2_single_Pt_5_plot1=A2_single_Pt_5[A2_single_Pt_5$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Pt_5_plot1$t,
+  A2_single_Pt_5_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Pt_5_plot1$k=result$optimFit$par
+
+A2_single_Pt_5_plot2=A2_single_Pt_5[A2_single_Pt_5$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Pt_5_plot2$t,
+  A2_single_Pt_5_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Pt_5_plot2$k=result$optimFit$par
+
+A2_single_Pt_5_plot3=A2_single_Pt_5[A2_single_Pt_5$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Pt_5_plot3$t,
+  A2_single_Pt_5_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Pt_5_plot3$k=result$optimFit$par
+
+
+A2_single_Pt_2=A2_single_Pt[A2_single_Pt$mesh_size =="2 mm",]
+#View(A2_single_Pt_5)
+A2_single_Pt_2_plot1=A2_single_Pt_2[A2_single_Pt_2$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Pt_2_plot1$t,
+  A2_single_Pt_2_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Pt_2_plot1$k=result$optimFit$par
+
+A2_single_Pt_2_plot2=A2_single_Pt_2[A2_single_Pt_2$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Pt_2_plot2$t,
+  A2_single_Pt_2_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Pt_2_plot2$k=result$optimFit$par
+
+A2_single_Pt_2_plot3=A2_single_Pt_2[A2_single_Pt_2$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Pt_2_plot3$t,
+  A2_single_Pt_2_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Pt_2_plot3$k=result$optimFit$par
+
+A2_single_Pt_0.07=A2_single_Pt[A2_single_Ga$mesh_size =="0.07 mm",]
+A2_single_Pt_0.07_plot1=A2_single_Pt_0.07[A2_single_Pt_0.07$plot=="plot1",]
+result<- fit_litter(
+  A2_single_Pt_0.07_plot1$t,
+  A2_single_Pt_0.07_plot1$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Pt_0.07_plot1$k=result$optimFit$par
+
+A2_single_Pt_0.07_plot2=A2_single_Pt_0.07[A2_single_Pt_0.07$plot=="plot2",]
+result<- fit_litter(
+  A2_single_Pt_0.07_plot2$t,
+  A2_single_Pt_0.07_plot2$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Pt_0.07_plot2$k=result$optimFit$par
+
+A2_single_Pt_0.07_plot3=A2_single_Pt_0.07[A2_single_Pt_0.07$plot=="plot3",]
+result<- fit_litter(
+  A2_single_Pt_0.07_plot3$t,
+  A2_single_Pt_0.07_plot3$mass.remaining,
+  model = "neg.exp", 
+  lower = 1e-6,
+  iters = 1000
+)
+print(result)
+A2_single_Pt_0.07_plot3$k=result$optimFit$par
+
+
+datt=rbind(A2_single_Cb_5_plot1,A2_single_Cb_5_plot2,A2_single_Cb_5_plot3,A2_single_Cb_2_plot1,A2_single_Cb_2_plot2,A2_single_Cb_2_plot3,
+           A2_single_Cb_0.07_plot1,A2_single_Cb_0.07_plot2,A2_single_Cb_0.07_plot3,A2_single_At_5_plot1,A2_single_At_5_plot2,A2_single_At_5_plot3,
+           A2_single_At_2_plot1,A2_single_At_2_plot2,A2_single_At_2_plot3,A2_single_At_0.07_plot1,A2_single_At_0.07_plot2,A2_single_At_0.07_plot3,
+           A2_single_Dt_5_plot1,A2_single_Dt_5_plot2,A2_single_Dt_5_plot3,A2_single_Dt_2_plot1,A2_single_Dt_2_plot2,A2_single_Dt_2_plot3,
+           A2_single_Dt_0.07_plot1,A2_single_Dt_0.07_plot2,A2_single_Dt_0.07_plot3,A2_single_Ga_5_plot1,A2_single_Ga_5_plot2,A2_single_Ga_5_plot3,
+           A2_single_Ga_2_plot1,A2_single_Ga_2_plot2,A2_single_Ga_2_plot3,A2_single_Ga_0.07_plot1,A2_single_Ga_0.07_plot2,A2_single_Ga_0.07_plot3,
+           A2_single_Ml_5_plot1,A2_single_Ml_5_plot2,A2_single_Ml_5_plot3,A2_single_Ml_2_plot1,A2_single_Ml_2_plot2,A2_single_Ml_2_plot3,
+           A2_single_Ml_0.07_plot1,A2_single_Ml_0.07_plot2,A2_single_Ml_0.07_plot3,A2_single_Pt_5_plot1,A2_single_Pt_5_plot2,A2_single_Pt_5_plot3,
+           A2_single_Pt_2_plot1,A2_single_Pt_2_plot2,A2_single_Pt_2_plot3,A2_single_Pt_0.07_plot1,A2_single_Pt_0.07_plot2,A2_single_Pt_0.07_plot3)
+
+dat_M<- datt%>% group_by(tree_quality,Nitrogen_added, mesh_size,plot,species)%>%
+  dplyr::summarise(K= mean(k))
+#View(dat_M)
+
+
+#Calculate the mixing effect
+dat_M_fine<- dat_M[dat_M$mesh_size == "0.07 mm",]
+
+library(dplyr)
+k_s<-dat_M_fine%>%
+  group_by(species,plot)%>%
+  summarize(mean_k=mean(K,na.rm = TRUE)
+            
+  )
+#View(k_s)
+
+#here we extract the mass loss for plot one(b1)
+k_s_b1<- k_s[k_s$plot == "plot1",]
+#View(k_s_b1)
+
+#one species mixtures
+#Cb
+b1_cb <- k_s_b1 %>%
+  filter(species == 'Cb')
+exp_b1_cb<-sum(b1_cb$mean_k)/1
+
+#Ga
+b1_ga <- k_s_b1 %>%
+  filter(species == 'Ga')
+exp_b1_ga<-sum(b1_ga$mean_k)/1
+
+#Dt
+b1_dt <- k_s_b1 %>%
+  filter(species == 'Dt')
+exp_b1_dt<-sum(b1_dt$mean_k)/1
+
+#Pt
+b1_pt <- k_s_b1 %>%
+  filter(species == 'Pt')
+exp_b1_pt<-sum(b1_pt$mean_k)/1
+
+#Ml
+b1_ml <- k_s_b1 %>%
+  filter(species == 'Ml')
+exp_b1_ml<-sum(b1_ml$mean_k)/1
+
+#At
+b1_at <- k_s_b1 %>%
+  filter(species == 'At')
+exp_b1_at<-sum(b1_at$mean_k)/1
+
+
+#Two species mixtures 
+#Cb,Ga
+b1_cb_Ga <- k_s_b1 %>%
+  filter(species == 'Cb'| species == 'Ga')
+exp_b1_cb_Ga<-sum(b1_cb_Ga$mean_k)/2
+
+#Dt,Pt
+b1_dt_pt <- k_s_b1 %>%
+  filter(species == 'Dt'| species == 'Pt')
+exp_b1_dt_pt<-sum(b1_dt_pt$mean_k)/2
+
+#Ml, At
+b1_k_at <- k_s_b1 %>%
+  filter(species == 'Ml'| species == 'At')
+exp_b1_k_at<-sum(b1_k_at$mean_k)/2
+
+expected_b1<-data.frame(species=c("Cb,Ga","Dt,Pt","Ml,At"), 
+                        expected_b1=c(exp_b1_cb_Ga,exp_b1_dt_pt,exp_b1_k_at))
+
+
+
+#here we extract the mass loss for plot one(b2)
+k_s_b2<- k_s[k_s$plot == "plot2",]
+
+#one species mixtures
+#Cb
+b2_cb <- k_s_b2 %>%
+  filter(species == 'Cb')
+exp_b2_cb<-sum(b2_cb$mean_k)/1
+
+#Ga
+b2_ga <- k_s_b2 %>%
+  filter(species == 'Ga')
+exp_b2_ga<-sum(b2_ga$mean_k)/1
+
+#Dt
+b2_dt <- k_s_b2 %>%
+  filter(species == 'Dt')
+exp_b2_dt<-sum(b2_dt$mean_k)/1
+
+#Pt
+b2_pt <- k_s_b2 %>%
+  filter(species == 'Pt')
+exp_b2_pt<-sum(b2_pt$mean_k)/1
+
+#Ml
+b2_ml <- k_s_b2 %>%
+  filter(species == 'Ml')
+exp_b2_ml<-sum(b2_ml$mean_k)/1
+
+#At
+b2_at <- k_s_b2 %>%
+  filter(species == 'At')
+exp_b2_at<-sum(b2_at$mean_k)/1
+
+
+#Two species mixtures 
+#Cb,Ga
+b2_cb_Ga <- k_s_b2 %>%
+  filter(species == 'Cb'| species == 'Ga')
+exp_b2_cb_Ga<-sum(b2_cb_Ga$mean_k)/2
+
+#Dt,Pt
+b2_dt_pt <- k_s_b2 %>%
+  filter(species == 'Dt'| species == 'Pt')
+exp_b2_dt_pt<-sum(b2_dt_pt$mean_k)/2
+
+#Ml, At
+b2_k_at <- k_s_b2 %>%
+  filter(species == 'Ml'| species == 'At')
+exp_b2_k_at<-sum(b2_k_at$mean_k)/2
+
+
+expected_b2<-data.frame(species=c("Cb,Ga","Dt,Pt","Ml,At"), 
+                        expected_b2=c(exp_b2_cb_Ga,exp_b2_dt_pt,exp_b2_k_at))
+
+
+#here we extract the mass loss for plot one(b2)
+k_s_b3<- k_s[k_s$plot == "plot3",]
+
+#one species mixtures
+#Cb
+b3_cb <- k_s_b3 %>%
+  filter(species == 'Cb')
+exp_b3_cb<-sum(b3_cb$mean_k)/1
+
+#Ga
+b3_ga <- k_s_b3 %>%
+  filter(species == 'Ga')
+exp_b3_ga<-sum(b3_ga$mean_k)/1
+
+#Dt
+b3_dt <- k_s_b3 %>%
+  filter(species == 'Dt')
+exp_b3_dt<-sum(b3_dt$mean_k)/1
+
+#Pt
+b3_pt <- k_s_b3 %>%
+  filter(species == 'Pt')
+exp_b3_pt<-sum(b3_pt$mean_k)/1
+
+#Ml
+b3_ml <- k_s_b3 %>%
+  filter(species == 'Ml')
+exp_b3_ml<-sum(b3_ml$mean_k)/1
+
+#At
+b3_at <- k_s_b3 %>%
+  filter(species == 'At')
+exp_b3_at<-sum(b3_at$mean_k)/1
+
+
+#Two species mixtures 
+#Cb,Ga
+b3_cb_Ga <- k_s_b3 %>%
+  filter(species == 'Cb'| species == 'Ga')
+exp_b3_cb_Ga<-sum(b3_cb_Ga$mean_k)/2
+
+#Dt,Pt
+b3_dt_pt <- k_s_b3 %>%
+  filter(species == 'Dt'| species == 'Pt')
+exp_b3_dt_pt<-sum(b3_dt_pt$mean_k)/2
+
+#Ml, At
+b3_k_at <- k_s_b3 %>%
+  filter(species == 'Ml'| species == 'At')
+exp_b3_k_at<-sum(b3_k_at$mean_k)/2
+
+expected_b3<-data.frame(species=c("Cb,Ga","Dt,Pt","Ml,At"), 
+                        expected_b3=c(exp_b3_cb_Ga,exp_b3_dt_pt,exp_b3_k_at))
+
+
+
+library(tidyr)
+library(data.table)
+expected<-Reduce(merge, list(expected_b1,expected_b2,expected_b3))
+expected_K<-setnames(expected, old = c('species','expected_b1','expected_b2','expected_b3'), 
+                     new = c('species','plot1','plot2','plot3'))
+expected_k_rate<-gather(expected_K,plot, 'expected_k', 'plot1', 'plot2', 'plot3')
+litter<-full_join(dat_m,expected_k_rate, by = c("species","plot"))
+
+litter$mer<- litter$K/litter$expected_k
+#View(litter)
+
+```
+
+# Model relative litter mixture effect (MER)
+
+We used linear mixed effect model (LMM) to model the MER. The results appear in Table 2 in the manuscript.
+First we check the distribution of MER, we noticed that it does not follow a normal distribution so we log transform MER.
+
+```{r,echo=FALSE, message=FALSE}
+##log transformation
+hist(litter$mer)
+litter$transrate<-log(litter$mer)
+hist(litter$transrate)
+##run package
+library(lme4)
+library(lmerTest)
+
+##Build a model and gradually remove insignificant explanatory variables
+##Consider interaction
+mod4=lmer(data=litter, transrate~Nitrogen_added*tree_quality*mesh_size+(1|plot))
+summary(mod4)
+anova(mod4)
+r2 <- r.squaredGLMM(mod4)
+print(r2)
+
+model_no_3way <- update(mod4, . ~ . - Nitrogen_added:tree_quality:mesh_size)
+anova(model_no_3way)
+anova(mod4,model_no_3way)
+
+
+r2 <- r.squaredGLMM(mod4)
+r2
+
+##Diagnostic model
+plot(mod4)
+
+```
+
+## One-way analysis of variance'mesh_size'
+
+```{r, results="hold"}
+result <- aov(litter$transrate ~ litter$mesh_size, data = litter)
+summary(result)
+tukey_result <- TukeyHSD(result)
+print(tukey_result)
+
+```
+The result shows that there is significant difference between the contribution of decomposers in 5 mm and 2 mm as well as between 5 mm and 0.07 mm mesh sizes litterbags. However, there was no significant difference between 2 mm and 0.07 mm mesh sizes litterbags.
+
+
+# Draw Figure 2 plot
+
+Below, we draw the MER plot across mesh sizes and tree litter qualities.
+
+```{r}
+library(dplyr)
+library(ggplot2)
+dat_ml1<- litter%>% group_by(tree_quality,Nitrogen_added, mesh_size)%>%
+  dplyr::summarise(ml= mean(mer),
+                   sd= sd(mer),
+                   se=sd(mer,na.rm = TRUE)/sqrt(n()))
+
+pt01 <-ggplot(dat_ml1,aes(tree_quality,ml,shape=Nitrogen_added,color=mesh_size))+
+  geom_rect(data=NULL,aes(xmin=1.5,xmax=2.5,ymin=-Inf,ymax=Inf),
+            fill="#E8E8E8", colour = NA, alpha = 0.1)+
+  geom_point(position = position_dodge(0.9),stat="identity",size=1.3)+
+  geom_errorbar(ymax=dat_ml1$ml+dat_ml1$se,ymin=dat_ml1$ml-dat_ml1$se, width=0.3, position = position_dodge(0.9))+
+  scale_y_continuous(limits = c(0,8))+
+  geom_hline(yintercept=1, color="black", linetype="dashed", alpha=.5)+
+  scale_colour_manual(values=c("#5867AF","#4C9AC9","#E2745E"))+
+  scale_shape_discrete(
+    name = "N addition",
+    labels = function(x) parse(text = x))+
+  labs( colour="mesh size")+
+  xlab("Litter quality")+
+  ylab("MER (observed k/expected k)")+guides(color=guide_legend(order=2),shape=guide_legend(order=1))+
+  theme(plot.title =element_text(hjust = 0.5,size=(11)))+
+  theme(
+    legend.direction = "vertical",
+    legend.text = element_text(size=11))+
+  theme(legend.title=element_text(size=(11)))+
+  theme(axis.title = element_text(family = "palatino", size = (11), colour = "black"))+
+  theme(axis.text = element_text(family = "palatino", colour = "black", size = (11)))+ 
+  theme(axis.line = element_line(colour = "black", size = 0.5),
+        axis.ticks.x=element_line(colour = "black"),
+        axis.ticks.y=element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(fill=NA,color="black", size=0.5, linetype="solid"),
+        panel.background = element_blank())
+
+pt01
+
+ggsave(
+  filename = paste0("Figure 2.png"),
+  plot =pt01,
+  width = 6,
+  height =4,
+  dpi = 300,
+  bg = "white"
+)
+
+```
+
+# Conclusions
+
+Nitrogen addition, litter quality, litterbag mesh size, and interactive effects between litter quality and N addition significantly influenced the litter decomposition rate. Among these factors, nitrogen addition level and mesh size exhibited independent roles in the litter mixing effect, while a significant interactive effect was observed between litter quality and nitrogen addition. Macrofauna (body size > 2 mm) effects were more sensitive to nitrogen addition, particularly under high nitrogen addition treatments. In the presence of soil macrofauna, nitrogen addition accelerated the decomposition of low-quality litter and enhanced litter mixing effects, with these positive effects increasing at higher N addition rates. In contrast, for high-quality litter, low-level N addition had a greater promoting effect than high-level N addition.  These findings indicate that nitrogen deposition effect during litter decomposition depends on litter substrate quality and decomposer groups.

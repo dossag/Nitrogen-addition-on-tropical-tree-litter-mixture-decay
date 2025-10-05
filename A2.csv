@@ -1,0 +1,676 @@
+Experiment_type,code,tree_quality,species,quality,Nitrogen_added,mix_type,species_richness,number,litter_type_quality_tree_1,litter_type_quality_tree_2,quality_N,mesh_size,total_mass_g,sample_plot,plot,harvest,handling_loss_bags,handling_loss,initial_mass_g,Time_at_harvest,final_mass_g
+A1,A1FTH1,High,Ml,High,zero,tree,1,1,10.003,NA,NA,5 mm,10.003,R1,plot1,harvest1,NA,0.013,10.003,30,9.178
+A1,A1FTH1,High,Ml,High,zero,tree,1,2,10.004,NA,NA,5 mm,10.004,R2,plot1,harvest2,NA,0.013,10.004,60,8.427
+A1,A1FTH1,High,Ml,High,zero,tree,1,3,10.004,NA,NA,5 mm,10.004,R3,plot1,harvest3,NA,0.013,10.004,220,14.35
+A1,A1FTH1,High,Ml,High,zero,tree,1,4,9.99,NA,NA,5 mm,9.99,R4,plot1,harvest4,NA,0.013,9.99,365,5.156
+A1,A1FTH1,High,Ml,High,zero,tree,1,5,9.999,NA,NA,5 mm,9.999,R5,plot2,harvest1,NA,0.013,9.999,30,9.328
+A1,A1FTH1,High,Ml,High,zero,tree,1,6,10.004,NA,NA,5 mm,10.004,R6,plot2,harvest2,NA,0.013,10.004,60,6.874
+A1,A1FTH1,High,Ml,High,zero,tree,1,7,9.999,NA,NA,5 mm,9.999,R7,plot2,harvest3,NA,0.013,9.999,220,7.74
+A1,A1FTH1,High,Ml,High,zero,tree,1,8,10.004,NA,NA,5 mm,10.004,R8,plot2,harvest4,NA,0.013,10.004,365,2.709
+A1,A1FTH1,High,Ml,High,zero,tree,1,9,10,NA,NA,5 mm,10,R9,plot3,harvest1,NA,0.013,10,30,8.891
+A1,A1FTH1,High,Ml,High,zero,tree,1,10,10.006,NA,NA,5 mm,10.006,R10,plot3,harvest2,NA,0.013,10.006,60,8.073
+A1,A1FTH1,High,Ml,High,zero,tree,1,11,10.009,NA,NA,5 mm,10.009,R11,plot3,harvest3,NA,0.013,10.009,220,7.72
+A1,A1FTH1,High,Ml,High,zero,tree,1,12,10,NA,NA,5 mm,10,R12,plot3,harvest4,NA,0.013,10,365,3.779
+A1,A1FTH1,High,Ml,High,zero,tree,1,13,10,NA,NA,5 mm,10,,,,10.01,0.013,10,,NA
+A1,A1FTH1,High,Ml,High,zero,tree,1,14,10.008,NA,NA,5 mm,10.008,,,,10.02,0.013,10.008,,NA
+A1,A1FTH1,High,Ml,High,zero,tree,1,15,9.993,NA,NA,5 mm,9.993,,,,10.01,0.013,9.993,,NA
+A1,A1FTH1,High,Ml,High,zero,tree,1,1,10,NA,NA,2 mm,10,R1,plot1,harvest1,NA,-0.076,9.924,30,10.74
+A1,A1FTH1,High,Ml,High,zero,tree,1,2,9.995,NA,NA,2 mm,9.995,R2,plot1,harvest2,NA,-0.076,9.919,60,8.627
+A1,A1FTH1,High,Ml,High,zero,tree,1,3,9.993,NA,NA,2 mm,9.993,R3,plot1,harvest3,NA,-0.076,9.917,220,8.27
+A1,A1FTH1,High,Ml,High,zero,tree,1,4,10.001,NA,NA,2 mm,10.001,R4,plot1,harvest4,NA,-0.076,9.925,365,5.152
+A1,A1FTH1,High,Ml,High,zero,tree,1,5,9.999,NA,NA,2 mm,9.999,R5,plot2,harvest1,NA,-0.076,9.923,30,8.779
+A1,A1FTH1,High,Ml,High,zero,tree,1,6,9.999,NA,NA,2 mm,9.999,R6,plot2,harvest2,NA,-0.076,9.923,60,8.616
+A1,A1FTH1,High,Ml,High,zero,tree,1,7,10.001,NA,NA,2 mm,10.001,R7,plot2,harvest3,NA,-0.076,9.925,220,8.93
+A1,A1FTH1,High,Ml,High,zero,tree,1,8,10,NA,NA,2 mm,10,R8,plot2,harvest4,NA,-0.076,9.924,365,4.867
+A1,A1FTH1,High,Ml,High,zero,tree,1,9,10.007,NA,NA,2 mm,10.007,R9,plot3,harvest1,NA,-0.076,9.931,30,9.07
+A1,A1FTH1,High,Ml,High,zero,tree,1,10,10,NA,NA,2 mm,10,R10,plot3,harvest2,NA,-0.076,9.924,60,8.642
+A1,A1FTH1,High,Ml,High,zero,tree,1,11,10.007,NA,NA,2 mm,10.007,R11,plot3,harvest3,NA,-0.076,9.931,220,7.07
+A1,A1FTH1,High,Ml,High,zero,tree,1,12,9.993,NA,NA,2 mm,9.993,R12,plot3,harvest4,NA,-0.076,9.917,365,3.9
+A1,A1FTH1,High,Ml,High,zero,tree,1,13,9.995,NA,NA,2 mm,9.995,,,,9.92,-0.076,9.919,,NA
+A1,A1FTH1,High,Ml,High,zero,tree,1,14,9.991,NA,NA,2 mm,9.991,,,,9.91,-0.076,9.915,,NA
+A1,A1FTH1,High,Ml,High,zero,tree,1,15,10.002,NA,NA,2 mm,10.002,,,,9.93,-0.076,9.926,,NA
+A1,A1FTH1,High,Ml,High,zero,tree,1,1,10.005,NA,NA,0.07 mm,10.005,R1,plot1,harvest1,NA,-0.22,9.785,30,9.506
+A1,A1FTH1,High,Ml,High,zero,tree,1,2,9.994,NA,NA,0.07 mm,9.994,R2,plot1,harvest2,NA,-0.22,9.774,60,9.209
+A1,A1FTH1,High,Ml,High,zero,tree,1,3,9.994,NA,NA,0.07 mm,9.994,R3,plot1,harvest3,NA,-0.22,9.774,220,7.43
+A1,A1FTH1,High,Ml,High,zero,tree,1,4,10.001,NA,NA,0.07 mm,10.001,R4,plot1,harvest4,NA,-0.22,9.781,365,4.028
+A1,A1FTH1,High,Ml,High,zero,tree,1,5,10.006,NA,NA,0.07 mm,10.006,R5,plot2,harvest1,NA,-0.22,9.786,30,9.648
+A1,A1FTH1,High,Ml,High,zero,tree,1,6,10,NA,NA,0.07 mm,10,R6,plot2,harvest2,NA,-0.22,9.78,60,8.877
+A1,A1FTH1,High,Ml,High,zero,tree,1,7,10.003,NA,NA,0.07 mm,10.003,R7,plot2,harvest3,NA,-0.22,9.783,220,7.221
+A1,A1FTH1,High,Ml,High,zero,tree,1,8,10.003,NA,NA,0.07 mm,10.003,R8,plot2,harvest4,NA,-0.22,9.783,365,2.033
+A1,A1FTH1,High,Ml,High,zero,tree,1,9,10,NA,NA,0.07 mm,10,R9,plot3,harvest1,NA,-0.22,9.78,30,8.641
+A1,A1FTH1,High,Ml,High,zero,tree,1,10,10.003,NA,NA,0.07 mm,10.003,R10,plot3,harvest2,NA,-0.22,9.783,60,8.763
+A1,A1FTH1,High,Ml,High,zero,tree,1,11,10.006,NA,NA,0.07 mm,10.006,R11,plot3,harvest3,NA,-0.22,9.786,220,7.04
+A1,A1FTH1,High,Ml,High,zero,tree,1,12,10.002,NA,NA,0.07 mm,10.002,R12,plot3,harvest4,NA,-0.22,9.782,365,4.578
+A1,A1FTH1,High,Ml,High,zero,tree,1,13,10.004,NA,NA,0.07 mm,10.004,,,,9.76,-0.22,9.784,,NA
+A1,A1FTH1,High,Ml,High,zero,tree,1,14,9.996,NA,NA,0.07 mm,9.996,,,,9.75,-0.22,9.776,,NA
+A1,A1FTH2,High,At,High,zero,tree,1,15,10.004,NA,NA,0.07 mm,10.004,,,,9.84,-0.22,9.784,,NA
+A1,A1FTH2,High,At,High,zero,tree,1,1,NA,9.993,NA,5 mm,9.993,R1,plot1,harvest1,NA,0.01,9.993,30,9.035
+A1,A1FTH2,High,At,High,zero,tree,1,2,NA,9.994,NA,5 mm,9.994,R2,plot1,harvest2,NA,0.01,9.994,60,7.88
+A1,A1FTH2,High,At,High,zero,tree,1,3,NA,10,NA,5 mm,10,R3,plot1,harvest3,NA,0.01,10,220,6.07
+A1,A1FTH2,High,At,High,zero,tree,1,4,NA,10,NA,5 mm,10,R4,plot1,harvest4,NA,0.01,10,365,7.326
+A1,A1FTH2,High,At,High,zero,tree,1,5,NA,10,NA,5 mm,10,R5,plot2,harvest1,NA,0.01,10,30,9.082
+A1,A1FTH2,High,At,High,zero,tree,1,6,NA,10,NA,5 mm,10,R6,plot2,harvest2,NA,0.01,10,60,7.99
+A1,A1FTH2,High,At,High,zero,tree,1,7,NA,10.004,NA,5 mm,10.004,R7,plot2,harvest3,NA,0.01,10.004,220,5.63
+A1,A1FTH2,High,At,High,zero,tree,1,8,NA,10,NA,5 mm,10,R8,plot2,harvest4,NA,0.01,10,365,3.451
+A1,A1FTH2,High,At,High,zero,tree,1,9,NA,10.007,NA,5 mm,10.007,R9,plot3,harvest1,NA,0.01,10.007,30,8.274
+A1,A1FTH2,High,At,High,zero,tree,1,10,NA,10.003,NA,5 mm,10.003,R10,plot3,harvest2,NA,0.01,10.003,60,7.761
+A1,A1FTH2,High,At,High,zero,tree,1,11,NA,10.002,NA,5 mm,10.002,R11,plot3,harvest3,NA,0.01,10.002,220,7.18
+A1,A1FTH2,High,At,High,zero,tree,1,12,NA,10,NA,5 mm,10,R12,plot3,harvest4,NA,0.01,10,365,2.89
+A1,A1FTH2,High,At,High,zero,tree,1,13,NA,9.999,NA,5 mm,9.999,,,,9.999,0.01,9.999,,NA
+A1,A1FTH2,High,At,High,zero,tree,1,14,NA,10,NA,5 mm,10,,,,10,0.01,10,,NA
+A1,A1FTH2,High,At,High,zero,tree,1,15,NA,10.003,NA,5 mm,10.003,,,,10.033,0.01,10.003,,NA
+A1,A1FTH2,High,At,High,zero,tree,1,1,NA,9.994,NA,2 mm,9.994,R1,plot1,harvest1,NA,0.09,9.994,30,8.7
+A1,A1FTH2,High,At,High,zero,tree,1,2,NA,10,NA,2 mm,10,R2,plot1,harvest2,NA,0.09,10,60,7.498
+A1,A1FTH2,High,At,High,zero,tree,1,3,NA,10,NA,2 mm,10,R3,plot1,harvest3,NA,0.09,10,220,6.05
+A1,A1FTH2,High,At,High,zero,tree,1,4,NA,10.001,NA,2 mm,10.001,R4,plot1,harvest4,NA,0.09,10.001,365,4.565
+A1,A1FTH2,High,At,High,zero,tree,1,5,NA,10.008,NA,2 mm,10.008,R5,plot2,harvest1,NA,0.09,10.008,30,8.666
+A1,A1FTH2,High,At,High,zero,tree,1,6,NA,10.009,NA,2 mm,10.009,R6,plot2,harvest2,NA,0.09,10.009,60,8.953
+A1,A1FTH2,High,At,High,zero,tree,1,7,NA,9.994,NA,2 mm,9.994,R7,plot2,harvest3,NA,0.09,9.994,220,9.51
+A1,A1FTH2,High,At,High,zero,tree,1,8,NA,10,NA,2 mm,10,R8,plot2,harvest4,NA,0.09,10,365,3.483
+A1,A1FTH2,High,At,High,zero,tree,1,9,NA,10,NA,2 mm,10,R9,plot3,harvest1,NA,0.09,10,30,8.681
+A1,A1FTH2,High,At,High,zero,tree,1,10,NA,10.009,NA,2 mm,10.009,R10,plot3,harvest2,NA,0.09,10.009,60,8.901
+A1,A1FTH2,High,At,High,zero,tree,1,11,NA,9.997,NA,2 mm,9.997,R11,plot3,harvest3,NA,0.09,9.997,220,7.16
+A1,A1FTH2,High,At,High,zero,tree,1,12,NA,10.002,NA,2 mm,10.002,R12,plot3,harvest4,NA,0.09,10.002,365,2.908
+A1,A1FTH2,High,At,High,zero,tree,1,13,NA,10.006,NA,2 mm,10.006,,,,10.071,0.09,10.006,,NA
+A1,A1FTH2,High,At,High,zero,tree,1,14,NA,9.998,NA,2 mm,9.998,,,,10.105,0.09,9.998,,NA
+A1,A1FTH2,High,At,High,zero,tree,1,15,NA,9.999,NA,2 mm,9.999,,,,10.097,0.09,9.999,,NA
+A1,A1FTH2,High,At,High,zero,tree,1,1,NA,10.006,NA,0.07 mm,10.006,R1,plot1,harvest1,NA,0.003,10.006,30,8.429
+A1,A1FTH2,High,At,High,zero,tree,1,2,NA,10,NA,0.07 mm,10,R2,plot1,harvest2,NA,0.003,10,60,8.614
+A1,A1FTH2,High,At,High,zero,tree,1,3,NA,10,NA,0.07 mm,10,R3,plot1,harvest3,NA,0.003,10,220,5.61
+A1,A1FTH2,High,At,High,zero,tree,1,4,NA,10.006,NA,0.07 mm,10.006,R4,plot1,harvest4,NA,0.003,10.006,365,5.749
+A1,A1FTH2,High,At,High,zero,tree,1,5,NA,10.005,NA,0.07 mm,10.005,R5,plot2,harvest1,NA,0.003,10.005,30,8.402
+A1,A1FTH2,High,At,High,zero,tree,1,6,NA,9.993,NA,0.07 mm,9.993,R6,plot2,harvest2,NA,0.003,9.993,60,7.954
+A1,A1FTH2,High,At,High,zero,tree,1,7,NA,10,NA,0.07 mm,10,R7,plot2,harvest3,NA,0.003,10,220,6.48
+A1,A1FTH2,High,At,High,zero,tree,1,8,NA,10.005,NA,0.07 mm,10.005,R8,plot2,harvest4,NA,0.003,10.005,365,2.613
+A1,A1FTH2,High,At,High,zero,tree,1,9,NA,10,NA,0.07 mm,10,R9,plot3,harvest1,NA,0.003,10,30,8.971
+A1,A1FTH2,High,At,High,zero,tree,1,10,NA,10.006,NA,0.07 mm,10.006,R10,plot3,harvest2,NA,0.003,10.006,60,7.591
+A1,A1FTH2,High,At,High,zero,tree,1,11,NA,10.005,NA,0.07 mm,10.005,R11,plot3,harvest3,NA,0.003,10.005,220,5.68
+A1,A1FTH2,High,At,High,zero,tree,1,12,NA,10,NA,0.07 mm,10,R12,plot3,harvest4,NA,0.003,10,365,3.41
+A1,A1FTH2,High,At,High,zero,tree,1,13,NA,10.005,NA,0.07 mm,10.005,,,,10.004,0.003,10.005,,NA
+A1,A1FTH2,High,At,High,zero,tree,1,14,NA,9.997,NA,0.07 mm,9.997,,,,9.997,0.003,9.997,,NA
+A1,A1FTH2,High,At,High,zero,tree,1,15,NA,10.007,NA,0.07 mm,10.007,,,,10,0.003,10.007,,NA
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,1,9.995,NA,NA,5 mm,9.995,R1,plot1,harvest1,NA,0,9.995,30,9.493
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,2,10,NA,NA,5 mm,10,R2,plot1,harvest2,NA,0,10,60,10.099
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,3,10.007,NA,NA,5 mm,10.007,R3,plot1,harvest3,NA,0,10.007,220,3.9
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,4,10.001,NA,NA,5 mm,10.001,R4,plot1,harvest4,NA,0,10.001,365,1.594
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,5,10,NA,NA,5 mm,10,R5,plot2,harvest1,NA,0,10,30,9.533
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,6,9.997,NA,NA,5 mm,9.997,R6,plot2,harvest2,NA,0,9.997,60,7.671
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,7,10.006,NA,NA,5 mm,10.006,R7,plot2,harvest3,NA,0,10.006,220,7.21
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,8,10,NA,NA,5 mm,10,R8,plot2,harvest4,NA,0,10,365,4.404
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,9,10.006,NA,NA,5 mm,10.006,R9,plot3,harvest1,NA,0,10.006,30,3.274
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,10,10,NA,NA,5 mm,10,R10,plot3,harvest2,NA,0,10,60,7.938
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,11,9.998,NA,NA,5 mm,9.998,R11,plot3,harvest3,NA,0,9.998,220,7.92
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,12,9.996,NA,NA,5 mm,9.996,R12,plot3,harvest4,NA,0,9.996,365,3.231
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,13,10,NA,NA,5 mm,10,,,,10,0,10,,NA
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,14,9.99,NA,NA,5 mm,9.99,,,,9.99,0,9.99,,NA
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,15,10.007,NA,NA,5 mm,10.007,,,,10.008,0,10.007,,NA
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,1,10,NA,NA,2 mm,10,R1,plot1,harvest1,NA,-0.261,9.739,30,NA
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,2,10.007,NA,NA,2 mm,10.007,R2,plot1,harvest2,NA,-0.261,9.746,60,9.541
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,3,10.001,NA,NA,2 mm,10.001,R3,plot1,harvest3,NA,-0.261,9.74,220,7.41
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,4,9.994,NA,NA,2 mm,9.994,R4,plot1,harvest4,NA,-0.261,9.733,365,4.455
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,5,10.005,NA,NA,2 mm,10.005,R5,plot2,harvest1,NA,-0.261,9.744,30,9.549
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,6,10.007,NA,NA,2 mm,10.007,R6,plot2,harvest2,NA,-0.261,9.746,60,9.71
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,7,9.994,NA,NA,2 mm,9.994,R7,plot2,harvest3,NA,-0.261,9.733,220,7.75
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,8,10.003,NA,NA,2 mm,10.003,R8,plot2,harvest4,NA,-0.261,9.742,365,9.833
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,9,9.995,NA,NA,2 mm,9.995,R9,plot3,harvest1,NA,-0.261,9.734,30,9.931
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,10,10.005,NA,NA,2 mm,10.005,R10,plot3,harvest2,NA,-0.261,9.744,60,9.774
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,11,10,NA,NA,2 mm,10,R11,plot3,harvest3,NA,-0.261,9.739,220,7.52
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,12,9.999,NA,NA,2 mm,9.999,R12,plot3,harvest4,NA,-0.261,9.738,365,5.039
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,13,10.004,NA,NA,2 mm,10.004,,,,10.02,-0.261,9.743,,NA
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,14,10.004,NA,NA,2 mm,10.004,,,,10,-0.261,9.743,,NA
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,15,9.995,NA,NA,2 mm,9.995,,,,9.2,-0.261,9.734,,NA
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,1,10.004,NA,NA,0.07 mm,10.004,R1,plot1,harvest1,NA,0,10.004,30,9.608
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,2,10.002,NA,NA,0.07 mm,10.002,R2,plot1,harvest2,NA,0,10.002,60,8.784
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,3,9.999,NA,NA,0.07 mm,9.999,R3,plot1,harvest3,NA,0,9.999,220,8.04
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,4,10.001,NA,NA,0.07 mm,10.001,R4,plot1,harvest4,NA,0,10.001,365,4.582
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,5,10,NA,NA,0.07 mm,10,R5,plot2,harvest1,NA,0,10,30,9.547
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,6,10.006,NA,NA,0.07 mm,10.006,R6,plot2,harvest2,NA,0,10.006,60,8.973
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,7,9.997,NA,NA,0.07 mm,9.997,R7,plot2,harvest3,NA,0,9.997,220,7.8
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,8,10.08,NA,NA,0.07 mm,10.08,R8,plot2,harvest4,NA,0,10.08,365,3.19
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,9,9.994,NA,NA,0.07 mm,9.994,R9,plot3,harvest1,NA,0,9.994,30,9.539
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,10,9.999,NA,NA,0.07 mm,9.999,R10,plot3,harvest2,NA,0,9.999,60,8.915
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,11,10.004,NA,NA,0.07 mm,10.004,R11,plot3,harvest3,NA,0,10.004,220,7.38
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,12,10.003,NA,NA,0.07 mm,10.003,R12,plot3,harvest4,NA,0,10.003,365,4.302
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,13,10.007,NA,NA,0.07 mm,10.007,,,,10.009,0,10.007,,NA
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,14,9.998,NA,NA,0.07 mm,9.998,,,,9.998,0,9.998,,NA
+A1,A1FTM1,Medium,Dt,medium,zero,tree,1,15,10,NA,NA,0.07 mm,10,,,,10,0,10,,NA
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,1,NA,10.006,NA,5 mm,10.006,R1,plot1,harvest1,NA,-0.081,9.925,30,7.779
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,2,NA,10,NA,5 mm,10,R2,plot1,harvest2,NA,-0.081,9.919,60,9.503
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,3,NA,10.008,NA,5 mm,10.008,R3,plot1,harvest3,NA,-0.081,9.927,220,7.83
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,4,NA,10.008,NA,5 mm,10.008,R4,plot1,harvest4,NA,-0.081,9.927,365,6.42
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,5,NA,10,NA,5 mm,10,R5,plot2,harvest1,NA,-0.081,9.919,30,9.553
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,6,NA,10.007,NA,5 mm,10.007,R6,plot2,harvest2,NA,-0.081,9.926,60,7.246
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,7,NA,10.007,NA,5 mm,10.007,R7,plot2,harvest3,NA,-0.081,9.926,220,3.549
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,8,NA,9.998,NA,5 mm,9.998,R8,plot2,harvest4,NA,-0.081,9.917,365,7.667
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,9,NA,9.999,NA,5 mm,9.999,R9,plot3,harvest1,NA,-0.081,9.918,30,9.641
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,10,NA,10,NA,5 mm,10,R10,plot3,harvest2,NA,-0.081,9.919,60,9.644
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,11,NA,9.995,NA,5 mm,9.995,R11,plot3,harvest3,NA,-0.081,9.914,220,6.01
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,12,NA,9.998,NA,5 mm,9.998,R12,plot3,harvest4,NA,-0.081,9.917,365,7.022
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,13,NA,10,NA,5 mm,10,,,,9.967,-0.081,9.919,,NA
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,14,NA,10,NA,5 mm,10,,,,9.873,-0.081,9.919,,NA
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,15,NA,10.004,NA,5 mm,10.004,,,,10.409,-0.081,9.923,,NA
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,1,NA,10.003,NA,2 mm,10.003,R1,plot1,harvest1,NA,0.011,10.003,30,9.519
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,2,NA,10.002,NA,2 mm,10.002,R2,plot1,harvest2,NA,0.011,10.002,60,9.574
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,3,NA,10.002,NA,2 mm,10.002,R3,plot1,harvest3,NA,0.011,10.002,220,7.96
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,4,NA,10.001,NA,2 mm,10.001,R4,plot1,harvest4,NA,0.011,10.001,365,7.021
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,5,NA,9.998,NA,2 mm,9.998,R5,plot2,harvest1,NA,0.011,9.998,30,9.531
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,6,NA,9.994,NA,2 mm,9.994,R6,plot2,harvest2,NA,0.011,9.994,60,9.021
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,7,NA,10,NA,2 mm,10,R7,plot2,harvest3,NA,0.011,10,220,5.43
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,8,NA,10.004,NA,2 mm,10.004,R8,plot2,harvest4,NA,0.011,10.004,365,5.749
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,9,NA,9.993,NA,2 mm,9.993,R9,plot3,harvest1,NA,0.011,9.993,30,9.401
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,10,NA,9.998,NA,2 mm,9.998,R10,plot3,harvest2,NA,0.011,9.998,60,9.466
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,11,NA,10,NA,2 mm,10,R11,plot3,harvest3,NA,0.011,10,220,8.36
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,12,NA,10.006,NA,2 mm,10.006,R12,plot3,harvest4,NA,0.011,10.006,365,6.349
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,13,NA,10.003,NA,2 mm,10.003,,,,10.027,0.011,10.003,,NA
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,14,NA,10.001,NA,2 mm,10.001,,,,10.032,0.011,10.001,,NA
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,15,NA,10.004,NA,2 mm,10.004,,,,9.982,0.011,10.004,,NA
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,1,NA,10.001,NA,0.07 mm,10.001,R1,plot1,harvest1,NA,0.017,10.001,30,9.663
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,2,NA,10.003,NA,0.07 mm,10.003,R2,plot1,harvest2,NA,0.017,10.003,60,9.734
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,3,NA,10.004,NA,0.07 mm,10.004,R3,plot1,harvest3,NA,0.017,10.004,220,7.9
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,4,NA,10.001,NA,0.07 mm,10.001,R4,plot1,harvest4,NA,0.017,10.001,365,6.808
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,5,NA,10.005,NA,0.07 mm,10.005,R5,plot2,harvest1,NA,0.017,10.005,30,9.541
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,6,NA,10.004,NA,0.07 mm,10.004,R6,plot2,harvest2,NA,0.017,10.004,60,9.439
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,7,NA,10.001,NA,0.07 mm,10.001,R7,plot2,harvest3,NA,0.017,10.001,220,8.22
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,8,NA,9.998,NA,0.07 mm,9.998,R8,plot2,harvest4,NA,0.017,9.998,365,3.405
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,9,NA,10,NA,0.07 mm,10,R9,plot3,harvest1,NA,0.017,10,30,9.47
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,10,NA,10,NA,0.07 mm,10,R10,plot3,harvest2,NA,0.017,10,60,9.135
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,11,NA,10.007,NA,0.07 mm,10.007,R11,plot3,harvest3,NA,0.017,10.007,220,9.17
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,12,NA,10.007,NA,0.07 mm,10.007,R12,plot3,harvest4,NA,0.017,10.007,365,4.609
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,13,NA,10,NA,0.07 mm,10,,,,10.012,0.017,10,,NA
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,14,NA,10.003,NA,0.07 mm,10.003,,,,10.021,0.017,10.003,,NA
+A1,A1FTM2,Medium,Pt,medium,zero,tree,1,15,NA,10.005,NA,0.07 mm,10.005,,,,10.027,0.017,10.005,,NA
+A1,A1FTL1,Low,Cb,low,zero,tree,1,1,10.001,NA,NA,5 mm,10.001,R1,plot1,harvest1,NA,-0.294,9.707,30,9.443
+A1,A1FTL1,Low,Cb,low,zero,tree,1,2,10,NA,NA,5 mm,10,R2,plot1,harvest2,NA,-0.294,9.706,60,8.964
+A1,A1FTL1,Low,Cb,low,zero,tree,1,3,10.001,NA,NA,5 mm,10.001,R3,plot1,harvest3,NA,-0.294,9.707,220,5.95
+A1,A1FTL1,Low,Cb,low,zero,tree,1,4,10.004,NA,NA,5 mm,10.004,R4,plot1,harvest4,NA,-0.294,9.71,365,3.703
+A1,A1FTL1,Low,Cb,low,zero,tree,1,5,10.002,NA,NA,5 mm,10.002,R5,plot2,harvest1,NA,-0.294,9.708,30,9.211
+A1,A1FTL1,Low,Cb,low,zero,tree,1,6,9.995,NA,NA,5 mm,9.995,R6,plot2,harvest2,NA,-0.294,9.701,60,8.391
+A1,A1FTL1,Low,Cb,low,zero,tree,1,7,9.999,NA,NA,5 mm,9.999,R7,plot2,harvest3,NA,-0.294,9.705,220,7.49
+A1,A1FTL1,Low,Cb,low,zero,tree,1,8,10.003,NA,NA,5 mm,10.003,R8,plot2,harvest4,NA,-0.294,9.709,365,2.97
+A1,A1FTL1,Low,Cb,low,zero,tree,1,9,10,NA,NA,5 mm,10,R9,plot3,harvest1,NA,-0.294,9.706,30,8.598
+A1,A1FTL1,Low,Cb,low,zero,tree,1,10,9.997,NA,NA,5 mm,9.997,R10,plot3,harvest2,NA,-0.294,9.703,60,9.014
+A1,A1FTL1,Low,Cb,low,zero,tree,1,11,9.993,NA,NA,5 mm,9.993,R11,plot3,harvest3,NA,-0.294,9.699,220,6.29
+A1,A1FTL1,Low,Cb,low,zero,tree,1,12,10.006,NA,NA,5 mm,10.006,R12,plot3,harvest4,NA,-0.294,9.712,365,2.34
+A1,A1FTL1,Low,Cb,low,zero,tree,1,13,10.007,NA,NA,5 mm,10.007,,,,9.644,-0.294,9.713,,NA
+A1,A1FTL1,Low,Cb,low,zero,tree,1,14,10.007,NA,NA,5 mm,10.007,,,,9.6,-0.294,9.713,,NA
+A1,A1FTL1,Low,Cb,low,zero,tree,1,15,10.004,NA,NA,5 mm,10.004,,,,9.892,-0.294,9.71,,NA
+A1,A1FTL1,Low,Cb,low,zero,tree,1,1,10.001,NA,NA,2 mm,10.001,R1,plot1,harvest1,NA,-0.083,9.918,30,9.461
+A1,A1FTL1,Low,Cb,low,zero,tree,1,2,10.004,NA,NA,2 mm,10.004,R2,plot1,harvest2,NA,-0.083,9.921,60,9.016
+A1,A1FTL1,Low,Cb,low,zero,tree,1,3,9.995,NA,NA,2 mm,9.995,R3,plot1,harvest3,NA,-0.083,9.912,220,6.23
+A1,A1FTL1,Low,Cb,low,zero,tree,1,4,9.996,NA,NA,2 mm,9.996,R4,plot1,harvest4,NA,-0.083,9.913,365,5.502
+A1,A1FTL1,Low,Cb,low,zero,tree,1,5,9.995,NA,NA,2 mm,9.995,R5,plot2,harvest1,NA,-0.083,9.912,30,9.115
+A1,A1FTL1,Low,Cb,low,zero,tree,1,6,10.004,NA,NA,2 mm,10.004,R6,plot2,harvest2,NA,-0.083,9.921,60,8.685
+A1,A1FTL1,Low,Cb,low,zero,tree,1,7,10,NA,NA,2 mm,10,R7,plot2,harvest3,NA,-0.083,9.917,220,7.8
+A1,A1FTL1,Low,Cb,low,zero,tree,1,8,9.992,NA,NA,2 mm,9.992,R8,plot2,harvest4,NA,-0.083,9.909,365,0.979
+A1,A1FTL1,Low,Cb,low,zero,tree,1,9,9.997,NA,NA,2 mm,9.997,R9,plot3,harvest1,NA,-0.083,9.914,30,9.279
+A1,A1FTL1,Low,Cb,low,zero,tree,1,10,9.999,NA,NA,2 mm,9.999,R10,plot3,harvest2,NA,-0.083,9.916,60,10.509
+A1,A1FTL1,Low,Cb,low,zero,tree,1,11,10.001,NA,NA,2 mm,10.001,R11,plot3,harvest3,NA,-0.083,9.918,220,7.78
+A1,A1FTL1,Low,Cb,low,zero,tree,1,12,9.999,NA,NA,2 mm,9.999,R12,plot3,harvest4,NA,-0.083,9.916,365,4.672
+A1,A1FTL1,Low,Cb,low,zero,tree,1,13,10.003,NA,NA,2 mm,10.003,,,,9.906,-0.083,9.92,,NA
+A1,A1FTL1,Low,Cb,low,zero,tree,1,14,10,NA,NA,2 mm,10,,,,9.897,-0.083,9.917,,NA
+A1,A1FTL1,Low,Cb,low,zero,tree,1,15,10.002,NA,NA,2 mm,10.002,,,,9.953,-0.083,9.919,,NA
+A1,A1FTL1,Low,Cb,low,zero,tree,1,1,9.996,NA,NA,0.07 mm,9.996,R1,plot1,harvest1,NA,-0.081,9.915,30,9.375
+A1,A1FTL1,Low,Cb,low,zero,tree,1,2,9.999,NA,NA,0.07 mm,9.999,R2,plot1,harvest2,NA,-0.081,9.918,60,8.376
+A1,A1FTL1,Low,Cb,low,zero,tree,1,3,9.999,NA,NA,0.07 mm,9.999,R3,plot1,harvest3,NA,-0.081,9.918,220,6.73
+A1,A1FTL1,Low,Cb,low,zero,tree,1,4,9.998,NA,NA,0.07 mm,9.998,R4,plot1,harvest4,NA,-0.081,9.917,365,3.579
+A1,A1FTL1,Low,Cb,low,zero,tree,1,5,9.994,NA,NA,0.07 mm,9.994,R5,plot2,harvest1,NA,-0.081,9.913,30,9.236
+A1,A1FTL1,Low,Cb,low,zero,tree,1,6,10,NA,NA,0.07 mm,10,R6,plot2,harvest2,NA,-0.081,9.919,60,8.417
+A1,A1FTL1,Low,Cb,low,zero,tree,1,7,9.994,NA,NA,0.07 mm,9.994,R7,plot2,harvest3,NA,-0.081,9.913,220,7.071
+A1,A1FTL1,Low,Cb,low,zero,tree,1,8,9.998,NA,NA,0.07 mm,9.998,R8,plot2,harvest4,NA,-0.081,9.917,365,3.165
+A1,A1FTL1,Low,Cb,low,zero,tree,1,9,10,NA,NA,0.07 mm,10,R9,plot3,harvest1,NA,-0.081,9.919,30,9.404
+A1,A1FTL1,Low,Cb,low,zero,tree,1,10,9.995,NA,NA,0.07 mm,9.995,R10,plot3,harvest2,NA,-0.081,9.914,60,9.238
+A1,A1FTL1,Low,Cb,low,zero,tree,1,11,10,NA,NA,0.07 mm,10,R11,plot3,harvest3,NA,-0.081,9.919,220,7.71
+A1,A1FTL1,Low,Cb,low,zero,tree,1,12,9.995,NA,NA,0.07 mm,9.995,R12,plot3,harvest4,NA,-0.081,9.914,365,3.086
+A1,A1FTL1,Low,Cb,low,zero,tree,1,13,9.994,NA,NA,0.07 mm,9.994,,,,9.964,-0.081,9.913,,NA
+A1,A1FTL1,Low,Cb,low,zero,tree,1,14,9.995,NA,NA,0.07 mm,9.995,,,,9.857,-0.081,9.914,,NA
+A1,A1FTL1,Low,Cb,low,zero,tree,1,15,9.996,NA,NA,0.07 mm,9.996,,,,9.921,-0.081,9.915,,NA
+A1,A1FTL2,Low,Ga,low,zero,tree,1,1,NA,10.078,NA,5 mm,10.078,R1,plot1,harvest1,NA,0.046,10.078,30,7.735
+A1,A1FTL2,Low,Ga,low,zero,tree,1,2,NA,10.039,NA,5 mm,10.039,R2,plot1,harvest2,NA,0.046,10.039,60,7.395
+A1,A1FTL2,Low,Ga,low,zero,tree,1,3,NA,10.089,NA,5 mm,10.089,R3,plot1,harvest3,NA,0.046,10.089,220,5.06
+A1,A1FTL2,Low,Ga,low,zero,tree,1,4,NA,10,NA,5 mm,10,R4,plot1,harvest4,NA,0.046,10,365,4.244
+A1,A1FTL2,Low,Ga,low,zero,tree,1,5,NA,10.003,NA,5 mm,10.003,R5,plot2,harvest1,NA,0.046,10.003,30,7.841
+A1,A1FTL2,Low,Ga,low,zero,tree,1,6,NA,10.035,NA,5 mm,10.035,R6,plot2,harvest2,NA,0.046,10.035,60,6.895
+A1,A1FTL2,Low,Ga,low,zero,tree,1,7,NA,10.02,NA,5 mm,10.02,R7,plot2,harvest3,NA,0.046,10.02,220,3.027
+A1,A1FTL2,Low,Ga,low,zero,tree,1,8,NA,10.043,NA,5 mm,10.043,R8,plot2,harvest4,NA,0.046,10.043,365,3.276
+A1,A1FTL2,Low,Ga,low,zero,tree,1,9,NA,10.021,NA,5 mm,10.021,R9,plot3,harvest1,NA,0.046,10.021,30,7.185
+A1,A1FTL2,Low,Ga,low,zero,tree,1,10,NA,10.03,NA,5 mm,10.03,R10,plot3,harvest2,NA,0.046,10.03,60,1.911
+A1,A1FTL2,Low,Ga,low,zero,tree,1,11,NA,10.025,NA,5 mm,10.025,R11,plot3,harvest3,NA,0.046,10.025,220,6.75
+A1,A1FTL2,Low,Ga,low,zero,tree,1,12,NA,10.059,NA,5 mm,10.059,R12,plot3,harvest4,NA,0.046,10.059,365,0.541
+A1,A1FTL2,Low,Ga,low,zero,tree,1,13,NA,10.086,NA,5 mm,10.086,,,,10.09,0.046,10.086,,NA
+A1,A1FTL2,Low,Ga,low,zero,tree,1,14,NA,10.075,NA,5 mm,10.075,,,,10.16,0.046,10.075,,NA
+A1,A1FTL2,Low,Ga,low,zero,tree,1,15,NA,10.052,NA,5 mm,10.052,,,,10.1,0.046,10.052,,NA
+A1,A1FTL2,Low,Ga,low,zero,tree,1,1,NA,10.04,NA,2 mm,10.04,R1,plot1,harvest1,NA,-0.581,9.459,30,7.978
+A1,A1FTL2,Low,Ga,low,zero,tree,1,2,NA,10,NA,2 mm,10,R2,plot1,harvest2,NA,-0.581,9.419,60,7.249
+A1,A1FTL2,Low,Ga,low,zero,tree,1,3,NA,10,NA,2 mm,10,R3,plot1,harvest3,NA,-0.581,9.419,220,4.89
+A1,A1FTL2,Low,Ga,low,zero,tree,1,4,NA,10.047,NA,2 mm,10.047,R4,plot1,harvest4,NA,-0.581,9.466,365,3.867
+A1,A1FTL2,Low,Ga,low,zero,tree,1,5,NA,10.033,NA,2 mm,10.033,R5,plot2,harvest1,NA,-0.581,9.452,30,7.87
+A1,A1FTL2,Low,Ga,low,zero,tree,1,6,NA,10.074,NA,2 mm,10.074,R6,plot2,harvest2,NA,-0.581,9.493,60,7.211
+A1,A1FTL2,Low,Ga,low,zero,tree,1,7,NA,10.077,NA,2 mm,10.077,R7,plot2,harvest3,NA,-0.581,9.496,220,5.77
+A1,A1FTL2,Low,Ga,low,zero,tree,1,8,NA,10.08,NA,2 mm,10.08,R8,plot2,harvest4,NA,-0.581,9.499,365,0.127
+A1,A1FTL2,Low,Ga,low,zero,tree,1,9,NA,10.016,NA,2 mm,10.016,R9,plot3,harvest1,NA,-0.581,9.435,30,7.635
+A1,A1FTL2,Low,Ga,low,zero,tree,1,10,NA,10.02,NA,2 mm,10.02,R10,plot3,harvest2,NA,-0.581,9.439,60,7.478
+A1,A1FTL2,Low,Ga,low,zero,tree,1,11,NA,10.063,NA,2 mm,10.063,R11,plot3,harvest3,NA,-0.581,9.482,220,7.4
+A1,A1FTL2,Low,Ga,low,zero,tree,1,12,NA,10.076,NA,2 mm,10.076,R12,plot3,harvest4,NA,-0.581,9.495,365,2.346
+A1,A1FTL2,Low,Ga,low,zero,tree,1,13,NA,10.081,NA,2 mm,10.081,,,,9.52,-0.581,9.5,,NA
+A1,A1FTL2,Low,Ga,low,zero,tree,1,14,NA,10.081,NA,2 mm,10.081,,,,9.51,-0.581,9.5,,NA
+A1,A1FTL2,Low,Ga,low,zero,tree,1,15,NA,9.992,NA,2 mm,9.992,,,,9.38,-0.581,9.411,,NA
+A1,A1FTL2,Low,Ga,low,zero,tree,1,1,NA,10.008,NA,0.07 mm,10.008,R1,plot1,harvest1,NA,-0.198,9.81,30,8.186
+A1,A1FTL2,Low,Ga,low,zero,tree,1,2,NA,10.08,NA,0.07 mm,10.08,R2,plot1,harvest2,NA,-0.198,9.882,60,8.02
+A1,A1FTL2,Low,Ga,low,zero,tree,1,3,NA,10.44,NA,0.07 mm,10.44,R3,plot1,harvest3,NA,-0.198,10.242,220,5.78
+A1,A1FTL2,Low,Ga,low,zero,tree,1,4,NA,10.073,NA,0.07 mm,10.073,R4,plot1,harvest4,NA,-0.198,9.875,365,3.239
+A1,A1FTL2,Low,Ga,low,zero,tree,1,5,NA,9.998,NA,0.07 mm,9.998,R5,plot2,harvest1,NA,-0.198,9.8,30,7.755
+A1,A1FTL2,Low,Ga,low,zero,tree,1,6,NA,10.045,NA,0.07 mm,10.045,R6,plot2,harvest2,NA,-0.198,9.847,60,7.014
+A1,A1FTL2,Low,Ga,low,zero,tree,1,7,NA,10.06,NA,0.07 mm,10.06,R7,plot2,harvest3,NA,-0.198,9.862,220,6.74
+A1,A1FTL2,Low,Ga,low,zero,tree,1,8,NA,10.008,NA,0.07 mm,10.008,R8,plot2,harvest4,NA,-0.198,9.81,365,1.924
+A1,A1FTL2,Low,Ga,low,zero,tree,1,9,NA,10.055,NA,0.07 mm,10.055,R9,plot3,harvest1,NA,-0.198,9.857,30,7.812
+A1,A1FTL2,Low,Ga,low,zero,tree,1,10,NA,10.014,NA,0.07 mm,10.014,R10,plot3,harvest2,NA,-0.198,9.816,60,7.616
+A1,A1FTL2,Low,Ga,low,zero,tree,1,11,NA,10.05,NA,0.07 mm,10.05,R11,plot3,harvest3,NA,-0.198,9.852,220,6.19
+A1,A1FTL2,Low,Ga,low,zero,tree,1,12,NA,10.056,NA,0.07 mm,10.056,R12,plot3,harvest4,NA,-0.198,9.858,365,2.424
+A1,A1FTL2,Low,Ga,low,zero,tree,1,13,NA,10.021,NA,0.07 mm,10.021,,,,9.71,-0.198,9.823,,NA
+A1,A1FTL2,Low,Ga,low,zero,tree,1,14,NA,10.022,NA,0.07 mm,10.022,,,,9.68,-0.198,9.824,,NA
+A1,A1FTL2,Low,Ga,low,zero,tree,1,15,NA,10.02,NA,0.07 mm,10.02,,,,10.08,-0.198,9.822,,NA
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,1,5.013,5.092,NA,5 mm,10.105,R1,plot1,harvest1,NA,-0.079,10.026,30,9.069
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,2,5.009,5.025,NA,5 mm,10.034,R2,plot1,harvest2,NA,-0.079,9.955,60,8.396
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,3,5.05,5.072,NA,5 mm,10.122,R3,plot1,harvest3,NA,-0.079,10.043,220,6.75
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,4,5,4.993,NA,5 mm,9.993,R4,plot1,harvest4,NA,-0.079,9.914,365,1.561
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,5,4.998,5.031,NA,5 mm,10.029,R5,plot2,harvest1,NA,-0.079,9.95,30,8.085
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,6,4.997,5.058,NA,5 mm,10.055,R6,plot2,harvest2,NA,-0.079,9.976,60,7.931
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,7,5.015,5.06,NA,5 mm,10.075,R7,plot2,harvest3,NA,-0.079,9.996,220,7.7
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,8,5.055,5.074,NA,5 mm,10.129,R8,plot2,harvest4,NA,-0.079,10.05,365,1.245
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,9,5,5,NA,5 mm,10,R9,plot3,harvest1,NA,-0.079,9.921,30,7.52
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,10,5.009,5.033,NA,5 mm,10.042,R10,plot3,harvest2,NA,-0.079,9.963,60,6.9
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,11,5.011,5.056,NA,5 mm,10.067,R11,plot3,harvest3,NA,-0.079,9.988,220,4.2
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,12,5.023,5.009,NA,5 mm,10.032,R12,plot3,harvest4,NA,-0.079,9.953,365,3.764
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,13,5.07,5.058,NA,5 mm,10.128,,,,10.033,-0.079,10.049,,NA
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,14,4.993,5.039,NA,5 mm,10.032,,,,10.076,-0.079,9.953,,NA
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,15,5.022,5.024,NA,5 mm,10.046,,,,9.86,-0.079,9.967,,NA
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,1,5.05,5.037,NA,2 mm,10.087,R1,plot1,harvest1,NA,-0.532,9.555,30,8.704
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,2,5.051,5.058,NA,2 mm,10.109,R2,plot1,harvest2,NA,-0.532,9.577,60,7.685
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,3,5.03,5.056,NA,2 mm,10.086,R3,plot1,harvest3,NA,-0.532,9.554,220,6.52
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,4,5,5.012,NA,2 mm,10.012,R4,plot1,harvest4,NA,-0.532,9.48,365,4.812
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,5,5.063,5.064,NA,2 mm,10.127,R5,plot2,harvest1,NA,-0.532,9.595,30,8.609
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,6,5.044,5.074,NA,2 mm,10.118,R6,plot2,harvest2,NA,-0.532,9.586,60,8.435
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,7,5.057,5.023,NA,2 mm,10.08,R7,plot2,harvest3,NA,-0.532,9.548,220,7.2
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,8,5.017,5.067,NA,2 mm,10.084,R8,plot2,harvest4,NA,-0.532,9.552,365,6.981
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,9,5.053,5.035,NA,2 mm,10.088,R9,plot3,harvest1,NA,-0.532,9.556,30,8.626
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,10,5.061,5,NA,2 mm,10.061,R10,plot3,harvest2,NA,-0.532,9.529,60,7.799
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,11,4.998,5.088,NA,2 mm,10.086,R11,plot3,harvest3,NA,-0.532,9.554,220,7.18
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,12,5.036,5.033,NA,2 mm,10.069,R12,plot3,harvest4,NA,-0.532,9.537,365,4.621
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,13,5.021,5.099,NA,2 mm,10.12,,,,9.746,-0.532,9.588,,NA
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,14,5.019,5.001,NA,2 mm,10.02,,,,8.816,-0.532,9.488,,NA
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,15,5.022,5.088,NA,2 mm,10.11,,,,10.092,-0.532,9.578,,NA
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,1,5.015,5.08,NA,0.07 mm,10.095,R1,plot1,harvest1,NA,0.005,10.095,30,8.844
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,2,5,5.073,NA,0.07 mm,10.073,R2,plot1,harvest2,NA,0.005,10.073,60,7.792
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,3,5.036,5.026,NA,0.07 mm,10.062,R3,plot1,harvest3,NA,0.005,10.062,220,4.76
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,4,4.999,5.074,NA,0.07 mm,10.073,R4,plot1,harvest4,NA,0.005,10.073,365,NA
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,5,5,5.014,NA,0.07 mm,10.014,R5,plot2,harvest1,NA,0.005,10.014,30,9.561
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,6,5.012,4.992,NA,0.07 mm,10.004,R6,plot2,harvest2,NA,0.005,10.004,60,6.936
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,7,5.006,5.007,NA,0.07 mm,10.013,R7,plot2,harvest3,NA,0.005,10.013,220,6.21
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,8,5.03,5.088,NA,0.07 mm,10.118,R8,plot2,harvest4,NA,0.005,10.118,365,5.89
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,9,5.073,5.021,NA,0.07 mm,10.094,R9,plot3,harvest1,NA,0.005,10.094,30,8.221
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,10,5.05,5.061,NA,0.07 mm,10.111,R10,plot3,harvest2,NA,0.005,10.111,60,7.753
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,11,4.996,5.082,NA,0.07 mm,10.078,R11,plot3,harvest3,NA,0.005,10.078,220,6.84
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,12,5.038,4.999,NA,0.07 mm,10.037,R12,plot3,harvest4,NA,0.005,10.037,365,
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,13,5.01,5.051,NA,0.07 mm,10.061,,,,10.04,0.005,,,
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,14,5.046,5.049,NA,0.07 mm,10.095,,,,10.11,0.005,,,
+A1,A1FT(H),High,"Ml,At",high_N0,N_0,tree mixture,2,15,5.042,5.082,NA,0.07 mm,10.124,,,,10.146,0.005,,,
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,1,4.076,4.016,20.04,5 mm,28.132,R1,plot1,harvest1,NA,-3.296,24.836,30,6.059
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,2,4.012,4.002,20.08,5 mm,28.094,R2,plot1,harvest2,NA,-3.296,24.798,60,4.914
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,3,4.02,4.013,20.001,5 mm,28.034,R3,plot1,harvest3,NA,-3.296,24.738,220,2.87
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,4,4.045,4.071,20.04,5 mm,28.156,R4,plot1,harvest4,NA,-3.296,24.86,365,1.023
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,5,4.008,4.013,20.05,5 mm,28.071,R5,plot2,harvest1,NA,-3.296,24.775,30,5.802
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,6,4.04,4.07,20.01,5 mm,28.12,R6,plot2,harvest2,NA,-3.296,24.824,60,4.288
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,7,4.083,4.04,20.074,5 mm,28.197,R7,plot2,harvest3,NA,-3.296,24.901,220,4.01
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,8,4.02,4.008,20.058,5 mm,28.086,R8,plot2,harvest4,NA,-3.296,24.79,365,2.342
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,9,4.01,4.03,20.006,5 mm,28.046,R9,plot3,harvest1,NA,-3.296,24.75,30,4.257
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,10,4,4,20,5 mm,28,R10,plot3,harvest2,NA,-3.296,24.704,60,1.751
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,11,4.04,4.07,19.93,5 mm,28.04,R11,plot3,harvest3,NA,-3.296,24.744,220,1.65
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,12,4.09,4.07,20.02,5 mm,28.18,R12,plot3,harvest4,NA,-3.296,24.884,365,3.665
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,13,4.05,4.064,20.08,5 mm,28.194,,,,25.104,,28.194,,
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,14,4.04,4.065,20.09,5 mm,28.195,,,,24.961,,28.195,,
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,15,4.033,3.999,20.089,5 mm,28.121,,,,24.557,,28.121,,
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,1,4.06,4.064,20.005,2 mm,28.129,R1,plot1,harvest1,NA,-3.791,24.338,30,6.223
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,2,4.04,4.041,20.073,2 mm,28.154,R2,plot1,harvest2,NA,-3.791,24.363,60,5.273
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,3,4,4,20.07,2 mm,28.07,R3,plot1,harvest3,NA,-3.791,24.279,220,5.07
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,4,4.02,3.994,20.06,2 mm,28.074,R4,plot1,harvest4,NA,-3.791,24.283,365,4.498
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,5,4.013,4.043,20.02,2 mm,28.076,R5,plot2,harvest1,NA,-3.791,24.285,30,6.216
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,6,4.03,4.044,20.03,2 mm,28.104,R6,plot2,harvest2,NA,-3.791,24.313,60,5.648
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,7,4,4,20.02,2 mm,28.02,R7,plot2,harvest3,NA,-3.791,24.229,220,5.55
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,8,4.03,4.02,20.05,2 mm,28.1,R8,plot2,harvest4,NA,-3.791,24.309,365,4.144
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,9,4.02,4.062,20.045,2 mm,28.127,R9,plot3,harvest1,NA,-3.791,24.336,30,5.868
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,10,4.062,4.013,20.05,2 mm,28.125,R10,plot3,harvest2,NA,-3.791,24.334,60,5.883
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,11,4.01,4.01,20.021,2 mm,28.041,R11,plot3,harvest3,NA,-3.791,24.25,220,4.64
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,12,4.03,4.05,20.093,2 mm,28.173,R12,plot3,harvest4,NA,-3.791,24.382,365,3.136
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,13,4.056,4.055,20.04,2 mm,28.151,,,,26,,28.151,,NA
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,14,4.013,4.05,20.038,2 mm,28.101,,,,22.096,,28.101,,NA
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,15,4.03,4.064,20.012,2 mm,28.106,,,,24.889,,28.106,,NA
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,1,4.02,4.04,20.002,0.07 mm,28.062,R1,plot1,harvest1,NA,-3.132,24.93,30,6.41
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,2,4.023,4.089,20.008,0.07 mm,28.12,R2,plot1,harvest2,NA,-3.132,24.988,60,6.487
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,3,4.06,4,20.093,0.07 mm,28.153,R3,plot1,harvest3,NA,-3.132,25.021,220,4.94
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,4,4.02,4.064,20.076,0.07 mm,28.16,R4,plot1,harvest4,NA,-3.132,25.028,365,3.136
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,5,4.026,4.082,20.077,0.07 mm,28.185,R5,plot2,harvest1,NA,-3.132,25.053,30,6.369
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,6,4.04,4.05,20.085,0.07 mm,28.175,R6,plot2,harvest2,NA,-3.132,25.043,60,5.099
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,7,4,4.052,20.088,0.07 mm,28.14,R7,plot2,harvest3,NA,-3.132,25.008,220,4.54
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,8,4.08,4.03,20.02,0.07 mm,28.13,R8,plot2,harvest4,NA,-3.132,24.998,365,3.033
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,9,4.05,4.02,20.04,0.07 mm,28.11,R9,plot3,harvest1,NA,-3.132,24.978,30,6.141
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,10,4,4,20,0.07 mm,28,R10,plot3,harvest2,NA,-3.132,24.868,60,6.792
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,11,4.02,4,20.07,0.07 mm,28.09,R11,plot3,harvest3,NA,-3.132,24.958,220,4.91
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,12,4.056,4.058,20.063,0.07 mm,28.177,R12,plot3,harvest4,NA,-3.132,25.045,365,3.084
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,13,4.04,4.07,20.08,0.07 mm,28.19,,,,25.695,,28.19,,NA
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,14,4.09,4.07,20,0.07 mm,28.16,,,,25.047,,28.16,,NA
+A2,A2HH,High,"Ml,At",high_N20,N_20,tree mixture,2,15,4.09,4.058,20.044,0.07 mm,28.192,,,,24.405,,28.192,,NA
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,1,4.02,4.002,4.99,5 mm,13.012,R1,plot1,harvest1,NA,-0.533,12.479,30,6.568
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,2,4.04,4.07,5.04,5 mm,13.15,R2,plot1,harvest2,NA,-0.533,12.617,60,0.919
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,3,4.03,4.03,5,5 mm,13.06,R3,plot1,harvest3,NA,-0.533,12.527,220,1.65
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,4,4,4.07,5.03,5 mm,13.1,R4,plot1,harvest4,NA,-0.533,12.567,365,1.582
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,5,4.06,4.04,5.012,5 mm,13.112,R5,plot2,harvest1,NA,-0.533,12.579,30,6.08
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,6,4.024,4,5.05,5 mm,13.074,R6,plot2,harvest2,NA,-0.533,12.541,60,2.379
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,7,4.03,4,5.02,5 mm,13.05,R7,plot2,harvest3,NA,-0.533,12.517,220,0.72
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,8,4,4.02,5,5 mm,13.02,R8,plot2,harvest4,NA,-0.533,12.487,365,1.654
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,9,4.005,4.026,5.66,5 mm,13.691,R9,plot3,harvest1,NA,-0.533,13.158,30,6.898
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,10,4.09,4.07,5.018,5 mm,13.178,R10,plot3,harvest2,NA,-0.533,12.645,60,0.456
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,11,4.004,4.07,5.046,5 mm,13.12,R11,plot3,harvest3,NA,-0.533,12.587,220,1.86
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,12,4.022,4.08,5.03,5 mm,13.132,R12,plot3,harvest4,NA,-0.533,12.599,365,0
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,13,4.06,4,5.01,5 mm,13.07,,,,12.716,,13.07,,NA
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,14,4.03,4.02,5.05,5 mm,13.1,,,,12.134,,13.1,,NA
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,15,4.04,4.09,5,5 mm,13.13,,,,12.85,,13.13,,NA
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,1,4,4.032,5.058,2 mm,13.09,R1,plot1,harvest1,NA,-0.434,12.656,30,6.85
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,2,4.092,4.085,5.048,2 mm,13.225,R2,plot1,harvest2,NA,-0.434,12.791,60,5.703
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,3,4.051,4,5,2 mm,13.051,R3,plot1,harvest3,NA,-0.434,12.617,220,4.17
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,4,4.055,4.03,5.081,2 mm,13.166,R4,plot1,harvest4,NA,-0.434,12.732,365,2.01
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,5,4.06,4.063,5.045,2 mm,13.168,R5,plot2,harvest1,NA,-0.434,12.734,30,6.742
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,6,4.06,4.076,5.028,2 mm,13.164,R6,plot2,harvest2,NA,-0.434,12.73,60,7.22
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,7,4.022,4.03,5.03,2 mm,13.082,R7,plot2,harvest3,NA,-0.434,12.648,220,4.35
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,8,4,4.026,5.07,2 mm,13.096,R8,plot2,harvest4,NA,-0.434,12.662,365,1.653
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,9,3.999,4.09,5.045,2 mm,13.134,R9,plot3,harvest1,NA,-0.434,12.7,30,7.495
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,10,4.038,4.02,5.02,2 mm,13.078,R10,plot3,harvest2,NA,-0.434,12.644,60,5.968
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,11,4.083,4.041,5.023,2 mm,13.147,R11,plot3,harvest3,NA,-0.434,12.713,220,5.44
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,12,4,4.025,5.063,2 mm,13.088,R12,plot3,harvest4,NA,-0.434,12.654,365,1.296
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,13,4.04,4.096,5.045,2 mm,13.181,,,,12.313,-0.434,12.747,,NA
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,14,4.019,4.083,5.077,2 mm,13.179,,,,13.041,-0.434,12.745,,NA
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,15,4.04,4.035,5.03,2 mm,13.105,,,,12.808,-0.434,12.671,,NA
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,1,4.013,4.006,5.012,0.07 mm,13.031,R1,plot1,harvest1,NA,-0.666,12.365,30,6.585
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,2,4.05,4.068,5.029,0.07 mm,13.147,R2,plot1,harvest2,NA,-0.666,12.481,60,6.644
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,3,4.073,4.059,5.004,0.07 mm,13.136,R3,plot1,harvest3,NA,-0.666,12.47,220,4.84
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,4,4.059,4.003,5.04,0.07 mm,13.102,R4,plot1,harvest4,NA,-0.666,12.436,365,2.084
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,5,4.047,4.044,5.02,0.07 mm,13.111,R5,plot2,harvest1,NA,-0.666,12.445,30,6.458
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,6,4,4,5.03,0.07 mm,13.03,R6,plot2,harvest2,NA,-0.666,12.364,60,5.842
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,7,4.004,4.065,5.066,0.07 mm,13.135,R7,plot2,harvest3,NA,-0.666,12.469,220,6
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,8,4.064,4.001,5.037,0.07 mm,13.102,R8,plot2,harvest4,NA,-0.666,12.436,365,2.641
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,9,4.05,4.02,5.049,0.07 mm,13.119,R9,plot3,harvest1,NA,-0.666,12.453,30,7.346
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,10,3.999,4.056,5.008,0.07 mm,13.063,R10,plot3,harvest2,NA,-0.666,12.397,60,7.086
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,11,4.007,4.01,4.996,0.07 mm,13.013,R11,plot3,harvest3,NA,-0.666,12.347,220,5.55
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,12,4.015,4.094,5.089,0.07 mm,13.198,R12,plot3,harvest4,NA,-0.666,12.532,365,4.055
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,13,4.03,4.078,5.022,0.07 mm,13.13,,,,13.139,-0.666,12.464,,NA
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,14,4.034,4.036,5.08,0.07 mm,13.15,,,,13.023,-0.666,12.484,,NA
+A2,A2HL   ,High,"Ml,At",high_N5,N_5,tree mixture,2,15,3.993,4,5.078,0.07 mm,13.071,,,,11.191,-0.666,12.405,,NA
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,1,4.996,4.995,NA,5 mm,9.991,R1,plot1,harvest1,NA,-0.025,9.966,30,9.584
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,2,5.005,5.002,NA,5 mm,10.007,R2,plot1,harvest2,NA,-0.025,9.982,60,9.571
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,3,5.001,5.001,NA,5 mm,10.002,R3,plot1,harvest3,NA,-0.025,9.977,220,3.44
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,4,5.005,5.001,NA,5 mm,10.006,R4,plot1,harvest4,NA,-0.025,9.981,365,2.889
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,5,5.001,5.003,NA,5 mm,10.004,R5,plot2,harvest1,NA,-0.025,9.979,30,9.502
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,6,5.003,5.005,NA,5 mm,10.008,R6,plot2,harvest2,NA,-0.025,9.983,60,8.367
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,7,5,5,NA,5 mm,10,R7,plot2,harvest3,NA,-0.025,9.975,220,3.35
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,8,5,5.002,NA,5 mm,10.002,R8,plot2,harvest4,NA,-0.025,9.977,365,3.011
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,9,5,5,NA,5 mm,10,R9,plot3,harvest1,NA,-0.025,9.975,30,9.905
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,10,5,5,NA,5 mm,10,R10,plot3,harvest2,NA,-0.025,9.975,60,6.74
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,11,4.997,5.005,NA,5 mm,10.002,R11,plot3,harvest3,NA,-0.025,9.977,220,8.55
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,12,5,5,NA,5 mm,10,R12,plot3,harvest4,NA,-0.025,9.975,365,5.224
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,13,5,5,NA,5 mm,10,,,,10.02,-0.025,9.975,,NA
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,14,5.003,5.001,NA,5 mm,10.004,,,,9.95,-0.025,9.979,,NA
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,15,5.003,4.998,NA,5 mm,10.001,,,,9.96,-0.025,9.976,,NA
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,1,4.999,5.005,NA,2 mm,10.004,R1,plot1,harvest1,NA,0.104,10.004,30,9.617
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,2,4.997,5.005,NA,2 mm,10.002,R2,plot1,harvest2,NA,0.105,10.002,60,9.397
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,3,5,5.004,NA,2 mm,10.004,R3,plot1,harvest3,NA,0.105,10.004,220,6.5
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,4,4.998,4.999,NA,2 mm,9.997,R4,plot1,harvest4,NA,0.105,9.997,365,6.294
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,5,5.003,5.004,NA,2 mm,10.007,R5,plot2,harvest1,NA,0.105,10.007,30,9.436
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,6,5.003,5,NA,2 mm,10.003,R6,plot2,harvest2,NA,0.105,10.003,60,8.854
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,7,4.998,5.005,NA,2 mm,10.003,R7,plot2,harvest3,NA,0.105,10.003,220,7.234
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,8,4.999,5.002,NA,2 mm,10.001,R8,plot2,harvest4,NA,0.105,10.001,365,4.071
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,9,5.003,5.002,NA,2 mm,10.005,R9,plot3,harvest1,NA,0.105,10.005,30,9.416
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,10,5.005,5.002,NA,2 mm,10.007,R10,plot3,harvest2,NA,0.105,10.007,60,9.977
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,11,4.995,5,NA,2 mm,9.995,R11,plot3,harvest3,NA,0.105,9.995,220,8.17
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,12,5.003,4.998,NA,2 mm,10.001,R12,plot3,harvest4,NA,0.105,10.001,365,6.008
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,13,5,4.998,NA,2 mm,9.998,,,,10.05,0.105,9.998,,NA
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,14,5.002,4.996,NA,2 mm,9.998,,,,10.13,0.105,9.998,,NA
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,15,5,5,NA,2 mm,10,,,,10.13,0.105,10,,NA
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,1,5,4.999,NA,0.07 mm,9.999,R1,plot1,harvest1,NA,0.017,9.999,30,9.643
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,2,5.004,5,NA,0.07 mm,10.004,R2,plot1,harvest2,NA,0.017,10.004,60,9.634
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,3,5.005,5.005,NA,0.07 mm,10.01,R3,plot1,harvest3,NA,0.017,10.01,220,7.79
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,4,5,5.002,NA,0.07 mm,10.002,R4,plot1,harvest4,NA,0.017,10.002,365,6.154
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,5,5,5,NA,0.07 mm,10,R5,plot2,harvest1,NA,0.017,10,30,9.427
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,6,5,4.995,NA,0.07 mm,9.995,R6,plot2,harvest2,NA,0.017,9.995,60,9.368
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,7,5.004,5.005,NA,0.07 mm,10.009,R7,plot2,harvest3,NA,0.017,10.009,220,8.51
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,8,4.999,5.005,NA,0.07 mm,10.004,R8,plot2,harvest4,NA,0.017,10.004,365,6.667
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,9,5.005,4.996,NA,0.07 mm,10.001,R9,plot3,harvest1,NA,0.017,10.001,30,9.744
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,10,5,5.005,NA,0.07 mm,10.005,R10,plot3,harvest2,NA,0.017,10.005,60,9.113
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,11,5.001,4.997,NA,0.07 mm,9.998,R11,plot3,harvest3,NA,0.017,9.998,220,8.02
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,12,5,5,NA,0.07 mm,10,R12,plot3,harvest4,NA,0.017,10,365,6.554
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,13,5,5,NA,0.07 mm,10,,,,10.021,0.017,10,,NA
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,14,5,5,NA,0.07 mm,10,,,,10.014,0.017,10,,NA
+A1,A1FT(M),Medium,"Dt,Pt",medium_N0,N_0,tree mixture,2,15,4.999,4.999,NA,0.07 mm,9.998,,,,10.015,0.017,9.998,,NA
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,1,3.99,4.02,20.01,5 mm,28.02,R1,plot1,harvest1,NA,-2.85,25.17,30,7.048
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,2,4.05,4.05,20.02,5 mm,28.12,R2,plot1,harvest2,NA,-2.85,25.27,60,5.36
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,3,4.04,4.03,20,5 mm,28.07,R3,plot1,harvest3,NA,-2.85,25.22,220,1.97
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,4,3.998,3.996,19.99,5 mm,27.984,R4,plot1,harvest4,NA,-2.85,25.134,365,4.301
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,5,4.09,4,20.07,5 mm,28.16,R5,plot2,harvest1,NA,-2.85,25.31,30,6.062
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,6,3.96,4.04,20.002,5 mm,28.002,R6,plot2,harvest2,NA,-2.85,25.152,60,1.019
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,7,3.96,4.07,20.008,5 mm,28.038,R7,plot2,harvest3,NA,-2.85,25.188,220,3.26
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,8,3.95,3.99,20.006,5 mm,27.946,R8,plot2,harvest4,NA,-2.85,25.096,365,0
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,9,4.02,4,20.06,5 mm,28.08,R9,plot3,harvest1,NA,-2.85,25.23,30,6.762
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,10,4.06,4.05,20.05,5 mm,28.16,R10,plot3,harvest2,NA,-2.85,25.31,60,2.075
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,11,4.04,4.09,19.96,5 mm,28.09,R11,plot3,harvest3,NA,-2.85,25.24,220,1.501
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,12,4.08,4.02,20.09,5 mm,28.19,R12,plot3,harvest4,NA,-2.85,25.34,365,2.41
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,13,4.04,4.09,20.06,5 mm,28.19,,,,25.205,-2.85,25.34,,NA
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,14,4,4,20.01,5 mm,28.01,,,,25.929,-2.85,25.16,,NA
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,15,4,4,20,5 mm,28,,,,24.516,-2.85,25.15,,NA
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,1,4.04,4.05,20.03,2 mm,28.12,R1,plot1,harvest1,NA,-2.82,25.3,30,6.506
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,2,4,4.01,20,2 mm,28.01,R2,plot1,harvest2,NA,-2.82,25.19,60,6.617
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,3,3.995,3.995,19.997,2 mm,27.987,R3,plot1,harvest3,NA,-2.82,25.167,220,5.71
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,4,4.09,4.03,20.07,2 mm,28.19,R4,plot1,harvest4,NA,-2.82,25.37,365,4.824
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,5,4.01,4.02,19.99,2 mm,28.02,R5,plot2,harvest1,NA,-2.82,25.2,30,6.828
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,6,4.007,4,20,2 mm,28.007,R6,plot2,harvest2,NA,-2.82,25.187,60,6.143
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,7,4.005,4.006,20.09,2 mm,28.101,R7,plot2,harvest3,NA,-2.82,25.281,220,6.2
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,8,4.07,4.01,20.03,2 mm,28.11,R8,plot2,harvest4,NA,-2.82,25.29,365,4.239
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,9,4,4,20.04,2 mm,28.04,R9,plot3,harvest1,NA,-2.82,25.22,30,6.381
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,10,4.05,3.97,20.006,2 mm,28.026,R10,plot3,harvest2,NA,-2.82,25.206,60,6.882
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,11,4.06,4.09,20.02,2 mm,28.17,R11,plot3,harvest3,NA,-2.82,25.35,220,5.22
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,12,4.06,4.02,20,2 mm,28.08,R12,plot3,harvest4,NA,-2.82,25.26,365,4.95
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,13,4,4,20.01,2 mm,28.01,,,,25.522,-2.82,25.19,,NA
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,14,4.07,3.99,20.01,2 mm,28.07,,,,24.533,-2.82,25.25,,NA
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,15,4.021,4.04,20.01,2 mm,28.071,,,,25.635,-2.82,25.251,,NA
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,1,4.005,4.005,19.997,0.07 mm,28.007,R1,plot1,harvest1,NA,-2.834,25.173,30,7.307
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,2,4.005,4.07,20.005,0.07 mm,28.08,R2,plot1,harvest2,NA,-2.834,25.246,60,7.828
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,3,4,4.02,20.006,0.07 mm,28.026,R3,plot1,harvest3,NA,-2.834,25.192,220,5.56
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,4,4,4.01,19.99,0.07 mm,28,R4,plot1,harvest4,NA,-2.834,25.166,365,6.542
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,5,4,3.99,20.001,0.07 mm,27.991,R5,plot2,harvest1,NA,-2.834,25.157,30,7.439
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,6,4.03,4.03,20.06,0.07 mm,28.12,R6,plot2,harvest2,NA,-2.834,25.286,60,5.845
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,7,4,4,20.002,0.07 mm,28.002,R7,plot2,harvest3,NA,-2.834,25.168,220,5.63
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,8,4,4.01,20.003,0.07 mm,28.013,R8,plot2,harvest4,NA,-2.834,25.179,365,2.432
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,9,4.01,4.03,20.001,0.07 mm,28.041,R9,plot3,harvest1,NA,-2.834,25.207,30,6.683
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,10,4,4,20,0.07 mm,28,R10,plot3,harvest2,NA,-2.834,25.166,60,6.425
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,11,4,4,19.99,0.07 mm,27.99,R11,plot3,harvest3,NA,-2.834,25.156,220,5.48
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,12,4,4.03,20.01,0.07 mm,28.04,R12,plot3,harvest4,NA,-2.834,25.206,365,0
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,13,4.03,4.04,20.04,0.07 mm,28.11,,,,25.09,-2.834,25.276,,NA
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,14,4.02,4.07,19.99,0.07 mm,28.08,,,,25.451,-2.834,25.246,,NA
+A2,A2MH,Medium,"Dt,Pt",medium_N20,N_20,tree mixture,2,15,3.994,4.02,20.001,0.07 mm,28.015,,,,25.161,-2.834,25.181,,NA
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,1,3.996,4.025,5.006,5 mm,13.027,R1,plot1,harvest1,NA,-0.793,12.234,30,6.784
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,2,4.04,4.046,5,5 mm,13.086,R2,plot1,harvest2,NA,-0.793,12.293,60,5.535
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,3,4.032,4,5,5 mm,13.032,R3,plot1,harvest3,NA,-0.793,12.239,220,3.76
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,4,4.02,4.022,4.993,5 mm,13.035,R4,plot1,harvest4,NA,-0.793,12.242,365,5.034
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,5,4,4,4.99,5 mm,12.99,R5,plot2,harvest1,NA,-0.793,12.197,30,6.969
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,6,4.008,3.993,5,5 mm,13.001,R6,plot2,harvest2,NA,-0.793,12.208,60,5.745
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,7,4,4.004,5.003,5 mm,13.007,R7,plot2,harvest3,NA,-0.793,12.214,220,6.27
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,8,4.009,4,5,5 mm,13.009,R8,plot2,harvest4,NA,-0.793,12.216,365,3.009
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,9,4,3.997,5,5 mm,12.997,R9,plot3,harvest1,NA,-0.793,12.204,30,6.869
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,10,4.009,3.992,5.009,5 mm,13.01,R10,plot3,harvest2,NA,-0.793,12.217,60,7.325
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,11,4.003,4,5.004,5 mm,13.007,R11,plot3,harvest3,NA,-0.793,12.214,220,4.89
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,12,4.002,4.009,5.004,5 mm,13.015,R12,plot3,harvest4,NA,-0.793,12.222,365,1.723
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,13,4.009,4.008,5.004,5 mm,13.021,,,,10.915,-0.793,12.228,,NA
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,14,4.009,4,5.006,5 mm,13.015,,,,12.924,-0.793,12.222,,NA
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,15,3.992,3.991,5,5 mm,12.983,,,,12.8,-0.793,12.19,,NA
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,1,3.997,4.005,5.003,2 mm,13.005,R1,plot1,harvest1,NA,-0.433,12.572,30,7.043
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,2,4,4.008,5.001,2 mm,13.009,R2,plot1,harvest2,NA,-0.433,12.576,60,6.63
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,3,4.001,4.004,5.003,2 mm,13.008,R3,plot1,harvest3,NA,-0.433,12.575,220,6.19
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,4,3.995,4.002,5,2 mm,12.997,R4,plot1,harvest4,NA,-0.433,12.564,365,6.675
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,5,4,4,5.007,2 mm,13.007,R5,plot2,harvest1,NA,-0.433,12.574,30,6.33
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,6,3.993,4,5,2 mm,12.993,R6,plot2,harvest2,NA,-0.433,12.56,60,7.822
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,7,4.003,4,5,2 mm,13.003,R7,plot2,harvest3,NA,-0.433,12.57,220,5.34
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,8,4.002,4.008,5.002,2 mm,13.012,R8,plot2,harvest4,NA,-0.433,12.579,365,4.871
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,9,4.008,4.005,5.05,2 mm,13.063,R9,plot3,harvest1,NA,-0.433,12.63,30,6.839
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,10,4,4.003,4.006,2 mm,12.009,R10,plot3,harvest2,NA,-0.433,11.576,60,7.95
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,11,4.008,4.002,5.003,2 mm,13.013,R11,plot3,harvest3,NA,-0.433,12.58,220,7.04
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,12,4,3.999,5.004,2 mm,13.003,R12,plot3,harvest4,NA,-0.433,12.57,365,5.245
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,13,4.006,4,5.007,2 mm,13.013,,,,13,-0.433,12.58,,NA
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,14,4.003,4.003,4.993,2 mm,12.999,,,,12.638,-0.433,12.566,,NA
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,15,4,4.003,4.992,2 mm,12.995,,,,12.07,-0.433,12.562,,NA
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,1,4.005,4,4.99,0.07 mm,12.995,R1,plot1,harvest1,NA,-0.435,12.56,30,7.055
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,2,4.005,3.992,4.991,0.07 mm,12.988,R2,plot1,harvest2,NA,-0.435,12.553,60,7.485
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,3,4,3.993,5.006,0.07 mm,12.999,R3,plot1,harvest3,NA,-0.435,12.564,220,5.8
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,4,4,3.998,5.005,0.07 mm,13.003,R4,plot1,harvest4,NA,-0.435,12.568,365,3.963
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,5,3.999,3.998,4.996,0.07 mm,12.993,R5,plot2,harvest1,NA,-0.435,12.558,30,6.457
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,6,4,4,5.001,0.07 mm,13.001,R6,plot2,harvest2,NA,-0.435,12.566,60,6.928
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,7,4,4,5.005,0.07 mm,13.005,R7,plot2,harvest3,NA,-0.435,12.57,220,6.2
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,8,4,4,5.005,0.07 mm,13.005,R8,plot2,harvest4,NA,-0.435,12.57,365,4.007
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,9,4.009,4,5.008,0.07 mm,13.017,R9,plot3,harvest1,NA,-0.435,12.582,30,7.326
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,10,3.995,4.001,4.009,0.07 mm,12.005,R10,plot3,harvest2,NA,-0.435,11.57,60,6.819
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,11,4,4.006,5.001,0.07 mm,13.007,R11,plot3,harvest3,NA,-0.435,12.572,220,8.61
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,12,3.993,3.998,5,0.07 mm,12.991,R12,plot3,harvest4,NA,-0.435,12.556,365,4.596
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,13,4.009,3.994,5.003,0.07 mm,13.006,,,,11.385,-0.435,12.571,,NA
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,14,3.994,4,5.007,0.07 mm,13.001,,,,13.464,-0.435,12.566,,NA
+A2,A2ML,Medium,"Dt,Pt",medium_N5,N_5,tree mixture,2,15,4,3.997,5.001,0.07 mm,12.998,,,,12.852,-0.435,12.563,,NA
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,1,5,5,NA,5 mm,10,R1,plot1,harvest1,NA,0,10,30,8.558
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,2,5,5,NA,5 mm,10,R2,plot1,harvest2,NA,0,10,60,8.827
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,3,5,5,NA,5 mm,10,R3,plot1,harvest3,NA,0,10,220,4.93
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,4,5,5,NA,5 mm,10,R4,plot1,harvest4,NA,0,10,365,3.554
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,5,5,5,NA,5 mm,10,R5,plot2,harvest1,NA,0,10,30,5.95
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,6,5,5,NA,5 mm,10,R6,plot2,harvest2,NA,0,10,60,5.657
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,7,5,5,NA,5 mm,10,R7,plot2,harvest3,NA,0,10,220,2.89
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,8,5,5,NA,5 mm,10,R8,plot2,harvest4,NA,0,10,365,4.09
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,9,5,5,NA,5 mm,10,R9,plot3,harvest1,NA,0,10,30,8.885
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,10,5,5,NA,5 mm,10,R10,plot3,harvest2,NA,0,10,60,6.475
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,11,5,5,NA,5 mm,10,R11,plot3,harvest3,NA,0,10,220,5.22
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,12,5,5,NA,5 mm,10,R12,plot3,harvest4,NA,0,10,365,3.89
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,13,5,5,NA,5 mm,10,,,,10,0,10,,NA
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,14,5,5,NA,5 mm,10,,,,9.93,0,10,,NA
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,15,5,5,NA,5 mm,10,,,,10.07,0,10,,NA
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,1,5.002,4.998,NA,2 mm,10,R1,plot1,harvest1,NA,-0.07,9.93,30,8.802
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,2,4.998,5,NA,2 mm,9.998,R2,plot1,harvest2,NA,-0.07,9.928,60,8.432
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,3,4.006,5.007,NA,2 mm,9.013,R3,plot1,harvest3,NA,-0.07,8.943,220,4.95
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,4,5,5.002,NA,2 mm,10.002,R4,plot1,harvest4,NA,-0.07,9.932,365,3.442
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,5,5,5.003,NA,2 mm,10.003,R5,plot2,harvest1,NA,-0.07,9.933,30,8.097
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,6,5.002,5.001,NA,2 mm,10.003,R6,plot2,harvest2,NA,-0.07,9.933,60,4.993
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,7,5.003,4.997,NA,2 mm,10,R7,plot2,harvest3,NA,-0.07,9.93,220,6.17
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,8,5,4.998,NA,2 mm,9.998,R8,plot2,harvest4,NA,-0.07,9.928,365,3.199
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,9,5,5.007,NA,2 mm,10.007,R9,plot3,harvest1,NA,-0.07,9.937,30,8.576
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,10,4.997,5.003,NA,2 mm,10,R10,plot3,harvest2,NA,-0.07,9.93,60,7.834
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,11,5,5.005,NA,2 mm,10.005,R11,plot3,harvest3,NA,-0.07,9.935,220,7.03
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,12,5,5.005,NA,2 mm,10.005,R12,plot3,harvest4,NA,-0.07,9.935,365,NA
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,13,5,5,NA,2 mm,10,,,,9.92,-0.07,9.93,,NA
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,14,5,5,NA,2 mm,10,,,,10,-0.07,9.93,,NA
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,15,5,5,NA,2 mm,10,,,,9.87,-0.07,9.93,,NA
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,1,4.996,4.995,NA,0.07 mm,9.991,R1,plot1,harvest1,NA,0.042,9.991,30,8.805
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,2,4.992,5.004,NA,0.07 mm,9.996,R2,plot1,harvest2,NA,0.042,9.996,60,4.611
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,3,5,5,NA,0.07 mm,10,R3,plot1,harvest3,NA,0.042,10,220,6.55
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,4,5,5,NA,0.07 mm,10,R4,plot1,harvest4,NA,0.042,10,365,4.781
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,5,5,5,NA,0.07 mm,10,R5,plot2,harvest1,NA,0.042,10,30,9.042
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,6,5,5.003,NA,0.07 mm,10.003,R6,plot2,harvest2,NA,0.042,10.003,60,8.754
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,7,5,5,NA,0.07 mm,10,R7,plot2,harvest3,NA,0.042,10,220,6.12
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,8,5,5.006,NA,0.07 mm,10.006,R8,plot2,harvest4,NA,0.042,10.006,365,5.453
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,9,5,5,NA,0.07 mm,10,R9,plot3,harvest1,NA,0.042,10,30,9.081
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,10,5,5,NA,0.07 mm,10,R10,plot3,harvest2,NA,0.042,10,60,8.571
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,11,5,5,NA,0.07 mm,10,R11,plot3,harvest3,NA,0.042,10,220,7.07
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,12,5,5,NA,0.07 mm,10,R12,plot3,harvest4,NA,0.042,10,365,1.206
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,13,4.998,5,NA,0.07 mm,9.998,,,,9.98,0.042,9.998,,NA
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,14,5,5,NA,0.07 mm,10,,,,10.06,0.042,10,,NA
+A1,A1FT(L),Low,"Cb,Ga",low_N0,N_0,tree mixture,2,15,5,5,NA,0.07 mm,10,,,,10,0.042,10,,NA
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,1,4.03,4.001,20.005,5 mm,28.036,R1,plot1,harvest1,NA,-2.511,25.525,30,6.037
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,2,4.02,4.05,20.02,5 mm,28.09,R2,plot1,harvest2,NA,-2.511,25.579,60,0
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,3,3.998,4.039,20.031,5 mm,28.068,R3,plot1,harvest3,NA,-2.511,25.557,220,2.62
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,4,4.02,4.012,20,5 mm,28.032,R4,plot1,harvest4,NA,-2.511,25.521,365,3.044
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,5,4.025,3.992,20.051,5 mm,28.068,R5,plot2,harvest1,NA,-2.511,25.557,30,5.468
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,6,4.008,4,20.003,5 mm,28.011,R6,plot2,harvest2,NA,-2.511,25.5,60,0.778
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,7,4.035,4.014,20.004,5 mm,28.053,R7,plot2,harvest3,NA,-2.511,25.542,220,0.35
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,8,4.053,4.014,20.02,5 mm,28.087,R8,plot2,harvest4,NA,-2.511,25.576,365,2.876
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,9,4.071,4.06,20.034,5 mm,28.165,R9,plot3,harvest1,NA,-2.511,25.654,30,4.912
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,10,4.045,4.025,20.051,5 mm,28.121,R10,plot3,harvest2,NA,-2.511,25.61,60,2.592
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,11,3.992,4.04,20.01,5 mm,28.042,R11,plot3,harvest3,NA,-2.511,25.531,220,4.89
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,12,4.076,4.019,20.07,5 mm,28.165,R12,plot3,harvest4,NA,-2.511,25.654,365,2.876
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,13,4.04,4.07,20,5 mm,28.11,,,,25.949,-2.511,25.599,,NA
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,14,4.047,3.999,20.086,5 mm,28.132,,,,24.474,-2.511,25.621,,NA
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,15,4.033,4.016,19.98,5 mm,28.029,,,,26.316,-2.511,25.518,,NA
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,1,4.07,4.04,20.053,2 mm,28.163,R1,plot1,harvest1,NA,-1.452,26.711,30,5.148
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,2,4.03,4.033,19.99,2 mm,28.053,R2,plot1,harvest2,NA,-1.452,26.601,60,5.394
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,3,4.01,3.99,20.02,2 mm,28.02,R3,plot1,harvest3,NA,-1.452,26.568,220,3.98
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,4,4.001,4.016,20,2 mm,28.017,R4,plot1,harvest4,NA,-1.452,26.565,365,1.271
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,5,4.026,4.015,20.021,2 mm,28.062,R5,plot2,harvest1,NA,-1.452,26.61,30,6.182
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,6,4,4.004,20.026,2 mm,28.03,R6,plot2,harvest2,NA,-1.452,26.578,60,5.262
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,7,4.03,3.94,20.04,2 mm,28.01,R7,plot2,harvest3,NA,-1.452,26.558,220,4.37
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,8,4.053,4.028,20.045,2 mm,28.126,R8,plot2,harvest4,NA,-1.452,26.674,365,0
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,9,4.027,4.016,20.096,2 mm,28.139,R9,plot3,harvest1,NA,-1.452,26.687,30,5.906
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,10,4.03,4.06,19.99,2 mm,28.08,R10,plot3,harvest2,NA,-1.452,26.628,60,5.219
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,11,4,4,19.995,2 mm,27.995,R11,plot3,harvest3,NA,-1.452,26.543,220,4.85
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,12,4.03,4.037,20.04,2 mm,28.107,R12,plot3,harvest4,NA,-1.452,26.655,365,2.539
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,13,4.038,4,20.03,2 mm,28.068,,,,26.168,-1.452,26.616,,NA
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,14,4,4.002,19.992,2 mm,27.994,,,,26.686,-1.452,26.542,,NA
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,15,4.008,4.034,20.012,2 mm,28.054,,,,26.906,-1.452,26.602,,NA
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,1,4.02,4,20.02,0.07 mm,28.04,R1,plot1,harvest1,NA,-2.823,25.217,30,5.373
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,2,4.015,4.013,20.028,0.07 mm,28.056,R2,plot1,harvest2,NA,-2.823,25.233,60,5.323
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,3,4.05,4.4,20.044,0.07 mm,28.494,R3,plot1,harvest3,NA,-2.823,25.671,220,4.3
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,4,4,4.023,20.026,0.07 mm,28.049,R4,plot1,harvest4,NA,-2.823,25.226,365,2.572
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,5,4.051,4.045,20.023,0.07 mm,28.119,R5,plot2,harvest1,NA,-2.823,25.296,30,6.032
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,6,4.07,4.08,20.002,0.07 mm,28.152,R6,plot2,harvest2,NA,-2.823,25.329,60,5.156
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,7,4.05,4,20.078,0.07 mm,28.128,R7,plot2,harvest3,NA,-2.823,25.305,220,4.235
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,8,4,4.041,19.999,0.07 mm,28.04,R8,plot2,harvest4,NA,-2.823,25.217,365,0
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,9,4.02,4.032,20.02,0.07 mm,24.072,R9,plot3,harvest1,NA,-2.823,21.249,30,6.06
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,10,4.05,4.007,20.01,0.07 mm,28.067,R10,plot3,harvest2,NA,-2.823,25.244,60,6.243
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,11,3.995,4.047,20.045,0.07 mm,28.087,R11,plot3,harvest3,NA,-2.823,25.264,220,4.17
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,12,4,4.022,19.99,0.07 mm,28.012,R12,plot3,harvest4,NA,-2.823,25.189,365,2.049
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,13,4.05,4.063,19.996,0.07 mm,28.109,,,,25.195,-2.823,25.286,,NA
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,14,4.016,4.088,20.08,0.07 mm,28.184,,,,24.713,-2.823,25.361,,NA
+A2,A2LH,Low,"Cb,Ga",low_N20,N_20,tree mixture,2,15,4.07,4.02,20.09,0.07 mm,28.18,,,,26.096,-2.823,25.357,,NA
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,1,4.25,4.03,5.015,5 mm,13.295,R1,plot1,harvest1,NA,-0.581,12.714,30,3.031
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,2,3.98,4,5.003,5 mm,12.983,R2,plot1,harvest2,NA,-0.581,12.402,60,2.776
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,3,4.06,4.02,5,5 mm,13.08,R3,plot1,harvest3,NA,-0.581,12.499,220,3.93
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,4,4.04,3.991,5,5 mm,13.031,R4,plot1,harvest4,NA,-0.581,12.45,365,4.472
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,5,4.08,4.023,5.024,5 mm,13.127,R5,plot2,harvest1,NA,-0.581,12.546,30,7.039
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,6,3.99,4.08,5.02,5 mm,13.09,R6,plot2,harvest2,NA,-0.581,12.509,60,4.553
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,7,3.994,4,5.03,5 mm,13.024,R7,plot2,harvest3,NA,-0.581,12.443,220,1.24
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,8,3.99,4.01,5,5 mm,13,R8,plot2,harvest4,NA,-0.581,12.419,365,2.995
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,9,3.987,3.992,5.006,5 mm,12.985,R9,plot3,harvest1,NA,-0.581,12.404,30,5.456
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,10,4.003,4.02,5,5 mm,13.023,R10,plot3,harvest2,NA,-0.581,12.442,60,5.352
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,11,4.02,3.992,5,5 mm,13.012,R11,plot3,harvest3,NA,-0.581,12.431,220,4.17
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,12,4.01,4,5.01,5 mm,13.02,R12,plot3,harvest4,NA,-0.581,12.439,365,1.675
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,13,4.09,4,5.013,5 mm,13.103,,,,11.89,-0.581,12.522,,NA
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,14,4.054,4.02,5.01,5 mm,13.084,,,,12.67,-0.581,12.503,,NA
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,15,4.05,4.08,5.03,5 mm,13.16,,,,13.045,-0.581,12.579,,NA
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,1,4.02,4.02,4.945,2 mm,12.985,R1,plot1,harvest1,NA,-0.441,12.544,30,6.647
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,2,4.02,4.06,5.04,2 mm,13.12,R2,plot1,harvest2,NA,-0.441,12.679,60,6.648
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,3,4.01,4,5.06,2 mm,13.07,R3,plot1,harvest3,NA,-0.441,12.629,220,5.53
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,4,4.02,3.99,5.02,2 mm,13.03,R4,plot1,harvest4,NA,-0.441,12.589,365,4.489
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,5,4.09,4.05,5.054,2 mm,13.194,R5,plot2,harvest1,NA,-0.441,12.753,30,6.163
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,6,4,4.06,4.02,2 mm,12.08,R6,plot2,harvest2,NA,-0.441,11.639,60,6.598
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,7,4.04,4.06,4.02,2 mm,12.12,R7,plot2,harvest3,NA,-0.441,11.679,220,6.38
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,8,4.04,4.09,4.994,2 mm,13.124,R8,plot2,harvest4,NA,-0.441,12.683,365,4.132
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,9,4.01,4.05,5.04,2 mm,13.1,R9,plot3,harvest1,NA,-0.441,12.659,30,6.652
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,10,4.04,4.05,5.06,2 mm,13.15,R10,plot3,harvest2,NA,-0.441,12.709,60,6.267
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,11,4.04,4.02,5.02,2 mm,13.08,R11,plot3,harvest3,NA,-0.441,12.639,220,6.25
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,12,4.02,3.96,5.05,2 mm,13.03,R12,plot3,harvest4,NA,-0.441,12.589,365,3.012
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,13,4.08,4.02,5,2 mm,13.1,,,,13.334,-0.441,12.659,,NA
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,14,4.05,4.04,5.06,2 mm,13.15,,,,11.693,-0.441,12.709,,NA
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,15,4.02,4.08,5.04,2 mm,13.14,,,,13.041,-0.441,12.699,,NA
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,1,4.004,4.002,5,0.07 mm,13.006,R1,plot1,harvest1,NA,-0.641,12.365,30,6.234
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,2,4.06,4.01,5.01,0.07 mm,13.08,R2,plot1,harvest2,NA,-0.641,12.439,60,6.761
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,3,4.05,4.05,5.037,0.07 mm,13.137,R3,plot1,harvest3,NA,-0.641,12.496,220,5.28
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,4,4.05,4.04,5.02,0.07 mm,13.11,R4,plot1,harvest4,NA,-0.641,12.469,365,2.835
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,5,4.04,4.01,5.02,0.07 mm,13.07,R5,plot2,harvest1,NA,-0.641,12.429,30,5.975
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,6,4,4.05,5.004,0.07 mm,13.054,R6,plot2,harvest2,NA,-0.641,12.413,60,7.09
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,7,4.02,4.07,5.046,0.07 mm,13.136,R7,plot2,harvest3,NA,-0.641,12.495,220,5.69
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,8,4.08,4.05,5.008,0.07 mm,13.138,R8,plot2,harvest4,NA,-0.641,12.497,365,0
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,9,4.02,3.99,5.001,0.07 mm,13.011,R9,plot3,harvest1,NA,-0.641,12.37,30,6.493
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,10,4.02,4.04,5,0.07 mm,13.06,R10,plot3,harvest2,NA,-0.641,12.419,60,7.378
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,11,4.05,4.09,5.001,0.07 mm,13.141,R11,plot3,harvest3,NA,-0.641,12.5,220,5.37
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,12,4.09,4.04,5.03,0.07 mm,13.16,R12,plot3,harvest4,NA,-0.641,12.519,365,3.191
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,13,4.05,4.09,5,0.07 mm,13.14,,,,13.297,-0.641,12.499,,NA
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,14,4.09,4.01,5,0.07 mm,13.1,,,,13.135,-0.641,12.459,,NA
+A2,A2LL,Low,"Cb,Ga",low_N5,N_5,tree mixture,2,15,4.03,4.03,5.02,0.07 mm,13.08,,,,10.965,-0.641,12.439,,NA
