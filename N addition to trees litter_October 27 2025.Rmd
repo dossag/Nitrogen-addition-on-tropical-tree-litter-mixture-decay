@@ -299,12 +299,14 @@ A2=rbind(dat,A2_single)
 
 Below, we proceed in calculating the loss rate of different tree qualities across different times of harvest. 
 ```{r}
+#View(dat)
 library(dplyr)
+
 dat_ml1<- dat%>% group_by(tree_quality,Time_at_harvest)%>%
   dplyr::summarise(ml= mean(loss_rate),
                    sd= sd(loss_rate),
                    se=sd(loss_rate,na.rm = TRUE)/sqrt(n()))
-#View(dat_ml1)
+
 
 ```
 
@@ -325,7 +327,7 @@ dat_ml1<- dat1%>% group_by(tree_quality,Nitrogen_added, mesh_size)%>%
   dplyr::summarise(ml= mean(loss_rate),
                    sd= sd(loss_rate),
                    se=sd(loss_rate,na.rm = TRUE)/sqrt(n()))
-
+#View(dat)
 
 
 pt1 <-ggplot(dat_ml1,aes(tree_quality,ml,shape=Nitrogen_added,color=mesh_size))+
@@ -356,7 +358,7 @@ pt1 <-ggplot(dat_ml1,aes(tree_quality,ml,shape=Nitrogen_added,color=mesh_size))+
         panel.border = element_rect(fill=NA,color="black", size=0.5, linetype="solid"),
         panel.background = element_blank())
 
-#pt1
+pt1
 ```
 
 ### Second harvest @ 60 days
@@ -2548,11 +2550,393 @@ library(data.table)
 expected<-Reduce(merge, list(expected_b1,expected_b2,expected_b3))
 expected_K<-setnames(expected, old = c('species','expected_b1','expected_b2','expected_b3'), 
                      new = c('species','plot1','plot2','plot3'))
-expected_k_rate<-gather(expected_K,plot, 'expected_k', 'plot1', 'plot2', 'plot3')
-litter<-full_join(dat_m,expected_k_rate, by = c("species","plot"))
+expected_k_rate_fine<-gather(expected_K,plot, 'expected_k', 'plot1', 'plot2', 'plot3')
+dat_fine=dat[dat$mesh_size=="0.07 mm",]
+litter_fine<-full_join(dat_fine,expected_k_rate_fine, by = c("species","plot"))
+litter_fine$mer<- litter_fine$k/litter_fine$expected_k
+#View(litter_fine)
 
-litter$mer<- litter$K/litter$expected_k
+dat_M_med<- dat_M[dat_M$mesh_size == "2 mm",]
+
+library(dplyr)
+k_s<-dat_M_med%>%
+  group_by(species,plot)%>%
+  summarize(mean_k=mean(K,na.rm = TRUE)
+            
+  )
+#View(k_s)
+
+#here we extract the mass loss for plot one(b1)
+k_s_b1<- k_s[k_s$plot == "plot1",]
+#View(k_s_b1)
+
+#one species mixtures
+#Cb
+b1_cb <- k_s_b1 %>%
+  filter(species == 'Cb')
+exp_b1_cb<-sum(b1_cb$mean_k)/1
+
+#Ga
+b1_ga <- k_s_b1 %>%
+  filter(species == 'Ga')
+exp_b1_ga<-sum(b1_ga$mean_k)/1
+
+#Dt
+b1_dt <- k_s_b1 %>%
+  filter(species == 'Dt')
+exp_b1_dt<-sum(b1_dt$mean_k)/1
+
+#Pt
+b1_pt <- k_s_b1 %>%
+  filter(species == 'Pt')
+exp_b1_pt<-sum(b1_pt$mean_k)/1
+
+#Ml
+b1_ml <- k_s_b1 %>%
+  filter(species == 'Ml')
+exp_b1_ml<-sum(b1_ml$mean_k)/1
+
+#At
+b1_at <- k_s_b1 %>%
+  filter(species == 'At')
+exp_b1_at<-sum(b1_at$mean_k)/1
+
+
+#Two species mixtures 
+#Cb,Ga
+b1_cb_Ga <- k_s_b1 %>%
+  filter(species == 'Cb'| species == 'Ga')
+exp_b1_cb_Ga<-sum(b1_cb_Ga$mean_k)/2
+
+#Dt,Pt
+b1_dt_pt <- k_s_b1 %>%
+  filter(species == 'Dt'| species == 'Pt')
+exp_b1_dt_pt<-sum(b1_dt_pt$mean_k)/2
+
+#Ml, At
+b1_k_at <- k_s_b1 %>%
+  filter(species == 'Ml'| species == 'At')
+exp_b1_k_at<-sum(b1_k_at$mean_k)/2
+
+expected_b1<-data.frame(species=c("Cb,Ga","Dt,Pt","Ml,At"), 
+                        expected_b1=c(exp_b1_cb_Ga,exp_b1_dt_pt,exp_b1_k_at))
+
+
+
+#here we extract the mass loss for plot one(b2)
+k_s_b2<- k_s[k_s$plot == "plot2",]
+
+#one species mixtures
+#Cb
+b2_cb <- k_s_b2 %>%
+  filter(species == 'Cb')
+exp_b2_cb<-sum(b2_cb$mean_k)/1
+
+#Ga
+b2_ga <- k_s_b2 %>%
+  filter(species == 'Ga')
+exp_b2_ga<-sum(b2_ga$mean_k)/1
+
+#Dt
+b2_dt <- k_s_b2 %>%
+  filter(species == 'Dt')
+exp_b2_dt<-sum(b2_dt$mean_k)/1
+
+#Pt
+b2_pt <- k_s_b2 %>%
+  filter(species == 'Pt')
+exp_b2_pt<-sum(b2_pt$mean_k)/1
+
+#Ml
+b2_ml <- k_s_b2 %>%
+  filter(species == 'Ml')
+exp_b2_ml<-sum(b2_ml$mean_k)/1
+
+#At
+b2_at <- k_s_b2 %>%
+  filter(species == 'At')
+exp_b2_at<-sum(b2_at$mean_k)/1
+
+
+#Two species mixtures 
+#Cb,Ga
+b2_cb_Ga <- k_s_b2 %>%
+  filter(species == 'Cb'| species == 'Ga')
+exp_b2_cb_Ga<-sum(b2_cb_Ga$mean_k)/2
+
+#Dt,Pt
+b2_dt_pt <- k_s_b2 %>%
+  filter(species == 'Dt'| species == 'Pt')
+exp_b2_dt_pt<-sum(b2_dt_pt$mean_k)/2
+
+#Ml, At
+b2_k_at <- k_s_b2 %>%
+  filter(species == 'Ml'| species == 'At')
+exp_b2_k_at<-sum(b2_k_at$mean_k)/2
+
+
+expected_b2<-data.frame(species=c("Cb,Ga","Dt,Pt","Ml,At"), 
+                        expected_b2=c(exp_b2_cb_Ga,exp_b2_dt_pt,exp_b2_k_at))
+
+
+#here we extract the mass loss for plot one(b2)
+k_s_b3<- k_s[k_s$plot == "plot3",]
+
+#one species mixtures
+#Cb
+b3_cb <- k_s_b3 %>%
+  filter(species == 'Cb')
+exp_b3_cb<-sum(b3_cb$mean_k)/1
+
+#Ga
+b3_ga <- k_s_b3 %>%
+  filter(species == 'Ga')
+exp_b3_ga<-sum(b3_ga$mean_k)/1
+
+#Dt
+b3_dt <- k_s_b3 %>%
+  filter(species == 'Dt')
+exp_b3_dt<-sum(b3_dt$mean_k)/1
+
+#Pt
+b3_pt <- k_s_b3 %>%
+  filter(species == 'Pt')
+exp_b3_pt<-sum(b3_pt$mean_k)/1
+
+#Ml
+b3_ml <- k_s_b3 %>%
+  filter(species == 'Ml')
+exp_b3_ml<-sum(b3_ml$mean_k)/1
+
+#At
+b3_at <- k_s_b3 %>%
+  filter(species == 'At')
+exp_b3_at<-sum(b3_at$mean_k)/1
+
+
+#Two species mixtures 
+#Cb,Ga
+b3_cb_Ga <- k_s_b3 %>%
+  filter(species == 'Cb'| species == 'Ga')
+exp_b3_cb_Ga<-sum(b3_cb_Ga$mean_k)/2
+
+#Dt,Pt
+b3_dt_pt <- k_s_b3 %>%
+  filter(species == 'Dt'| species == 'Pt')
+exp_b3_dt_pt<-sum(b3_dt_pt$mean_k)/2
+
+#Ml, At
+b3_k_at <- k_s_b3 %>%
+  filter(species == 'Ml'| species == 'At')
+exp_b3_k_at<-sum(b3_k_at$mean_k)/2
+
+expected_b3<-data.frame(species=c("Cb,Ga","Dt,Pt","Ml,At"), 
+                        expected_b3=c(exp_b3_cb_Ga,exp_b3_dt_pt,exp_b3_k_at))
+
+
+expected<-Reduce(merge, list(expected_b1,expected_b2,expected_b3))
+expected_K<-setnames(expected, old = c('species','expected_b1','expected_b2','expected_b3'), 
+                     new = c('species','plot1','plot2','plot3'))
+expected_k_rate_med<-gather(expected_K,plot, 'expected_k', 'plot1', 'plot2', 'plot3')
+dat_med=dat[dat$mesh_size=="2 mm",]
+litter_med<-full_join(dat_med,expected_k_rate_med, by = c("species","plot"))
+litter_med$mer<- litter_med$k/litter_med$expected_k
+#View(litter_med)
+
+
+dat_M_bg<- dat_M[dat_M$mesh_size == "5 mm",]
+
+library(dplyr)
+k_s<-dat_M_bg%>%
+  group_by(species,plot)%>%
+  summarize(mean_k=mean(K,na.rm = TRUE)
+            
+  )
+#View(k_s)
+
+#here we extract the mass loss for plot one(b1)
+k_s_b1<- k_s[k_s$plot == "plot1",]
+#View(k_s_b1)
+
+#one species mixtures
+#Cb
+b1_cb <- k_s_b1 %>%
+  filter(species == 'Cb')
+exp_b1_cb<-sum(b1_cb$mean_k)/1
+
+#Ga
+b1_ga <- k_s_b1 %>%
+  filter(species == 'Ga')
+exp_b1_ga<-sum(b1_ga$mean_k)/1
+
+#Dt
+b1_dt <- k_s_b1 %>%
+  filter(species == 'Dt')
+exp_b1_dt<-sum(b1_dt$mean_k)/1
+
+#Pt
+b1_pt <- k_s_b1 %>%
+  filter(species == 'Pt')
+exp_b1_pt<-sum(b1_pt$mean_k)/1
+
+#Ml
+b1_ml <- k_s_b1 %>%
+  filter(species == 'Ml')
+exp_b1_ml<-sum(b1_ml$mean_k)/1
+
+#At
+b1_at <- k_s_b1 %>%
+  filter(species == 'At')
+exp_b1_at<-sum(b1_at$mean_k)/1
+
+
+#Two species mixtures 
+#Cb,Ga
+b1_cb_Ga <- k_s_b1 %>%
+  filter(species == 'Cb'| species == 'Ga')
+exp_b1_cb_Ga<-sum(b1_cb_Ga$mean_k)/2
+
+#Dt,Pt
+b1_dt_pt <- k_s_b1 %>%
+  filter(species == 'Dt'| species == 'Pt')
+exp_b1_dt_pt<-sum(b1_dt_pt$mean_k)/2
+
+#Ml, At
+b1_k_at <- k_s_b1 %>%
+  filter(species == 'Ml'| species == 'At')
+exp_b1_k_at<-sum(b1_k_at$mean_k)/2
+
+expected_b1<-data.frame(species=c("Cb,Ga","Dt,Pt","Ml,At"), 
+                        expected_b1=c(exp_b1_cb_Ga,exp_b1_dt_pt,exp_b1_k_at))
+
+
+
+#here we extract the mass loss for plot one(b2)
+k_s_b2<- k_s[k_s$plot == "plot2",]
+
+#one species mixtures
+#Cb
+b2_cb <- k_s_b2 %>%
+  filter(species == 'Cb')
+exp_b2_cb<-sum(b2_cb$mean_k)/1
+
+#Ga
+b2_ga <- k_s_b2 %>%
+  filter(species == 'Ga')
+exp_b2_ga<-sum(b2_ga$mean_k)/1
+
+#Dt
+b2_dt <- k_s_b2 %>%
+  filter(species == 'Dt')
+exp_b2_dt<-sum(b2_dt$mean_k)/1
+
+#Pt
+b2_pt <- k_s_b2 %>%
+  filter(species == 'Pt')
+exp_b2_pt<-sum(b2_pt$mean_k)/1
+
+#Ml
+b2_ml <- k_s_b2 %>%
+  filter(species == 'Ml')
+exp_b2_ml<-sum(b2_ml$mean_k)/1
+
+#At
+b2_at <- k_s_b2 %>%
+  filter(species == 'At')
+exp_b2_at<-sum(b2_at$mean_k)/1
+
+
+#Two species mixtures 
+#Cb,Ga
+b2_cb_Ga <- k_s_b2 %>%
+  filter(species == 'Cb'| species == 'Ga')
+exp_b2_cb_Ga<-sum(b2_cb_Ga$mean_k)/2
+
+#Dt,Pt
+b2_dt_pt <- k_s_b2 %>%
+  filter(species == 'Dt'| species == 'Pt')
+exp_b2_dt_pt<-sum(b2_dt_pt$mean_k)/2
+
+#Ml, At
+b2_k_at <- k_s_b2 %>%
+  filter(species == 'Ml'| species == 'At')
+exp_b2_k_at<-sum(b2_k_at$mean_k)/2
+
+
+expected_b2<-data.frame(species=c("Cb,Ga","Dt,Pt","Ml,At"), 
+                        expected_b2=c(exp_b2_cb_Ga,exp_b2_dt_pt,exp_b2_k_at))
+
+
+#here we extract the mass loss for plot one(b2)
+k_s_b3<- k_s[k_s$plot == "plot3",]
+
+#one species mixtures
+#Cb
+b3_cb <- k_s_b3 %>%
+  filter(species == 'Cb')
+exp_b3_cb<-sum(b3_cb$mean_k)/1
+
+#Ga
+b3_ga <- k_s_b3 %>%
+  filter(species == 'Ga')
+exp_b3_ga<-sum(b3_ga$mean_k)/1
+
+#Dt
+b3_dt <- k_s_b3 %>%
+  filter(species == 'Dt')
+exp_b3_dt<-sum(b3_dt$mean_k)/1
+
+#Pt
+b3_pt <- k_s_b3 %>%
+  filter(species == 'Pt')
+exp_b3_pt<-sum(b3_pt$mean_k)/1
+
+#Ml
+b3_ml <- k_s_b3 %>%
+  filter(species == 'Ml')
+exp_b3_ml<-sum(b3_ml$mean_k)/1
+
+#At
+b3_at <- k_s_b3 %>%
+  filter(species == 'At')
+exp_b3_at<-sum(b3_at$mean_k)/1
+
+
+#Two species mixtures 
+#Cb,Ga
+b3_cb_Ga <- k_s_b3 %>%
+  filter(species == 'Cb'| species == 'Ga')
+exp_b3_cb_Ga<-sum(b3_cb_Ga$mean_k)/2
+
+#Dt,Pt
+b3_dt_pt <- k_s_b3 %>%
+  filter(species == 'Dt'| species == 'Pt')
+exp_b3_dt_pt<-sum(b3_dt_pt$mean_k)/2
+
+#Ml, At
+b3_k_at <- k_s_b3 %>%
+  filter(species == 'Ml'| species == 'At')
+exp_b3_k_at<-sum(b3_k_at$mean_k)/2
+
+expected_b3<-data.frame(species=c("Cb,Ga","Dt,Pt","Ml,At"), 
+                        expected_b3=c(exp_b3_cb_Ga,exp_b3_dt_pt,exp_b3_k_at))
+
+
+expected<-Reduce(merge, list(expected_b1,expected_b2,expected_b3))
+expected_K<-setnames(expected, old = c('species','expected_b1','expected_b2','expected_b3'), 
+                     new = c('species','plot1','plot2','plot3'))
+expected_k_rate_bg<-gather(expected_K,plot, 'expected_k', 'plot1', 'plot2', 'plot3')
+dat_bg=dat[dat$mesh_size=="5 mm",]
+litter_bg<-full_join(dat_bg,expected_k_rate_bg, by = c("species","plot"))
+litter_bg$mer<- litter_bg$k/litter_bg$expected_k
+#View(litter_bg)
+litter=rbind(litter_fine,litter_med,litter_bg)
 #View(litter)
+
+
+
+
+
 
 ```
 
@@ -2578,13 +2962,6 @@ anova(mod4)
 r2 <- r.squaredGLMM(mod4)
 print(r2)
 
-model_no_3way <- update(mod4, . ~ . - Nitrogen_added:tree_quality:mesh_size)
-anova(model_no_3way)
-anova(mod4,model_no_3way)
-
-
-r2 <- r.squaredGLMM(mod4)
-r2
 
 ##Diagnostic model
 plot(mod4)
@@ -2620,7 +2997,7 @@ pt01 <-ggplot(dat_ml1,aes(tree_quality,ml,shape=Nitrogen_added,color=mesh_size))
             fill="#E8E8E8", colour = NA, alpha = 0.1)+
   geom_point(position = position_dodge(0.9),stat="identity",size=1.3)+
   geom_errorbar(ymax=dat_ml1$ml+dat_ml1$se,ymin=dat_ml1$ml-dat_ml1$se, width=0.3, position = position_dodge(0.9))+
-  scale_y_continuous(limits = c(0,8))+
+  scale_y_continuous(limits = c(0,10))+
   geom_hline(yintercept=1, color="black", linetype="dashed", alpha=.5)+
   scale_colour_manual(values=c("#5867AF","#4C9AC9","#E2745E"))+
   scale_shape_discrete(
@@ -2659,4 +3036,4 @@ ggsave(
 
 # Conclusions
 
-Nitrogen addition, litter quality, litterbag mesh size, and interactive effects between litter quality and N addition significantly influenced the litter decomposition rate. Among these factors, nitrogen addition level and mesh size exhibited independent roles in the litter mixing effect, while a significant interactive effect was observed between litter quality and nitrogen addition. Macrofauna (body size > 2 mm) effects were more sensitive to nitrogen addition, particularly under high nitrogen addition treatments. In the presence of soil macrofauna, nitrogen addition accelerated the decomposition of low-quality litter and enhanced litter mixing effects, with these positive effects increasing at higher N addition rates. In contrast, for high-quality litter, low-level N addition had a greater promoting effect than high-level N addition.  These findings indicate that nitrogen deposition effect during litter decomposition depends on litter substrate quality and decomposer groups.
+Nitrogen addition, litter quality, litterbag mesh size, and interactive effects between litter quality and N addition significantly influenced the litter decomposition rate. Macrofauna (body size > 2 mm) effects were more sensitive to nitrogen addition, particularly under high nitrogen addition treatments. In the presence of soil macrofauna, high nitrogen addition accelerated the decomposition ofmedium and low-quality litter and enhanced litter mixing effects. In contrast, for high-quality litter, low-level N addition had a greater promoting effect than high-level N addition.  These findings indicate that nitrogen deposition effect during litter decomposition depends on litter substrate quality and decomposer groups.
