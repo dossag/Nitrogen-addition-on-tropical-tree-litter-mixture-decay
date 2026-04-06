@@ -1,0 +1,7 @@
+code,Totall_quality,species,tree_quality,Nitrogen_added,Number,initial_C,initial_N,initial_Ca       ,initial_K ,initial_Mg ,initial_Mn    ,initial_P    ,initial_Tannin,C/N
+A2FT(H),High_N0,"Ml,At",High,N_0,1,375,21.62,17.14,2.56,3.7,0.984,1.05,0.533,17.34505088
+A2FT(H),High_N0,"Ml,At",High,N_0,2,389,20.17,20.27,2.86,4.08,1.096,0.88,0.708,19.28606842
+A2FT(M),Medium_N0,"Dt,Pt",Medium,N_0,1,425,15,16.09,1.68,2.98,1.482,0.7,0.644,28.33333333
+A2FT(M),Medium_N0,"Dt,Pt",Medium,N_0,2,430,14.4,19.61,1.33,2.87,1.146,0.61,0.913,29.86111111
+A2FT(L),Low_N0,"Cb,Ga",Low,N_0,1,451,11.53,30.27,6.35,3.39,0.353,1.49,1.094,39.11535126
+A2FT(L),Low_N0,"Cb,Ga",Low,N_0,2,425,10.97,24.36,6.68,3.14,0.328,1.38,1.099,38.7420237
